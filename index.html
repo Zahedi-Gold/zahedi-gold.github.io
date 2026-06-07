@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Zahedi Gold Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --gold:#C9A84C;
+    --gold-light:#E8D5A3;
+    --gold-dark:#8B6914;
+    --dark:#0D0B07;
+    --dark2:#1A1610;
+    --text:#F5EDD8;
+    --muted:#A89870;
+  }
+  body{
+    background:var(--dark);
+    color:var(--text);
+    font-family:'Montserrat',sans-serif;
+    font-weight:300;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%);
+    pointer-events:none;
+    z-index:0;
+  }
+  .container{
+    position:relative;
+    z-index:1;
+    max-width:680px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  header{
+    padding:48px 0 32px;
+    text-align:center;
+    animation: fadeDown 1s ease both;
+  }
+  .logo-line{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    margin-bottom:8px;
+  }
+  .logo-line::before,
+  .logo-line::after{
+    content:'';
+    flex:1;
+    height:1px;
+    background:linear-gradient(to right, transparent, var(--gold));
+  }
+  .logo-line::after{
+    background:linear-gradient(to left, transparent, var(--gold));
+  }
+  .brand{
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;
+    font-weight:600;
+    color:var(--gold);
+    letter-spacing:4px;
+    text-transform:uppercase;
+  }
+  .tagline{
+    font-size:11px;
+    letter-spacing:5px;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-top:6px;
+  }
+  .hero{
+    text-align:center;
+    padding:40px 0 32px;
+    animation: fadeUp 1s ease 0.3s both;
+  }
+  .hero-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+    font-weight:300;
+    color:var(--text);
+    line-height:1.5;
+    margin-bottom:16px;
+  }
+  .hero-title span{color:var(--gold)}
+  .hero-sub{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.8;
+    max-width:440px;
+    margin:0 auto;
+  }
+  .gold-bar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:32px 0;
+    animation: fadeUp 1s ease 0.5s both;
+  }
+  .gold-bar::before,.gold-bar::after{
+    content:'';flex:1;height:1px;background:var(--gold-dark);
+  }
+  .gold-diamond{
+    width:8px;height:8px;
+    background:var(--gold);
+    transform:rotate(45deg);
+    flex-shrink:0;
+  }
+  .features{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:16px;
+    margin:24px 0 40px;
+    animation: fadeUp 1s ease 0.6s both;
+  }
+  .feature{
+    background:rgba(201,168,76,0.06);
+    border:1px solid rgba(201,168,76,0.15);
+    border-radius:8px;
+    padding:20px 12px;
+    text-align:center;
+  }
+  .feature-icon{font-size:22px;margin-bottom:10px;display:block}
+  .feature-label{
+    font-size:11px;
+    letter-spacing:2px;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:4px;
+  }
+  .feature-desc{font-size:11px;color:var(--muted);line-height:1.5}
+  .cta-wrap{
+    text-align:center;
+    margin:16px 0 40px;
+    animation: fadeUp 1s ease 0.8s both;
+  }
+  .cta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    background:linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+    color:var(--dark);
+    font-family:'Montserrat',sans-serif;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:18px 40px;
+    border-radius:2px;
+    transition:all 0.3s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-btn::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,0.15);
+    transform:translateX(-100%);
+    transition:transform 0.4s ease;
+  }
+  .cta-btn:hover::before{transform:translateX(0)}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,0.3)}
+  .wa-icon{font-size:18px}
+  .trust{
+    text-align:center;
+    font-size:11px;
+    color:var(--muted);
+    margin-top:12px;
+    letter-spacing:1px;
+  }
+  .trust span{color:var(--gold);font-size:13px}
+  footer{
+    border-top:1px solid rgba(201,168,76,0.1);
+    padding:24px 0;
+    text-align:center;
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:1px;
+    animation: fadeUp 1s ease 1s both;
+  }
+  @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo-line">
+      <span class="brand">Zahedi Gold</span>
+    </div>
+    <p class="tagline">Est. Gold Gallery · Iran</p>
+  </header>
+  <section class="hero">
+    <h1 class="hero-title">
+      Authentic Gold.<br/>
+      <span>Trusted by thousands.</span>
+    </h1>
+    <p class="hero-sub">
+      Join our exclusive WhatsApp community for daily gold pieces,
+      best market prices, and direct access to our gallery.
+    </p>
+  </section>
+  <div class="gold-bar"><div class="gold-diamond"></div></div>
+  <div class="features">
+    <div class="feature">
+      <span class="feature-icon">✦</span>
+      <span class="feature-label">Daily pieces</span>
+      <span class="feature-desc">New gold items posted every day</span>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">◈</span>
+      <span class="feature-label">Best price</span>
+      <span class="feature-desc">Direct from gallery, no middleman</span>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">❖</span>
+      <span class="feature-label">851+ members</span>
+      <span class="feature-desc">Trusted community growing daily</span>
+    </div>
+  </div>
+  <div class="cta-wrap">
+    <a class="cta-btn" href="https://chat.whatsapp.com/HpsTAPw6vt30AS1vETXVuS?s=cl&p=a&mlu=2" target="_blank">
+      <span class="wa-icon">💬</span>
+      Join our WhatsApp group
+    </a>
+    <p class="trust"><span>★★★★★</span> &nbsp;Free to join · No spam · Leave anytime</p>
+  </div>
+  <footer>
+    © 2026 Zahedi Gold Gallery · All rights reserved
+  </footer>
+</div>
+</body>
+</html>
