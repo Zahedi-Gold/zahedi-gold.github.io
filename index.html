@@ -8,47 +8,154 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Montserrat',sans-serif;background:#0f0e0a;color:#f0e6cc;overflow-x:hidden}
-  .zg-nav{background:#0c0b08;border-bottom:0.5px solid #2e2510;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:44px}
-  .zg-nav-links{display:flex;gap:22px;align-items:center}
-  .zg-nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#6a5e44;text-decoration:none;cursor:pointer}
+  body{
+    font-family:'Montserrat',sans-serif;
+    background:#0D0B07;
+    color:#f0e6cc;
+    overflow-x:hidden;
+    cursor:none;
+  }
+  body::before{
+    content:'';
+    position:fixed;inset:0;
+    background:
+      radial-gradient(ellipse at 20% 40%, rgba(201,168,76,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 15%, rgba(201,168,76,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(201,168,76,0.04) 0%, transparent 50%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* CURSOR GLOW - desktop */
+  #cursorGlow{
+    position:fixed;
+    width:340px;height:340px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9998;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(212,168,67,0.12) 0%, rgba(212,168,67,0.04) 40%, transparent 70%);
+    opacity:0;
+    transition:opacity 0.4s ease;
+  }
+  #cursorDot{
+    position:fixed;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:#d4a843;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 8px 3px rgba(212,168,67,0.5);
+    opacity:0;
+    transition:opacity 0.3s ease;
+  }
+
+  /* TOUCH / CLICK PARTICLES */
+  .particle{
+    position:fixed;
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    animation:burst 0.8s ease-out forwards;
+    z-index:9997;
+  }
+  @keyframes burst{
+    0%  {transform:translate(-50%,-50%) scale(0);opacity:1}
+    60% {opacity:0.8}
+    100%{transform:translate(var(--tx),var(--ty)) scale(var(--s));opacity:0}
+  }
+  .ripple{
+    position:fixed;
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    border:1.5px solid rgba(212,168,67,0.55);
+    animation:rippleOut 0.7s ease-out forwards;
+    z-index:9997;
+  }
+  @keyframes rippleOut{
+    0%  {width:0;height:0;opacity:0.8;margin:0}
+    100%{width:130px;height:130px;opacity:0;margin:-65px 0 0 -65px}
+  }
+  .bloom{
+    position:fixed;
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(212,168,67,0.22) 0%, transparent 70%);
+    width:200px;height:200px;
+    animation:bloomFade 0.6s ease-out forwards;
+    z-index:9996;
+  }
+  @keyframes bloomFade{
+    0%  {opacity:1;transform:translate(-50%,-50%) scale(0.15)}
+    100%{opacity:0;transform:translate(-50%,-50%) scale(1)}
+  }
+
+  /* LAYOUT */
+  #zgWrap{position:relative;z-index:1;min-height:100vh}
+
+  .zg-nav{
+    background:rgba(10,9,5,0.9);
+    border-bottom:0.5px solid #2e2510;
+    padding:0 28px;
+    display:flex;align-items:center;justify-content:space-between;
+    height:44px;
+    position:sticky;top:0;z-index:100;
+    backdrop-filter:blur(10px);
+  }
+  .zg-nav-links{display:flex;gap:24px;align-items:center}
+  .zg-nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#6a5e44;text-decoration:none;cursor:none}
   .zg-nav-links a:hover{color:#d4a843}
   .zg-lang{display:flex;border:0.5px solid #3a3020;border-radius:3px;overflow:hidden}
-  .zg-lang button{font-size:10px;letter-spacing:1px;padding:4px 10px;border:none;cursor:pointer;background:transparent;color:#6a5e44;font-family:'Montserrat',sans-serif}
+  .zg-lang button{font-size:10px;letter-spacing:1px;padding:4px 11px;border:none;cursor:none;background:transparent;color:#6a5e44;font-family:'Montserrat',sans-serif}
   .zg-lang button.active{background:#d4a843;color:#0f0e0a;font-weight:500}
-  .zg-hero{padding:44px 28px 40px;text-align:center;position:relative;background:#0f0e0a}
-  .zg-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:1px;background:#d4a843;opacity:0.5;box-shadow:0 0 40px 14px rgba(212,168,67,0.15),0 0 80px 30px rgba(212,168,67,0.06)}
+
+  .zg-hero{padding:48px 28px 44px;text-align:center;position:relative}
+  .zg-glow-top{position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:1px;background:#d4a843;opacity:0.5;box-shadow:0 0 40px 14px rgba(212,168,67,0.15),0 0 80px 30px rgba(212,168,67,0.06)}
+
   .zg-brand-row{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:6px}
-  .zg-brand-row::before,.zg-brand-row::after{content:'';flex:1;height:0.5px;background:linear-gradient(to right,transparent,#d4a843)}
-  .zg-brand-row::after{background:linear-gradient(to left,transparent,#d4a843)}
-  .zg-brand{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:#d4a843;letter-spacing:5px;text-transform:uppercase;white-space:nowrap}
+  .zg-brand-row::before{content:'';flex:1;height:0.5px;background:linear-gradient(to right,transparent,#d4a843)}
+  .zg-brand-row::after{content:'';flex:1;height:0.5px;background:linear-gradient(to left,transparent,#d4a843)}
+  .zg-brand{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#d4a843;letter-spacing:5px;text-transform:uppercase;white-space:nowrap}
   .zg-tagline{font-size:10px;letter-spacing:5px;color:#5a5040;text-transform:uppercase;margin-bottom:36px}
-  .zg-emblem{width:46px;height:46px;border:0.5px solid #3a3020;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative}
-  .zg-emblem::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:0.5px solid #2a2010}
-  .zg-emblem i{font-size:20px;color:#d4a843}
-  .zg-hero h1{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#f0e6cc;letter-spacing:2px;margin-bottom:12px;line-height:1.4}
+
+  .zg-emblem{width:50px;height:50px;border:0.5px solid #3a3020;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative}
+  .zg-emblem::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:0.5px solid #2a2010}
+  .zg-emblem i{font-size:22px;color:#d4a843}
+
+  .zg-hero h1{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#f0e6cc;letter-spacing:2px;margin-bottom:14px;line-height:1.4}
   .zg-hero h1 em{color:#d4a843;font-style:normal}
-  .zg-hero p{font-size:11px;color:#6a5e44;letter-spacing:1px;line-height:2;max-width:360px;margin:0 auto 28px}
-  .zg-divider{display:flex;align-items:center;gap:10px;margin:0 auto 28px;max-width:240px}
+  .zg-hero p{font-size:12px;color:#6a5e44;letter-spacing:1px;line-height:2;max-width:380px;margin:0 auto 30px}
+
+  .zg-divider{display:flex;align-items:center;gap:10px;margin:0 auto 30px;max-width:240px}
   .zg-divider::before,.zg-divider::after{content:'';flex:1;height:0.5px;background:#2e2510}
   .zg-gem{width:6px;height:6px;background:#d4a843;transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 6px 2px rgba(212,168,67,0.3)}
-  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:#d4a843;color:#0f0e0a;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:15px 34px;border-radius:2px;cursor:pointer;border:none;box-shadow:0 0 24px rgba(212,168,67,0.22)}
-  .zg-trust{margin-top:12px;font-size:10px;color:#3a3020;letter-spacing:1px}
+
+  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:#d4a843;color:#0f0e0a;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:2px;cursor:none;border:none;box-shadow:0 0 28px rgba(212,168,67,0.25);transition:box-shadow 0.3s}
+  .zg-cta:hover{box-shadow:0 0 44px rgba(212,168,67,0.45)}
+  .zg-trust{margin-top:14px;font-size:10px;color:#3a3020;letter-spacing:1px}
   .zg-trust span{color:#d4a843}
-  .zg-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #2e2510;background:#0c0b08}
-  .zg-stat{padding:20px 16px;text-align:center;border-right:0.5px solid #2e2510}
+
+  .zg-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #2e2510;background:rgba(8,7,4,0.6)}
+  .zg-stat{padding:22px 16px;text-align:center;border-right:0.5px solid #2e2510}
   .zg-stat:last-child{border-right:none}
-  .zg-stat-num{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#d4a843;text-shadow:0 0 20px rgba(212,168,67,0.25)}
-  .zg-stat-label{font-size:10px;letter-spacing:2px;color:#4a4030;text-transform:uppercase;margin-top:4px}
+  .zg-stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#d4a843;text-shadow:0 0 20px rgba(212,168,67,0.25)}
+  .zg-stat-label{font-size:10px;letter-spacing:2px;color:#4a4030;text-transform:uppercase;margin-top:5px}
+
   .zg-features{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #2e2510}
-  .zg-feature{padding:20px 16px;border-right:0.5px solid #2e2510;background:#0f0e0a}
+  .zg-feature{padding:22px 18px;border-right:0.5px solid #2e2510;background:rgba(13,11,7,0.7)}
   .zg-feature:last-child{border-right:none}
-  .zg-fi{font-size:17px;margin-bottom:8px;color:#d4a843}
-  .zg-fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#c8b080;font-weight:500;margin-bottom:4px}
-  .zg-fd{font-size:11px;color:#4a4030;line-height:1.6}
-  .zg-footer{background:#080806;border-top:0.5px solid #2e2510;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
-  .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:3px;color:#2e2010;text-transform:uppercase}
+  .zg-fi{font-size:18px;margin-bottom:10px;color:#d4a843}
+  .zg-fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#c8b080;font-weight:500;margin-bottom:5px}
+  .zg-fd{font-size:11px;color:#4a4030;line-height:1.7}
+
+  .zg-footer{background:rgba(5,4,2,0.95);border-top:0.5px solid #2e2510;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+  .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#2e2010;text-transform:uppercase}
   .zg-footer-copy{font-size:10px;color:#2a2010;letter-spacing:1px}
+
+  /* RTL */
   [dir=rtl] .zg-nav{flex-direction:row-reverse}
   [dir=rtl] .zg-brand-row::before{background:linear-gradient(to left,transparent,#d4a843)}
   [dir=rtl] .zg-brand-row::after{background:linear-gradient(to right,transparent,#d4a843)}
@@ -57,9 +164,27 @@
   [dir=rtl] .zg-feature{border-right:none;border-left:0.5px solid #2e2510}
   [dir=rtl] .zg-feature:last-child{border-left:none}
   [dir=rtl] .zg-footer{flex-direction:row-reverse}
+
+  /* MOBILE */
+  @media(max-width:600px){
+    body{cursor:auto}
+    #cursorGlow,#cursorDot{display:none}
+    .zg-brand{font-size:28px;letter-spacing:3px}
+    .zg-hero h1{font-size:24px}
+    .zg-features{grid-template-columns:1fr}
+    .zg-feature{border-right:none;border-bottom:0.5px solid #2e2510}
+    .zg-feature:last-child{border-bottom:none}
+    .zg-stats{grid-template-columns:repeat(3,1fr)}
+    .zg-nav-links a{display:none}
+  }
 </style>
 </head>
 <body>
+
+<!-- Desktop cursor -->
+<div id="cursorGlow"></div>
+<div id="cursorDot"></div>
+
 <div id="zgWrap">
   <nav class="zg-nav">
     <div class="zg-nav-links">
@@ -72,8 +197,9 @@
       <button onclick="setLang('fa',this)">فا</button>
     </div>
   </nav>
+
   <div class="zg-hero">
-    <div class="zg-glow"></div>
+    <div class="zg-glow-top"></div>
     <div class="zg-brand-row"><span class="zg-brand">Zahedi Gold</span></div>
     <p class="zg-tagline" id="tagline">Est. Gold Gallery · Iran</p>
     <div class="zg-emblem"><i class="ti ti-crown"></i></div>
@@ -86,11 +212,13 @@
     </button>
     <p class="zg-trust" id="trustText"><span>★★★★★</span> · Free to join · No spam · Leave anytime</p>
   </div>
+
   <div class="zg-stats">
     <div class="zg-stat"><div class="zg-stat-num">851+</div><div class="zg-stat-label" id="s1">Members</div></div>
     <div class="zg-stat"><div class="zg-stat-num">100%</div><div class="zg-stat-label" id="s2">Authentic</div></div>
     <div class="zg-stat"><div class="zg-stat-num" id="s3n">Daily</div><div class="zg-stat-label" id="s3">New Pieces</div></div>
   </div>
+
   <div class="zg-features">
     <div class="zg-feature">
       <div class="zg-fi"><i class="ti ti-diamond"></i></div>
@@ -108,12 +236,15 @@
       <div class="zg-fd" id="f3d">Over 851 members rely on us daily</div>
     </div>
   </div>
+
   <div class="zg-footer">
     <div class="zg-footer-brand">Zahedi Gold Gallery</div>
     <div class="zg-footer-copy">© 2026 · Iran</div>
   </div>
 </div>
+
 <script>
+// ── BILINGUAL ──
 const content={
   en:{dir:'ltr',navGallery:'Gallery',navAbout:'About',navContact:'Contact',tagline:'Est. Gold Gallery · Iran',heroTitle:'Authentic Gold.<br/><em>Trusted by Thousands.</em>',heroSub:'Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.',ctaText:'Join our WhatsApp group',trustText:'<span>★★★★★</span> · Free to join · No spam · Leave anytime',s1:'Members',s2:'Authentic',s3n:'Daily',s3:'New Pieces',f1l:'Premium Quality',f1d:'Certified authentic gold pieces directly from our gallery',f2l:'Best Price',f2d:'No middleman. Direct pricing from the source',f3l:'Trusted',f3d:'Over 851 members rely on us daily'},
   fa:{dir:'rtl',navGallery:'گالری',navAbout:'درباره ما',navContact:'تماس',tagline:'گالری طلا · ایران',heroTitle:'طلای اصیل.<br/><em>مورد اعتماد هزاران نفر.</em>',heroSub:'به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.',ctaText:'عضویت در گروه واتساپ',trustText:'<span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان',s1:'عضو',s2:'اصالت',s3n:'روزانه',s3:'محصول جدید',f1l:'کیفیت برتر',f1d:'طلای اصل و تأییدشده مستقیم از گالری',f2l:'بهترین قیمت',f2d:'بدون واسطه، قیمت مستقیم از منبع',f3l:'مورد اعتماد',f3d:'بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند'}
@@ -142,6 +273,78 @@ function setLang(lang,btn){
   document.querySelectorAll('.zg-lang button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
 }
+
+// ── DESKTOP CURSOR GLOW ──
+const glow = document.getElementById('cursorGlow');
+const dot  = document.getElementById('cursorDot');
+const isMobile = window.matchMedia('(max-width:600px)').matches || ('ontouchstart' in window && !window.matchMedia('(hover:hover)').matches);
+
+if(!isMobile){
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+    dot.style.left  = e.clientX + 'px';
+    dot.style.top   = e.clientY + 'px';
+    glow.style.opacity = '1';
+    dot.style.opacity  = '1';
+  });
+  document.addEventListener('mouseleave', () => {
+    glow.style.opacity = '0';
+    dot.style.opacity  = '0';
+  });
+}
+
+// ── GOLDEN EXPLOSION ──
+const colors=['rgba(212,168,67,0.95)','rgba(245,217,128,0.9)','rgba(255,236,150,0.9)','rgba(180,130,40,0.9)','rgba(255,200,80,0.85)','rgba(140,100,20,0.75)'];
+
+function explode(x, y){
+  // bloom
+  const bloom=document.createElement('div');
+  bloom.className='bloom';
+  bloom.style.left=x+'px';
+  bloom.style.top=y+'px';
+  document.body.appendChild(bloom);
+  bloom.addEventListener('animationend',()=>bloom.remove());
+
+  // ripples
+  for(let r=0;r<2;r++){
+    const ripple=document.createElement('div');
+    ripple.className='ripple';
+    ripple.style.left=x+'px';
+    ripple.style.top=y+'px';
+    ripple.style.animationDelay=(r*0.13)+'s';
+    document.body.appendChild(ripple);
+    ripple.addEventListener('animationend',()=>ripple.remove());
+  }
+
+  // particles
+  for(let i=0;i<20;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    const angle=(i/20)*360;
+    const dist=35+Math.random()*60;
+    const rad=angle*Math.PI/180;
+    const tx=Math.cos(rad)*dist+'px';
+    const ty=Math.sin(rad)*dist+'px';
+    const size=2+Math.random()*4;
+    const color=colors[Math.floor(Math.random()*colors.length)];
+    p.style.cssText=`left:${x}px;top:${y}px;width:${size}px;height:${size}px;background:${color};box-shadow:0 0 ${size*2}px ${color};--tx:${tx};--ty:${ty};--s:${0.2+Math.random()*0.6};animation-delay:${Math.random()*0.1}s;animation-duration:${0.6+Math.random()*0.3}s;`;
+    document.body.appendChild(p);
+    p.addEventListener('animationend',()=>p.remove());
+  }
+}
+
+// desktop click explosion
+document.addEventListener('click', e => explode(e.clientX, e.clientY));
+
+// mobile touch explosion
+document.addEventListener('touchstart', e => {
+  Array.from(e.touches).forEach(t => explode(t.clientX, t.clientY));
+}, {passive:true});
+
+document.addEventListener('touchmove', e => {
+  Array.from(e.touches).forEach(t => explode(t.clientX, t.clientY));
+}, {passive:true});
 </script>
 </body>
 </html>
