@@ -5,241 +5,143 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Zahedi Gold Gallery</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{
-    --gold:#C9A84C;
-    --gold-light:#E8D5A3;
-    --gold-dark:#8B6914;
-    --dark:#0D0B07;
-    --dark2:#1A1610;
-    --text:#F5EDD8;
-    --muted:#A89870;
-  }
-  body{
-    background:var(--dark);
-    color:var(--text);
-    font-family:'Montserrat',sans-serif;
-    font-weight:300;
-    min-height:100vh;
-    overflow-x:hidden;
-  }
-  body::before{
-    content:'';
-    position:fixed;
-    inset:0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%);
-    pointer-events:none;
-    z-index:0;
-  }
-  .container{
-    position:relative;
-    z-index:1;
-    max-width:680px;
-    margin:0 auto;
-    padding:0 24px;
-  }
-  header{
-    padding:48px 0 32px;
-    text-align:center;
-    animation: fadeDown 1s ease both;
-  }
-  .logo-line{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:16px;
-    margin-bottom:8px;
-  }
-  .logo-line::before,
-  .logo-line::after{
-    content:'';
-    flex:1;
-    height:1px;
-    background:linear-gradient(to right, transparent, var(--gold));
-  }
-  .logo-line::after{
-    background:linear-gradient(to left, transparent, var(--gold));
-  }
-  .brand{
-    font-family:'Cormorant Garamond',serif;
-    font-size:38px;
-    font-weight:600;
-    color:var(--gold);
-    letter-spacing:4px;
-    text-transform:uppercase;
-  }
-  .tagline{
-    font-size:11px;
-    letter-spacing:5px;
-    color:var(--muted);
-    text-transform:uppercase;
-    margin-top:6px;
-  }
-  .hero{
-    text-align:center;
-    padding:40px 0 32px;
-    animation: fadeUp 1s ease 0.3s both;
-  }
-  .hero-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:28px;
-    font-weight:300;
-    color:var(--text);
-    line-height:1.5;
-    margin-bottom:16px;
-  }
-  .hero-title span{color:var(--gold)}
-  .hero-sub{
-    font-size:13px;
-    color:var(--muted);
-    line-height:1.8;
-    max-width:440px;
-    margin:0 auto;
-  }
-  .gold-bar{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin:32px 0;
-    animation: fadeUp 1s ease 0.5s both;
-  }
-  .gold-bar::before,.gold-bar::after{
-    content:'';flex:1;height:1px;background:var(--gold-dark);
-  }
-  .gold-diamond{
-    width:8px;height:8px;
-    background:var(--gold);
-    transform:rotate(45deg);
-    flex-shrink:0;
-  }
-  .features{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:16px;
-    margin:24px 0 40px;
-    animation: fadeUp 1s ease 0.6s both;
-  }
-  .feature{
-    background:rgba(201,168,76,0.06);
-    border:1px solid rgba(201,168,76,0.15);
-    border-radius:8px;
-    padding:20px 12px;
-    text-align:center;
-  }
-  .feature-icon{font-size:22px;margin-bottom:10px;display:block}
-  .feature-label{
-    font-size:11px;
-    letter-spacing:2px;
-    color:var(--gold-light);
-    text-transform:uppercase;
-    display:block;
-    margin-bottom:4px;
-  }
-  .feature-desc{font-size:11px;color:var(--muted);line-height:1.5}
-  .cta-wrap{
-    text-align:center;
-    margin:16px 0 40px;
-    animation: fadeUp 1s ease 0.8s both;
-  }
-  .cta-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:12px;
-    background:linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
-    color:var(--dark);
-    font-family:'Montserrat',sans-serif;
-    font-size:13px;
-    font-weight:500;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    text-decoration:none;
-    padding:18px 40px;
-    border-radius:2px;
-    transition:all 0.3s ease;
-    position:relative;
-    overflow:hidden;
-  }
-  .cta-btn::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:rgba(255,255,255,0.15);
-    transform:translateX(-100%);
-    transition:transform 0.4s ease;
-  }
-  .cta-btn:hover::before{transform:translateX(0)}
-  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,0.3)}
-  .wa-icon{font-size:18px}
-  .trust{
-    text-align:center;
-    font-size:11px;
-    color:var(--muted);
-    margin-top:12px;
-    letter-spacing:1px;
-  }
-  .trust span{color:var(--gold);font-size:13px}
-  footer{
-    border-top:1px solid rgba(201,168,76,0.1);
-    padding:24px 0;
-    text-align:center;
-    font-size:11px;
-    color:var(--muted);
-    letter-spacing:1px;
-    animation: fadeUp 1s ease 1s both;
-  }
-  @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Montserrat',sans-serif;background:#0f0e0a;color:#f0e6cc;overflow-x:hidden}
+  .zg-nav{background:#0c0b08;border-bottom:0.5px solid #2e2510;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:44px}
+  .zg-nav-links{display:flex;gap:22px;align-items:center}
+  .zg-nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#6a5e44;text-decoration:none;cursor:pointer}
+  .zg-nav-links a:hover{color:#d4a843}
+  .zg-lang{display:flex;border:0.5px solid #3a3020;border-radius:3px;overflow:hidden}
+  .zg-lang button{font-size:10px;letter-spacing:1px;padding:4px 10px;border:none;cursor:pointer;background:transparent;color:#6a5e44;font-family:'Montserrat',sans-serif}
+  .zg-lang button.active{background:#d4a843;color:#0f0e0a;font-weight:500}
+  .zg-hero{padding:44px 28px 40px;text-align:center;position:relative;background:#0f0e0a}
+  .zg-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:1px;background:#d4a843;opacity:0.5;box-shadow:0 0 40px 14px rgba(212,168,67,0.15),0 0 80px 30px rgba(212,168,67,0.06)}
+  .zg-brand-row{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:6px}
+  .zg-brand-row::before,.zg-brand-row::after{content:'';flex:1;height:0.5px;background:linear-gradient(to right,transparent,#d4a843)}
+  .zg-brand-row::after{background:linear-gradient(to left,transparent,#d4a843)}
+  .zg-brand{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:#d4a843;letter-spacing:5px;text-transform:uppercase;white-space:nowrap}
+  .zg-tagline{font-size:10px;letter-spacing:5px;color:#5a5040;text-transform:uppercase;margin-bottom:36px}
+  .zg-emblem{width:46px;height:46px;border:0.5px solid #3a3020;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative}
+  .zg-emblem::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:0.5px solid #2a2010}
+  .zg-emblem i{font-size:20px;color:#d4a843}
+  .zg-hero h1{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#f0e6cc;letter-spacing:2px;margin-bottom:12px;line-height:1.4}
+  .zg-hero h1 em{color:#d4a843;font-style:normal}
+  .zg-hero p{font-size:11px;color:#6a5e44;letter-spacing:1px;line-height:2;max-width:360px;margin:0 auto 28px}
+  .zg-divider{display:flex;align-items:center;gap:10px;margin:0 auto 28px;max-width:240px}
+  .zg-divider::before,.zg-divider::after{content:'';flex:1;height:0.5px;background:#2e2510}
+  .zg-gem{width:6px;height:6px;background:#d4a843;transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 6px 2px rgba(212,168,67,0.3)}
+  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:#d4a843;color:#0f0e0a;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:15px 34px;border-radius:2px;cursor:pointer;border:none;box-shadow:0 0 24px rgba(212,168,67,0.22)}
+  .zg-trust{margin-top:12px;font-size:10px;color:#3a3020;letter-spacing:1px}
+  .zg-trust span{color:#d4a843}
+  .zg-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #2e2510;background:#0c0b08}
+  .zg-stat{padding:20px 16px;text-align:center;border-right:0.5px solid #2e2510}
+  .zg-stat:last-child{border-right:none}
+  .zg-stat-num{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#d4a843;text-shadow:0 0 20px rgba(212,168,67,0.25)}
+  .zg-stat-label{font-size:10px;letter-spacing:2px;color:#4a4030;text-transform:uppercase;margin-top:4px}
+  .zg-features{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #2e2510}
+  .zg-feature{padding:20px 16px;border-right:0.5px solid #2e2510;background:#0f0e0a}
+  .zg-feature:last-child{border-right:none}
+  .zg-fi{font-size:17px;margin-bottom:8px;color:#d4a843}
+  .zg-fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#c8b080;font-weight:500;margin-bottom:4px}
+  .zg-fd{font-size:11px;color:#4a4030;line-height:1.6}
+  .zg-footer{background:#080806;border-top:0.5px solid #2e2510;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+  .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:3px;color:#2e2010;text-transform:uppercase}
+  .zg-footer-copy{font-size:10px;color:#2a2010;letter-spacing:1px}
+  [dir=rtl] .zg-nav{flex-direction:row-reverse}
+  [dir=rtl] .zg-brand-row::before{background:linear-gradient(to left,transparent,#d4a843)}
+  [dir=rtl] .zg-brand-row::after{background:linear-gradient(to right,transparent,#d4a843)}
+  [dir=rtl] .zg-stat{border-right:none;border-left:0.5px solid #2e2510}
+  [dir=rtl] .zg-stat:last-child{border-left:none}
+  [dir=rtl] .zg-feature{border-right:none;border-left:0.5px solid #2e2510}
+  [dir=rtl] .zg-feature:last-child{border-left:none}
+  [dir=rtl] .zg-footer{flex-direction:row-reverse}
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <div class="logo-line">
-      <span class="brand">Zahedi Gold</span>
+<div id="zgWrap">
+  <nav class="zg-nav">
+    <div class="zg-nav-links">
+      <a id="navGallery">Gallery</a>
+      <a id="navAbout">About</a>
+      <a id="navContact">Contact</a>
     </div>
-    <p class="tagline">Est. Gold Gallery · Iran</p>
-  </header>
-  <section class="hero">
-    <h1 class="hero-title">
-      Authentic Gold.<br/>
-      <span>Trusted by thousands.</span>
-    </h1>
-    <p class="hero-sub">
-      Join our exclusive WhatsApp community for daily gold pieces,
-      best market prices, and direct access to our gallery.
-    </p>
-  </section>
-  <div class="gold-bar"><div class="gold-diamond"></div></div>
-  <div class="features">
-    <div class="feature">
-      <span class="feature-icon">✦</span>
-      <span class="feature-label">Daily pieces</span>
-      <span class="feature-desc">New gold items posted every day</span>
+    <div class="zg-lang">
+      <button class="active" onclick="setLang('en',this)">EN</button>
+      <button onclick="setLang('fa',this)">فا</button>
     </div>
-    <div class="feature">
-      <span class="feature-icon">◈</span>
-      <span class="feature-label">Best price</span>
-      <span class="feature-desc">Direct from gallery, no middleman</span>
+  </nav>
+  <div class="zg-hero">
+    <div class="zg-glow"></div>
+    <div class="zg-brand-row"><span class="zg-brand">Zahedi Gold</span></div>
+    <p class="zg-tagline" id="tagline">Est. Gold Gallery · Iran</p>
+    <div class="zg-emblem"><i class="ti ti-crown"></i></div>
+    <h1 id="heroTitle">Authentic Gold.<br/><em>Trusted by Thousands.</em></h1>
+    <p id="heroSub">Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.</p>
+    <div class="zg-divider"><div class="zg-gem"></div></div>
+    <button class="zg-cta" onclick="window.open('https://chat.whatsapp.com/HpsTAPw6vt30AS1vETXVuS?s=cl&p=a&mlu=2','_blank')">
+      <i class="ti ti-brand-whatsapp"></i>
+      <span id="ctaText">Join our WhatsApp group</span>
+    </button>
+    <p class="zg-trust" id="trustText"><span>★★★★★</span> · Free to join · No spam · Leave anytime</p>
+  </div>
+  <div class="zg-stats">
+    <div class="zg-stat"><div class="zg-stat-num">851+</div><div class="zg-stat-label" id="s1">Members</div></div>
+    <div class="zg-stat"><div class="zg-stat-num">100%</div><div class="zg-stat-label" id="s2">Authentic</div></div>
+    <div class="zg-stat"><div class="zg-stat-num" id="s3n">Daily</div><div class="zg-stat-label" id="s3">New Pieces</div></div>
+  </div>
+  <div class="zg-features">
+    <div class="zg-feature">
+      <div class="zg-fi"><i class="ti ti-diamond"></i></div>
+      <div class="zg-fl" id="f1l">Premium Quality</div>
+      <div class="zg-fd" id="f1d">Certified authentic gold pieces directly from our gallery</div>
     </div>
-    <div class="feature">
-      <span class="feature-icon">❖</span>
-      <span class="feature-label">851+ members</span>
-      <span class="feature-desc">Trusted community growing daily</span>
+    <div class="zg-feature">
+      <div class="zg-fi"><i class="ti ti-tag"></i></div>
+      <div class="zg-fl" id="f2l">Best Price</div>
+      <div class="zg-fd" id="f2d">No middleman. Direct pricing from the source</div>
+    </div>
+    <div class="zg-feature">
+      <div class="zg-fi"><i class="ti ti-shield-check"></i></div>
+      <div class="zg-fl" id="f3l">Trusted</div>
+      <div class="zg-fd" id="f3d">Over 851 members rely on us daily</div>
     </div>
   </div>
-  <div class="cta-wrap">
-    <a class="cta-btn" href="https://chat.whatsapp.com/HpsTAPw6vt30AS1vETXVuS?s=cl&p=a&mlu=2" target="_blank">
-      <span class="wa-icon">💬</span>
-      Join our WhatsApp group
-    </a>
-    <p class="trust"><span>★★★★★</span> &nbsp;Free to join · No spam · Leave anytime</p>
+  <div class="zg-footer">
+    <div class="zg-footer-brand">Zahedi Gold Gallery</div>
+    <div class="zg-footer-copy">© 2026 · Iran</div>
   </div>
-  <footer>
-    © 2026 Zahedi Gold Gallery · All rights reserved
-  </footer>
 </div>
+<script>
+const content={
+  en:{dir:'ltr',navGallery:'Gallery',navAbout:'About',navContact:'Contact',tagline:'Est. Gold Gallery · Iran',heroTitle:'Authentic Gold.<br/><em>Trusted by Thousands.</em>',heroSub:'Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.',ctaText:'Join our WhatsApp group',trustText:'<span>★★★★★</span> · Free to join · No spam · Leave anytime',s1:'Members',s2:'Authentic',s3n:'Daily',s3:'New Pieces',f1l:'Premium Quality',f1d:'Certified authentic gold pieces directly from our gallery',f2l:'Best Price',f2d:'No middleman. Direct pricing from the source',f3l:'Trusted',f3d:'Over 851 members rely on us daily'},
+  fa:{dir:'rtl',navGallery:'گالری',navAbout:'درباره ما',navContact:'تماس',tagline:'گالری طلا · ایران',heroTitle:'طلای اصیل.<br/><em>مورد اعتماد هزاران نفر.</em>',heroSub:'به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.',ctaText:'عضویت در گروه واتساپ',trustText:'<span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان',s1:'عضو',s2:'اصالت',s3n:'روزانه',s3:'محصول جدید',f1l:'کیفیت برتر',f1d:'طلای اصل و تأییدشده مستقیم از گالری',f2l:'بهترین قیمت',f2d:'بدون واسطه، قیمت مستقیم از منبع',f3l:'مورد اعتماد',f3d:'بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند'}
+};
+function setLang(lang,btn){
+  const c=content[lang];
+  document.getElementById('zgWrap').setAttribute('dir',c.dir);
+  document.getElementById('navGallery').textContent=c.navGallery;
+  document.getElementById('navAbout').textContent=c.navAbout;
+  document.getElementById('navContact').textContent=c.navContact;
+  document.getElementById('tagline').textContent=c.tagline;
+  document.getElementById('heroTitle').innerHTML=c.heroTitle;
+  document.getElementById('heroSub').textContent=c.heroSub;
+  document.getElementById('ctaText').textContent=c.ctaText;
+  document.getElementById('trustText').innerHTML=c.trustText;
+  document.getElementById('s1').textContent=c.s1;
+  document.getElementById('s2').textContent=c.s2;
+  document.getElementById('s3n').textContent=c.s3n;
+  document.getElementById('s3').textContent=c.s3;
+  document.getElementById('f1l').textContent=c.f1l;
+  document.getElementById('f1d').textContent=c.f1d;
+  document.getElementById('f2l').textContent=c.f2l;
+  document.getElementById('f2d').textContent=c.f2d;
+  document.getElementById('f3l').textContent=c.f3l;
+  document.getElementById('f3d').textContent=c.f3d;
+  document.querySelectorAll('.zg-lang button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
 </body>
 </html>
