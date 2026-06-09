@@ -211,40 +211,64 @@
 const photos = [
   {
     src: 'https://zahedi-gold.github.io/photo1.webp',
-    model: 'سرویس',
-    weight: '۵۵ گرم',
-    labor: 'تماس بگیرید'
+    model:  { fa:'سرویس',  en:'Set' },
+    weight: { fa:'۵۵ گرم', en:'55g' },
+    labor:  { fa:'تماس بگیرید', en:'Contact us' }
   },
-  // ADD MORE PHOTOS HERE LIKE THIS:
-  // { src:'https://zahedi-gold.github.io/photo2.webp', model:'گردنبند', weight:'۱۸ گرم', labor:'بدون اجرت' },
+  {
+    src: 'https://zahedi-gold.github.io/photo2.webp',
+    model:  { fa:'مدل',  en:'Model' },
+    weight: { fa:'وزن', en:'Weight' },
+    labor:  { fa:'اجرت', en:'Labor' }
+  },
+  {
+    src: 'https://zahedi-gold.github.io/photo3.webp',
+    model:  { fa:'مدل',  en:'Model' },
+    weight: { fa:'وزن', en:'Weight' },
+    labor:  { fa:'اجرت', en:'Labor' }
+  },
 ];
 
 // build gallery grid
+let currentLang = 'en';
 const grid = document.getElementById('galleryGrid');
-photos.forEach((p, i) => {
-  const card = document.createElement('div');
-  card.className = 'zg-card';
-  card.innerHTML = `
-    <img src="${p.src}" alt="${p.model}" loading="lazy"/>
-    <div class="zg-card-caption">
-      <div class="zg-caption-row"><span class="zg-caption-label">مدل</span><span class="zg-caption-val">${p.model}</span></div>
-      <div class="zg-caption-row"><span class="zg-caption-label">وزن</span><span class="zg-caption-val">${p.weight}</span></div>
-      <div class="zg-caption-row"><span class="zg-caption-label">اجرت</span><span class="zg-caption-val">${p.labor}</span></div>
-    </div>`;
-  card.addEventListener('click', () => openLightbox(i));
-  grid.appendChild(card);
-});
+
+function buildGrid(){
+  grid.innerHTML = '';
+  const l = currentLang;
+  const labels = l==='fa'
+    ? {model:'مدل', weight:'وزن', labor:'اجرت'}
+    : {model:'Model', weight:'Weight', labor:'Labor'};
+  photos.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'zg-card';
+    card.innerHTML = `
+      <img src="${p.src}" alt="${p.model[l]}" loading="lazy"/>
+      <div class="zg-card-caption">
+        <div class="zg-caption-row"><span class="zg-caption-label">${labels.model}</span><span class="zg-caption-val">${p.model[l]}</span></div>
+        <div class="zg-caption-row"><span class="zg-caption-label">${labels.weight}</span><span class="zg-caption-val">${p.weight[l]}</span></div>
+        <div class="zg-caption-row"><span class="zg-caption-label">${labels.labor}</span><span class="zg-caption-val">${p.labor[l]}</span></div>
+      </div>`;
+    card.addEventListener('click', () => openLightbox(i));
+    grid.appendChild(card);
+  });
+}
+buildGrid();
 
 // ── LIGHTBOX ──
 let currentIdx = 0;
 function openLightbox(i){
   currentIdx = i;
   const p = photos[i];
+  const l = currentLang;
+  const labels = l==='fa'
+    ? {model:'مدل', weight:'وزن', labor:'اجرت'}
+    : {model:'Model', weight:'Weight', labor:'Labor'};
   document.getElementById('lbImg').src = p.src;
   document.getElementById('lbCaption').innerHTML = `
-    <div class="zg-caption-row"><span class="zg-caption-label">مدل</span><span class="zg-caption-val">${p.model}</span></div>
-    <div class="zg-caption-row"><span class="zg-caption-label">وزن</span><span class="zg-caption-val">${p.weight}</span></div>
-    <div class="zg-caption-row"><span class="zg-caption-label">اجرت</span><span class="zg-caption-val">${p.labor}</span></div>`;
+    <div class="zg-caption-row"><span class="zg-caption-label">${labels.model}</span><span class="zg-caption-val">${p.model[l]}</span></div>
+    <div class="zg-caption-row"><span class="zg-caption-label">${labels.weight}</span><span class="zg-caption-val">${p.weight[l]}</span></div>
+    <div class="zg-caption-row"><span class="zg-caption-label">${labels.labor}</span><span class="zg-caption-val">${p.labor[l]}</span></div>`;
   document.getElementById('lightbox').classList.add('active');
 }
 function closeLightbox(){ document.getElementById('lightbox').classList.remove('active'); }
@@ -267,6 +291,7 @@ const content={
   fa:{dir:'rtl',navHome:'خانه',navGallery:'گالری',navContact:'تماس',tagline:'گالری طلا · ایران',heroTitle:'طلای اصیل.<br/><em>مورد اعتماد هزاران نفر.</em>',heroSub:'به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.',ctaText:'عضویت در گروه واتساپ',trustText:'<span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان',s1:'عضو',s2:'اصالت',s3n:'روزانه',s3:'محصول جدید',galleryTitle:'مجموعه ما',gallerySub:'برای مشاهده روی هر قطعه ضربه بزنید',f1l:'کیفیت برتر',f1d:'طلای اصل و تأییدشده مستقیم از گالری',f2l:'بهترین قیمت',f2d:'بدون واسطه، قیمت مستقیم از منبع',f3l:'مورد اعتماد',f3d:'بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند'}
 };
 function setLang(lang,btn){
+  currentLang = lang;
   const c=content[lang];
   document.querySelectorAll('#page-home,#page-gallery').forEach(p=>p.setAttribute('dir',c.dir));
   document.getElementById('mainNav').setAttribute('dir',c.dir);
@@ -280,6 +305,7 @@ function setLang(lang,btn){
   document.getElementById('trustText').innerHTML=c.trustText;
   document.querySelectorAll('.zg-lang button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
+  buildGrid();
 }
 
 // ── DESKTOP CURSOR ──
