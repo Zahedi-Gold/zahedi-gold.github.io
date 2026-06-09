@@ -21,15 +21,17 @@
   .bloom{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(212,168,67,0.22) 0%,transparent 70%);width:200px;height:200px;animation:bloomFade 0.6s ease-out forwards;z-index:9996}
   @keyframes bloomFade{0%{opacity:1;transform:translate(-50%,-50%) scale(0.15)}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
 
-  #zgWrap{position:relative;z-index:1;min-height:100vh}
+  /* PAGES */
+  .page{display:none;position:relative;z-index:1;min-height:100vh}
+  .page.active{display:block}
 
   /* NAV */
   .zg-nav{background:rgba(10,9,5,0.9);border-bottom:0.5px solid #2e2510;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:44px;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
   .zg-nav-links{display:flex;gap:24px;align-items:center}
-  .zg-nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#6a5e44;text-decoration:none;cursor:none}
-  .zg-nav-links a:hover{color:#d4a843}
+  .zg-nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#6a5e44;text-decoration:none;cursor:pointer;transition:color 0.2s}
+  .zg-nav-links a:hover,.zg-nav-links a.active{color:#d4a843}
   .zg-lang{display:flex;border:0.5px solid #3a3020;border-radius:3px;overflow:hidden}
-  .zg-lang button{font-size:10px;letter-spacing:1px;padding:4px 11px;border:none;cursor:none;background:transparent;color:#6a5e44;font-family:'Montserrat',sans-serif}
+  .zg-lang button{font-size:10px;letter-spacing:1px;padding:4px 11px;border:none;cursor:pointer;background:transparent;color:#6a5e44;font-family:'Montserrat',sans-serif}
   .zg-lang button.active{background:#d4a843;color:#0f0e0a;font-weight:500}
 
   /* HERO */
@@ -49,7 +51,7 @@
   .zg-divider{display:flex;align-items:center;gap:10px;margin:0 auto 30px;max-width:240px}
   .zg-divider::before,.zg-divider::after{content:'';flex:1;height:0.5px;background:#2e2510}
   .zg-gem{width:6px;height:6px;background:#d4a843;transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 6px 2px rgba(212,168,67,0.3)}
-  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:#d4a843;color:#0f0e0a;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:2px;cursor:none;border:none;box-shadow:0 0 28px rgba(212,168,67,0.25);transition:box-shadow 0.3s}
+  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:#d4a843;color:#0f0e0a;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:2px;cursor:pointer;border:none;box-shadow:0 0 28px rgba(212,168,67,0.25);transition:box-shadow 0.3s}
   .zg-cta:hover{box-shadow:0 0 44px rgba(212,168,67,0.45)}
   .zg-trust{margin-top:14px;font-size:10px;color:#3a3020;letter-spacing:1px}
   .zg-trust span{color:#d4a843}
@@ -60,34 +62,6 @@
   .zg-stat:last-child{border-right:none}
   .zg-stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#d4a843;text-shadow:0 0 20px rgba(212,168,67,0.25)}
   .zg-stat-label{font-size:10px;letter-spacing:2px;color:#4a4030;text-transform:uppercase;margin-top:5px}
-
-  /* GALLERY SECTION */
-  .zg-gallery-section{padding:52px 28px;background:#0D0B07;border-top:0.5px solid #2e2510}
-  .zg-section-header{text-align:center;margin-bottom:36px}
-  .zg-section-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#f0e6cc;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
-  .zg-section-sub{font-size:10px;letter-spacing:3px;color:#4a4030;text-transform:uppercase}
-
-  .zg-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto}
-
-  .zg-gallery-item{position:relative;border:0.5px solid #2e2510;border-radius:4px;overflow:hidden;cursor:none;background:#0c0b08;transition:border-color 0.3s,transform 0.3s}
-  .zg-gallery-item:hover{border-color:#d4a843;transform:translateY(-3px)}
-
-  .zg-gallery-item img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform 0.4s ease}
-  .zg-gallery-item:hover img{transform:scale(1.04)}
-
-  .zg-gallery-caption{padding:10px 12px;background:rgba(8,7,4,0.95);border-top:0.5px solid #2e2510}
-  .zg-gallery-caption p{font-size:11px;color:#a89060;line-height:1.5;text-align:right;direction:rtl;font-family:'Montserrat',sans-serif}
-
-  /* LIGHTBOX */
-  .zg-lightbox{position:fixed;inset:0;background:rgba(5,4,2,0.96);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:24px}
-  .zg-lightbox.active{display:flex}
-  .zg-lightbox img{max-width:90vw;max-height:75vh;object-fit:contain;border:0.5px solid #3a3020;border-radius:4px}
-  .zg-lightbox-caption{font-size:13px;color:#a89060;letter-spacing:1px;direction:rtl;text-align:center}
-  .zg-lightbox-close{position:absolute;top:20px;right:24px;font-size:24px;color:#6a5e44;cursor:pointer;background:none;border:none;font-family:'Montserrat',sans-serif;line-height:1}
-  .zg-lightbox-close:hover{color:#d4a843}
-  .zg-lightbox-nav{display:flex;gap:20px;align-items:center}
-  .zg-lightbox-btn{background:rgba(212,168,67,0.1);border:0.5px solid #3a3020;color:#d4a843;font-size:18px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
-  .zg-lightbox-btn:hover{background:rgba(212,168,67,0.25)}
 
   /* FEATURES */
   .zg-features{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #2e2510}
@@ -101,6 +75,34 @@
   .zg-footer{background:rgba(5,4,2,0.95);border-top:0.5px solid #2e2510;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
   .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#2e2010;text-transform:uppercase}
   .zg-footer-copy{font-size:10px;color:#2a2010;letter-spacing:1px}
+
+  /* GALLERY PAGE */
+  .zg-gallery-page{padding:48px 28px;max-width:960px;margin:0 auto}
+  .zg-gallery-header{text-align:center;margin-bottom:40px}
+  .zg-gallery-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#f0e6cc;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+  .zg-gallery-header p{font-size:10px;letter-spacing:3px;color:#4a4030;text-transform:uppercase}
+
+  .zg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .zg-card{border:0.5px solid #2e2510;border-radius:4px;overflow:hidden;background:#0c0b08;cursor:pointer;transition:border-color 0.3s,transform 0.3s}
+  .zg-card:hover{border-color:#d4a843;transform:translateY(-3px)}
+  .zg-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform 0.4s}
+  .zg-card:hover img{transform:scale(1.05)}
+  .zg-card-caption{padding:12px 14px;border-top:0.5px solid #2e2510;direction:rtl}
+  .zg-caption-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+  .zg-caption-label{font-size:9px;letter-spacing:1px;color:#5a5040;text-transform:uppercase}
+  .zg-caption-val{font-size:11px;color:#a89060;text-align:right}
+
+  /* LIGHTBOX */
+  .zg-lightbox{position:fixed;inset:0;background:rgba(5,4,2,0.97);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:24px}
+  .zg-lightbox.active{display:flex}
+  .zg-lightbox img{max-width:88vw;max-height:70vh;object-fit:contain;border:0.5px solid #3a3020;border-radius:4px}
+  .zg-lb-caption{direction:rtl;text-align:center}
+  .zg-lb-caption .zg-caption-row{justify-content:center;gap:24px;margin-bottom:6px}
+  .zg-lightbox-close{position:absolute;top:20px;right:24px;font-size:22px;color:#6a5e44;cursor:pointer;background:none;border:none;font-family:'Montserrat',sans-serif}
+  .zg-lightbox-close:hover{color:#d4a843}
+  .zg-lightbox-nav{display:flex;gap:16px}
+  .zg-lb-btn{background:rgba(212,168,67,0.1);border:0.5px solid #3a3020;color:#d4a843;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+  .zg-lb-btn:hover{background:rgba(212,168,67,0.25)}
 
   /* RTL */
   [dir=rtl] .zg-nav{flex-direction:row-reverse}
@@ -118,11 +120,12 @@
     #cursorGlow,#cursorDot{display:none}
     .zg-brand{font-size:26px;letter-spacing:3px}
     .zg-hero h1{font-size:22px}
-    .zg-gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+    .zg-grid{grid-template-columns:repeat(2,1fr);gap:10px}
     .zg-features{grid-template-columns:1fr}
     .zg-feature{border-right:none;border-bottom:0.5px solid #2e2510}
     .zg-feature:last-child{border-bottom:none}
     .zg-nav-links a{display:none}
+    .zg-nav-links a#navGallery{display:block}
   }
 </style>
 </head>
@@ -135,26 +138,28 @@
 <div class="zg-lightbox" id="lightbox">
   <button class="zg-lightbox-close" onclick="closeLightbox()">✕</button>
   <img id="lbImg" src="" alt=""/>
-  <p class="zg-lightbox-caption" id="lbCaption"></p>
+  <div class="zg-lb-caption" id="lbCaption"></div>
   <div class="zg-lightbox-nav">
-    <button class="zg-lightbox-btn" onclick="lbNav(-1)">‹</button>
-    <button class="zg-lightbox-btn" onclick="lbNav(1)">›</button>
+    <button class="zg-lb-btn" onclick="lbNav(-1)">‹</button>
+    <button class="zg-lb-btn" onclick="lbNav(1)">›</button>
   </div>
 </div>
 
-<div id="zgWrap">
-  <nav class="zg-nav">
-    <div class="zg-nav-links">
-      <a id="navGallery">Gallery</a>
-      <a id="navAbout">About</a>
-      <a id="navContact">Contact</a>
-    </div>
-    <div class="zg-lang">
-      <button class="active" onclick="setLang('en',this)">EN</button>
-      <button onclick="setLang('fa',this)">فا</button>
-    </div>
-  </nav>
+<!-- NAV (shared) -->
+<nav class="zg-nav" id="mainNav">
+  <div class="zg-nav-links">
+    <a id="navHome" onclick="showPage('home')" class="active">Home</a>
+    <a id="navGallery" onclick="showPage('gallery')">Gallery</a>
+    <a id="navContact" onclick="showPage('home')">Contact</a>
+  </div>
+  <div class="zg-lang">
+    <button class="active" onclick="setLang('en',this)">EN</button>
+    <button onclick="setLang('fa',this)">فا</button>
+  </div>
+</nav>
 
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
   <div class="zg-hero">
     <div class="zg-glow-top"></div>
     <div class="zg-brand-row"><span class="zg-brand">Zahedi Gold</span></div>
@@ -169,40 +174,31 @@
     </button>
     <p class="zg-trust" id="trustText"><span>★★★★★</span> · Free to join · No spam · Leave anytime</p>
   </div>
-
   <div class="zg-stats">
     <div class="zg-stat"><div class="zg-stat-num">851+</div><div class="zg-stat-label" id="s1">Members</div></div>
     <div class="zg-stat"><div class="zg-stat-num">100%</div><div class="zg-stat-label" id="s2">Authentic</div></div>
     <div class="zg-stat"><div class="zg-stat-num" id="s3n">Daily</div><div class="zg-stat-label" id="s3">New Pieces</div></div>
   </div>
-
-  <!-- GALLERY -->
-  <div class="zg-gallery-section">
-    <div class="zg-section-header">
-      <h2 class="zg-section-title" id="galleryTitle">Our Collection</h2>
-      <p class="zg-section-sub" id="gallerySub">Click any piece to view</p>
-    </div>
-    <div class="zg-gallery-grid" id="galleryGrid"></div>
-  </div>
-
   <div class="zg-features">
-    <div class="zg-feature">
-      <div class="zg-fi"><i class="ti ti-diamond"></i></div>
-      <div class="zg-fl" id="f1l">Premium Quality</div>
-      <div class="zg-fd" id="f1d">Certified authentic gold pieces directly from our gallery</div>
-    </div>
-    <div class="zg-feature">
-      <div class="zg-fi"><i class="ti ti-tag"></i></div>
-      <div class="zg-fl" id="f2l">Best Price</div>
-      <div class="zg-fd" id="f2d">No middleman. Direct pricing from the source</div>
-    </div>
-    <div class="zg-feature">
-      <div class="zg-fi"><i class="ti ti-shield-check"></i></div>
-      <div class="zg-fl" id="f3l">Trusted</div>
-      <div class="zg-fd" id="f3d">Over 851 members rely on us daily</div>
-    </div>
+    <div class="zg-feature"><div class="zg-fi"><i class="ti ti-diamond"></i></div><div class="zg-fl" id="f1l">Premium Quality</div><div class="zg-fd" id="f1d">Certified authentic gold pieces directly from our gallery</div></div>
+    <div class="zg-feature"><div class="zg-fi"><i class="ti ti-tag"></i></div><div class="zg-fl" id="f2l">Best Price</div><div class="zg-fd" id="f2d">No middleman. Direct pricing from the source</div></div>
+    <div class="zg-feature"><div class="zg-fi"><i class="ti ti-shield-check"></i></div><div class="zg-fl" id="f3l">Trusted</div><div class="zg-fd" id="f3d">Over 851 members rely on us daily</div></div>
   </div>
+  <div class="zg-footer">
+    <div class="zg-footer-brand">Zahedi Gold Gallery</div>
+    <div class="zg-footer-copy">© 2026 · Iran</div>
+  </div>
+</div>
 
+<!-- GALLERY PAGE -->
+<div class="page" id="page-gallery">
+  <div class="zg-gallery-page">
+    <div class="zg-gallery-header">
+      <h2 id="galleryTitle">Our Collection</h2>
+      <p id="gallerySub">Tap any piece to view in detail</p>
+    </div>
+    <div class="zg-grid" id="galleryGrid"></div>
+  </div>
   <div class="zg-footer">
     <div class="zg-footer-brand">Zahedi Gold Gallery</div>
     <div class="zg-footer-copy">© 2026 · Iran</div>
@@ -210,62 +206,75 @@
 </div>
 
 <script>
-// ── GALLERY DATA ──
+// ── PHOTOS ──
+// To add more photos: copy one block and change filename, model, weight, labor
 const photos = [
-  { id:'1PWJkiWHr7Ts4Hj-OERpEvGdm6QI5Z3v5', caption:'سرویس، وزن ۵۵ گرم' },
-  { id:'1oOpQTOiKjjTvFOu-WNbykHlwcohmd9kZ', caption:'گردنبند' },
-  { id:'1pOp7BG49Nenx05_s41n5Z3yW3RLFit1c', caption:'گردنبند بدون اجرت، وزن ۱۸.۵ گرم، بدون این‌ور بازار' },
-  { id:'1btkH-y2XFTbEjLEddnblOPBl823g6PlK', caption:'گردنبند نازک بدون اجرت، وزن ۸ گرم، به شرط چاقو' },
-  { id:'1pqxoYAqH-f79z5FOEOmWJDl4c0ZUo0I9', caption:'گوشواره‌های حلقه‌ای، تعداد محدود، خوش قیمت' },
+  {
+    src: 'https://zahedi-gold.github.io/photo1.webp',
+    model: 'سرویس',
+    weight: '۵۵ گرم',
+    labor: 'تماس بگیرید'
+  },
+  // ADD MORE PHOTOS HERE LIKE THIS:
+  // { src:'https://zahedi-gold.github.io/photo2.webp', model:'گردنبند', weight:'۱۸ گرم', labor:'بدون اجرت' },
 ];
 
-function imgUrl(id){ return `https://drive.google.com/uc?export=view&id=${id}`; }
-
-// build grid
+// build gallery grid
 const grid = document.getElementById('galleryGrid');
 photos.forEach((p, i) => {
-  const item = document.createElement('div');
-  item.className = 'zg-gallery-item';
-  item.innerHTML = `
-    <img src="${imgUrl(p.id)}" alt="${p.caption}" loading="lazy"/>
-    <div class="zg-gallery-caption"><p>${p.caption}</p></div>
-  `;
-  item.addEventListener('click', () => openLightbox(i));
-  grid.appendChild(item);
+  const card = document.createElement('div');
+  card.className = 'zg-card';
+  card.innerHTML = `
+    <img src="${p.src}" alt="${p.model}" loading="lazy"/>
+    <div class="zg-card-caption">
+      <div class="zg-caption-row"><span class="zg-caption-label">مدل</span><span class="zg-caption-val">${p.model}</span></div>
+      <div class="zg-caption-row"><span class="zg-caption-label">وزن</span><span class="zg-caption-val">${p.weight}</span></div>
+      <div class="zg-caption-row"><span class="zg-caption-label">اجرت</span><span class="zg-caption-val">${p.labor}</span></div>
+    </div>`;
+  card.addEventListener('click', () => openLightbox(i));
+  grid.appendChild(card);
 });
 
 // ── LIGHTBOX ──
 let currentIdx = 0;
 function openLightbox(i){
   currentIdx = i;
-  document.getElementById('lbImg').src = imgUrl(photos[i].id);
-  document.getElementById('lbCaption').textContent = photos[i].caption;
+  const p = photos[i];
+  document.getElementById('lbImg').src = p.src;
+  document.getElementById('lbCaption').innerHTML = `
+    <div class="zg-caption-row"><span class="zg-caption-label">مدل</span><span class="zg-caption-val">${p.model}</span></div>
+    <div class="zg-caption-row"><span class="zg-caption-label">وزن</span><span class="zg-caption-val">${p.weight}</span></div>
+    <div class="zg-caption-row"><span class="zg-caption-label">اجرت</span><span class="zg-caption-val">${p.labor}</span></div>`;
   document.getElementById('lightbox').classList.add('active');
 }
 function closeLightbox(){ document.getElementById('lightbox').classList.remove('active'); }
-function lbNav(dir){
-  currentIdx = (currentIdx + dir + photos.length) % photos.length;
-  openLightbox(currentIdx);
+function lbNav(dir){ currentIdx=(currentIdx+dir+photos.length)%photos.length; openLightbox(currentIdx); }
+document.getElementById('lightbox').addEventListener('click', e => { if(e.target===document.getElementById('lightbox')) closeLightbox(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); if(e.key==='ArrowRight') lbNav(1); if(e.key==='ArrowLeft') lbNav(-1); });
+
+// ── PAGE NAVIGATION ──
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.zg-nav-links a').forEach(a=>a.classList.remove('active'));
+  document.getElementById('nav'+name.charAt(0).toUpperCase()+name.slice(1)).classList.add('active');
+  window.scrollTo(0,0);
 }
-document.getElementById('lightbox').addEventListener('click', e => {
-  if(e.target === document.getElementById('lightbox')) closeLightbox();
-});
-document.addEventListener('keydown', e => {
-  if(e.key==='Escape') closeLightbox();
-  if(e.key==='ArrowRight') lbNav(1);
-  if(e.key==='ArrowLeft') lbNav(-1);
-});
 
 // ── BILINGUAL ──
 const content={
-  en:{dir:'ltr',navGallery:'Gallery',navAbout:'About',navContact:'Contact',tagline:'Est. Gold Gallery · Iran',heroTitle:'Authentic Gold.<br/><em>Trusted by Thousands.</em>',heroSub:'Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.',ctaText:'Join our WhatsApp group',trustText:'<span>★★★★★</span> · Free to join · No spam · Leave anytime',s1:'Members',s2:'Authentic',s3n:'Daily',s3:'New Pieces',galleryTitle:'Our Collection',gallerySub:'Click any piece to view',f1l:'Premium Quality',f1d:'Certified authentic gold pieces directly from our gallery',f2l:'Best Price',f2d:'No middleman. Direct pricing from the source',f3l:'Trusted',f3d:'Over 851 members rely on us daily'},
-  fa:{dir:'rtl',navGallery:'گالری',navAbout:'درباره ما',navContact:'تماس',tagline:'گالری طلا · ایران',heroTitle:'طلای اصیل.<br/><em>مورد اعتماد هزاران نفر.</em>',heroSub:'به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.',ctaText:'عضویت در گروه واتساپ',trustText:'<span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان',s1:'عضو',s2:'اصالت',s3n:'روزانه',s3:'محصول جدید',galleryTitle:'مجموعه ما',gallerySub:'برای مشاهده کلیک کنید',f1l:'کیفیت برتر',f1d:'طلای اصل و تأییدشده مستقیم از گالری',f2l:'بهترین قیمت',f2d:'بدون واسطه، قیمت مستقیم از منبع',f3l:'مورد اعتماد',f3d:'بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند'}
+  en:{dir:'ltr',navHome:'Home',navGallery:'Gallery',navContact:'Contact',tagline:'Est. Gold Gallery · Iran',heroTitle:'Authentic Gold.<br/><em>Trusted by Thousands.</em>',heroSub:'Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.',ctaText:'Join our WhatsApp group',trustText:'<span>★★★★★</span> · Free to join · No spam · Leave anytime',s1:'Members',s2:'Authentic',s3n:'Daily',s3:'New Pieces',galleryTitle:'Our Collection',gallerySub:'Tap any piece to view in detail',f1l:'Premium Quality',f1d:'Certified authentic gold pieces directly from our gallery',f2l:'Best Price',f2d:'No middleman. Direct pricing from the source',f3l:'Trusted',f3d:'Over 851 members rely on us daily'},
+  fa:{dir:'rtl',navHome:'خانه',navGallery:'گالری',navContact:'تماس',tagline:'گالری طلا · ایران',heroTitle:'طلای اصیل.<br/><em>مورد اعتماد هزاران نفر.</em>',heroSub:'به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.',ctaText:'عضویت در گروه واتساپ',trustText:'<span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان',s1:'عضو',s2:'اصالت',s3n:'روزانه',s3:'محصول جدید',galleryTitle:'مجموعه ما',gallerySub:'برای مشاهده روی هر قطعه ضربه بزنید',f1l:'کیفیت برتر',f1d:'طلای اصل و تأییدشده مستقیم از گالری',f2l:'بهترین قیمت',f2d:'بدون واسطه، قیمت مستقیم از منبع',f3l:'مورد اعتماد',f3d:'بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند'}
 };
 function setLang(lang,btn){
   const c=content[lang];
-  document.getElementById('zgWrap').setAttribute('dir',c.dir);
-  ['navGallery','navAbout','navContact','tagline','heroSub','ctaText','s1','s2','s3n','s3','galleryTitle','gallerySub','f1l','f1d','f2l','f2d','f3l','f3d'].forEach(id=>{
-    document.getElementById(id).textContent=c[id];
+  document.querySelectorAll('#page-home,#page-gallery').forEach(p=>p.setAttribute('dir',c.dir));
+  document.getElementById('mainNav').setAttribute('dir',c.dir);
+  document.getElementById('navHome').textContent=c.navHome;
+  document.getElementById('navGallery').textContent=c.navGallery;
+  document.getElementById('navContact').textContent=c.navContact;
+  ['tagline','heroSub','ctaText','s1','s2','s3n','s3','galleryTitle','gallerySub','f1l','f1d','f2l','f2d','f3l','f3d'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.textContent=c[id];
   });
   document.getElementById('heroTitle').innerHTML=c.heroTitle;
   document.getElementById('trustText').innerHTML=c.trustText;
@@ -293,10 +302,9 @@ function explode(x,y){
   bloom.style.left=x+'px';bloom.style.top=y+'px';
   document.body.appendChild(bloom);bloom.addEventListener('animationend',()=>bloom.remove());
   for(let r=0;r<2;r++){
-    const ripple=document.createElement('div');ripple.className='ripple';
-    ripple.style.left=x+'px';ripple.style.top=y+'px';
-    ripple.style.animationDelay=(r*0.13)+'s';
-    document.body.appendChild(ripple);ripple.addEventListener('animationend',()=>ripple.remove());
+    const rip=document.createElement('div');rip.className='ripple';
+    rip.style.left=x+'px';rip.style.top=y+'px';rip.style.animationDelay=(r*0.13)+'s';
+    document.body.appendChild(rip);rip.addEventListener('animationend',()=>rip.remove());
   }
   for(let i=0;i<20;i++){
     const p=document.createElement('div');p.className='particle';
@@ -308,13 +316,10 @@ function explode(x,y){
   }
 }
 document.addEventListener('click',e=>{
-  if(!e.target.closest('.zg-lightbox-btn')&&!e.target.closest('.zg-lightbox-close')&&!e.target.closest('.zg-lang'))
+  if(!e.target.closest('.zg-lb-btn')&&!e.target.closest('.zg-lightbox-close')&&!e.target.closest('.zg-lang'))
     explode(e.clientX,e.clientY);
 });
 document.addEventListener('touchstart',e=>{
-  Array.from(e.touches).forEach(t=>explode(t.clientX,t.clientY));
-},{passive:true});
-document.addEventListener('touchmove',e=>{
   Array.from(e.touches).forEach(t=>explode(t.clientX,t.clientY));
 },{passive:true});
 </script>
