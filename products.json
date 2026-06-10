@@ -1,1 +1,26 @@
-
+[
+  {
+    "id": "bracelet-001",
+    "category": "bracelets",
+    "image": "images/bracelets/bracelet-001.webp",
+    "model": { "fa": "دستبند", "en": "Bracelet" },
+    "weight": { "fa": "وزن", "en": "Weight" },
+    "labor":  { "fa": "اجرت", "en": "Labor" }
+  },
+  {
+    "id": "necklace-001",
+    "category": "necklaces",
+    "image": "images/necklaces/necklace-001.webp",
+    "model": { "fa": "گردنبند", "en": "Necklace" },
+    "weight": { "fa": "وزن", "en": "Weight" },
+    "labor":  { "fa": "اجرت", "en": "Labor" }
+  },
+  {
+    "id": "earring-001",
+    "category": "earrings",
+    "image": "images/earrings/earring-001.webp",
+    "model": { "fa": "گوشواره", "en": "Earring" },
+    "weight": { "fa": "وزن", "en": "Weight" },
+    "labor":  { "fa": "اجرت", "en": "Labor" }
+  }
+]
