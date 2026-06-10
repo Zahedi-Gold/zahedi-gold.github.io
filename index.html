@@ -76,33 +76,51 @@
   .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#2e2010;text-transform:uppercase}
   .zg-footer-copy{font-size:10px;color:#2a2010;letter-spacing:1px}
 
-  /* GALLERY PAGE */
-  .zg-gallery-page{padding:48px 28px;max-width:960px;margin:0 auto}
-  .zg-gallery-header{text-align:center;margin-bottom:40px}
-  .zg-gallery-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#f0e6cc;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
-  .zg-gallery-header p{font-size:10px;letter-spacing:3px;color:#4a4030;text-transform:uppercase}
+  /* GALLERY — CATEGORY PAGE */
+  .zg-page-inner{padding:48px 28px;max-width:960px;margin:0 auto}
+  .zg-page-header{text-align:center;margin-bottom:40px}
+  .zg-page-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#f0e6cc;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+  .zg-page-header p{font-size:10px;letter-spacing:3px;color:#4a4030;text-transform:uppercase}
 
+  /* BACK BUTTON */
+  .zg-back{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#6a5e44;cursor:pointer;margin-bottom:32px;background:none;border:none;font-family:'Montserrat',sans-serif;transition:color 0.2s}
+  .zg-back:hover{color:#d4a843}
+  .zg-back i{font-size:14px}
+
+  /* CATEGORY CARDS */
+  .zg-cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .zg-cat-card{border:0.5px solid #2e2510;border-radius:4px;overflow:hidden;background:#0c0b08;cursor:pointer;transition:border-color 0.3s,transform 0.3s;padding:32px 16px;text-align:center}
+  .zg-cat-card:hover{border-color:#d4a843;transform:translateY(-3px)}
+  .zg-cat-icon{font-size:28px;color:#d4a843;margin-bottom:12px}
+  .zg-cat-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#f0e6cc;letter-spacing:2px;margin-bottom:6px}
+  .zg-cat-count{font-size:10px;letter-spacing:2px;color:#4a4030;text-transform:uppercase}
+
+  /* PRODUCT GRID */
   .zg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .zg-card{border:0.5px solid #2e2510;border-radius:4px;overflow:hidden;background:#0c0b08;cursor:pointer;transition:border-color 0.3s,transform 0.3s}
   .zg-card:hover{border-color:#d4a843;transform:translateY(-3px)}
   .zg-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform 0.4s}
   .zg-card:hover img{transform:scale(1.05)}
-  .zg-card-caption{padding:12px 14px;border-top:0.5px solid #2e2510;direction:rtl}
+  .zg-card-caption{padding:12px 14px;border-top:0.5px solid #2e2510}
   .zg-caption-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
   .zg-caption-label{font-size:9px;letter-spacing:1px;color:#5a5040;text-transform:uppercase}
-  .zg-caption-val{font-size:11px;color:#a89060;text-align:right}
+  .zg-caption-val{font-size:11px;color:#a89060}
 
   /* LIGHTBOX */
   .zg-lightbox{position:fixed;inset:0;background:rgba(5,4,2,0.97);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:24px}
   .zg-lightbox.active{display:flex}
   .zg-lightbox img{max-width:88vw;max-height:70vh;object-fit:contain;border:0.5px solid #3a3020;border-radius:4px}
-  .zg-lb-caption{direction:rtl;text-align:center}
+  .zg-lb-caption{text-align:center}
   .zg-lb-caption .zg-caption-row{justify-content:center;gap:24px;margin-bottom:6px}
   .zg-lightbox-close{position:absolute;top:20px;right:24px;font-size:22px;color:#6a5e44;cursor:pointer;background:none;border:none;font-family:'Montserrat',sans-serif}
   .zg-lightbox-close:hover{color:#d4a843}
   .zg-lightbox-nav{display:flex;gap:16px}
   .zg-lb-btn{background:rgba(212,168,67,0.1);border:0.5px solid #3a3020;color:#d4a843;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
   .zg-lb-btn:hover{background:rgba(212,168,67,0.25)}
+
+  /* EMPTY STATE */
+  .zg-empty{text-align:center;padding:60px 20px;color:#3a3020;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+  .zg-empty i{font-size:32px;color:#2a2010;display:block;margin-bottom:16px}
 
   /* RTL */
   [dir=rtl] .zg-nav{flex-direction:row-reverse}
@@ -113,6 +131,8 @@
   [dir=rtl] .zg-feature{border-right:none;border-left:0.5px solid #2e2510}
   [dir=rtl] .zg-feature:last-child{border-left:none}
   [dir=rtl] .zg-footer{flex-direction:row-reverse}
+  [dir=rtl] .zg-card-caption{direction:rtl}
+  [dir=rtl] .zg-lb-caption{direction:rtl}
 
   /* MOBILE */
   @media(max-width:600px){
@@ -120,6 +140,7 @@
     #cursorGlow,#cursorDot{display:none}
     .zg-brand{font-size:26px;letter-spacing:3px}
     .zg-hero h1{font-size:22px}
+    .zg-cat-grid{grid-template-columns:repeat(2,1fr)}
     .zg-grid{grid-template-columns:repeat(2,1fr);gap:10px}
     .zg-features{grid-template-columns:1fr}
     .zg-feature{border-right:none;border-bottom:0.5px solid #2e2510}
@@ -145,10 +166,10 @@
   </div>
 </div>
 
-<!-- NAV (shared) -->
+<!-- NAV -->
 <nav class="zg-nav" id="mainNav">
   <div class="zg-nav-links">
-    <a id="navHome" onclick="showPage('home')" class="active">Home</a>
+    <a id="navHome" onclick="showPage('home')">Home</a>
     <a id="navGallery" onclick="showPage('gallery')">Gallery</a>
     <a id="navContact" onclick="showPage('home')">Contact</a>
   </div>
@@ -190,14 +211,33 @@
   </div>
 </div>
 
-<!-- GALLERY PAGE -->
+<!-- GALLERY — CATEGORIES PAGE -->
 <div class="page" id="page-gallery">
-  <div class="zg-gallery-page">
-    <div class="zg-gallery-header">
+  <div class="zg-page-inner">
+    <div class="zg-page-header">
       <h2 id="galleryTitle">Our Collection</h2>
-      <p id="gallerySub">Tap any piece to view in detail</p>
+      <p id="gallerySub">Choose a category</p>
     </div>
-    <div class="zg-grid" id="galleryGrid"></div>
+    <div class="zg-cat-grid" id="catGrid"></div>
+  </div>
+  <div class="zg-footer">
+    <div class="zg-footer-brand">Zahedi Gold Gallery</div>
+    <div class="zg-footer-copy">© 2026 · Iran</div>
+  </div>
+</div>
+
+<!-- CATEGORY PRODUCTS PAGE -->
+<div class="page" id="page-category">
+  <div class="zg-page-inner">
+    <button class="zg-back" id="backBtn" onclick="showPage('gallery')">
+      <i class="ti ti-arrow-left"></i>
+      <span id="backText">Back to Gallery</span>
+    </button>
+    <div class="zg-page-header">
+      <h2 id="catTitle"></h2>
+      <p id="catSub"></p>
+    </div>
+    <div class="zg-grid" id="productGrid"></div>
   </div>
   <div class="zg-footer">
     <div class="zg-footer-brand">Zahedi Gold Gallery</div>
@@ -206,65 +246,96 @@
 </div>
 
 <script>
-// ── PHOTOS ──
-// To add more photos: copy one block and change filename, model, weight, labor
-const photos = [
-  {
-    src: 'https://zahedi-gold.github.io/photo1.webp',
-    model:  { fa:'سرویس',  en:'Set' },
-    weight: { fa:'۵۵ گرم', en:'55g' },
-    labor:  { fa:'تماس بگیرید', en:'Contact us' }
-  },
-  {
-    src: 'https://zahedi-gold.github.io/photo2.webp',
-    model:  { fa:'مدل',  en:'Model' },
-    weight: { fa:'وزن', en:'Weight' },
-    labor:  { fa:'اجرت', en:'Labor' }
-  },
-  {
-    src: 'https://zahedi-gold.github.io/photo3.webp',
-    model:  { fa:'مدل',  en:'Model' },
-    weight: { fa:'وزن', en:'Weight' },
-    labor:  { fa:'اجرت', en:'Labor' }
-  },
+// ── CATEGORIES DEFINITION ──
+const categories = [
+  { id:'bracelets', icon:'ti-link',       en:'Bracelets',  fa:'دستبند'  },
+  { id:'necklaces', icon:'ti-hearts',     en:'Necklaces',  fa:'گردنبند' },
+  { id:'earrings',  icon:'ti-circle',     en:'Earrings',   fa:'گوشواره' },
+  { id:'sets',      icon:'ti-diamond',    en:'Sets',       fa:'سرویس'   },
+  { id:'rings',     icon:'ti-ring',       en:'Rings',      fa:'انگشتر'  },
+  { id:'coins',     icon:'ti-coin',       en:'Coins',      fa:'سکه'     },
+  { id:'chains',    icon:'ti-link',       en:'Chains',     fa:'زنجیر'   },
+  { id:'baby',      icon:'ti-star',       en:'Baby',       fa:'طلای بچه'},
 ];
 
-// build gallery grid
+let allProducts = [];
 let currentLang = 'en';
-const grid = document.getElementById('galleryGrid');
+let currentCategoryProducts = [];
+let currentIdx = 0;
 
-function buildGrid(){
+// ── LOAD PRODUCTS FROM JSON ──
+fetch('products.json')
+  .then(r => r.json())
+  .then(data => {
+    allProducts = data;
+    buildCategoryGrid();
+  })
+  .catch(() => {
+    allProducts = [];
+    buildCategoryGrid();
+  });
+
+// ── BUILD CATEGORY GRID ──
+function buildCategoryGrid(){
+  const grid = document.getElementById('catGrid');
   grid.innerHTML = '';
-  const l = currentLang;
-  const labels = l==='fa'
-    ? {model:'مدل', weight:'وزن', labor:'اجرت'}
-    : {model:'Model', weight:'Weight', labor:'Labor'};
-  photos.forEach((p, i) => {
+  categories.forEach(cat => {
+    const count = allProducts.filter(p => p.category === cat.id).length;
     const card = document.createElement('div');
-    card.className = 'zg-card';
+    card.className = 'zg-cat-card';
     card.innerHTML = `
-      <img src="${p.src}" alt="${p.model[l]}" loading="lazy"/>
-      <div class="zg-card-caption">
-        <div class="zg-caption-row"><span class="zg-caption-label">${labels.model}</span><span class="zg-caption-val">${p.model[l]}</span></div>
-        <div class="zg-caption-row"><span class="zg-caption-label">${labels.weight}</span><span class="zg-caption-val">${p.weight[l]}</span></div>
-        <div class="zg-caption-row"><span class="zg-caption-label">${labels.labor}</span><span class="zg-caption-val">${p.labor[l]}</span></div>
-      </div>`;
-    card.addEventListener('click', () => openLightbox(i));
+      <div class="zg-cat-icon"><i class="ti ${cat.icon}"></i></div>
+      <div class="zg-cat-name">${currentLang==='fa' ? cat.fa : cat.en}</div>
+      <div class="zg-cat-count">${count} ${currentLang==='fa' ? 'قطعه' : 'pieces'}</div>`;
+    card.addEventListener('click', () => openCategory(cat));
     grid.appendChild(card);
   });
 }
-buildGrid();
 
-// ── LIGHTBOX ──
-let currentIdx = 0;
-function openLightbox(i){
-  currentIdx = i;
-  const p = photos[i];
+// ── OPEN CATEGORY ──
+function openCategory(cat){
+  const products = allProducts.filter(p => p.category === cat.id);
+  currentCategoryProducts = products;
   const l = currentLang;
   const labels = l==='fa'
     ? {model:'مدل', weight:'وزن', labor:'اجرت'}
     : {model:'Model', weight:'Weight', labor:'Labor'};
-  document.getElementById('lbImg').src = p.src;
+
+  document.getElementById('catTitle').textContent = l==='fa' ? cat.fa : cat.en;
+  document.getElementById('catSub').textContent = products.length + ' ' + (l==='fa' ? 'قطعه موجود' : 'pieces available');
+
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = '';
+
+  if(products.length === 0){
+    grid.innerHTML = `<div class="zg-empty" style="grid-column:1/-1"><i class="ti ti-mood-empty"></i>${l==='fa' ? 'به زودی اضافه می‌شود' : 'Coming soon'}</div>`;
+  } else {
+    products.forEach((p, i) => {
+      const card = document.createElement('div');
+      card.className = 'zg-card';
+      card.innerHTML = `
+        <img src="${p.image}" alt="${p.model[l]}" loading="lazy"/>
+        <div class="zg-card-caption">
+          <div class="zg-caption-row"><span class="zg-caption-label">${labels.model}</span><span class="zg-caption-val">${p.model[l]}</span></div>
+          <div class="zg-caption-row"><span class="zg-caption-label">${labels.weight}</span><span class="zg-caption-val">${p.weight[l]}</span></div>
+          <div class="zg-caption-row"><span class="zg-caption-label">${labels.labor}</span><span class="zg-caption-val">${p.labor[l]}</span></div>
+        </div>`;
+      card.addEventListener('click', () => openLightbox(i));
+      grid.appendChild(card);
+    });
+  }
+  showPage('category');
+}
+
+// ── LIGHTBOX ──
+function openLightbox(i){
+  currentIdx = i;
+  const p = currentCategoryProducts[i];
+  const l = currentLang;
+  const labels = l==='fa'
+    ? {model:'مدل', weight:'وزن', labor:'اجرت'}
+    : {model:'Model', weight:'Weight', labor:'Labor'};
+  document.getElementById('lbImg').src = p.image;
   document.getElementById('lbCaption').innerHTML = `
     <div class="zg-caption-row"><span class="zg-caption-label">${labels.model}</span><span class="zg-caption-val">${p.model[l]}</span></div>
     <div class="zg-caption-row"><span class="zg-caption-label">${labels.weight}</span><span class="zg-caption-val">${p.weight[l]}</span></div>
@@ -272,7 +343,10 @@ function openLightbox(i){
   document.getElementById('lightbox').classList.add('active');
 }
 function closeLightbox(){ document.getElementById('lightbox').classList.remove('active'); }
-function lbNav(dir){ currentIdx=(currentIdx+dir+photos.length)%photos.length; openLightbox(currentIdx); }
+function lbNav(dir){
+  currentIdx=(currentIdx+dir+currentCategoryProducts.length)%currentCategoryProducts.length;
+  openLightbox(currentIdx);
+}
 document.getElementById('lightbox').addEventListener('click', e => { if(e.target===document.getElementById('lightbox')) closeLightbox(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); if(e.key==='ArrowRight') lbNav(1); if(e.key==='ArrowLeft') lbNav(-1); });
 
@@ -281,23 +355,27 @@ function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   document.querySelectorAll('.zg-nav-links a').forEach(a=>a.classList.remove('active'));
-  document.getElementById('nav'+name.charAt(0).toUpperCase()+name.slice(1)).classList.add('active');
+  const navMap = {home:'navHome', gallery:'navGallery', category:'navGallery'};
+  const navEl = document.getElementById(navMap[name]);
+  if(navEl) navEl.classList.add('active');
   window.scrollTo(0,0);
 }
 
 // ── BILINGUAL ──
 const content={
-  en:{dir:'ltr',navHome:'Home',navGallery:'Gallery',navContact:'Contact',tagline:'Est. Gold Gallery · Iran',heroTitle:'Authentic Gold.<br/><em>Trusted by Thousands.</em>',heroSub:'Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.',ctaText:'Join our WhatsApp group',trustText:'<span>★★★★★</span> · Free to join · No spam · Leave anytime',s1:'Members',s2:'Authentic',s3n:'Daily',s3:'New Pieces',galleryTitle:'Our Collection',gallerySub:'Tap any piece to view in detail',f1l:'Premium Quality',f1d:'Certified authentic gold pieces directly from our gallery',f2l:'Best Price',f2d:'No middleman. Direct pricing from the source',f3l:'Trusted',f3d:'Over 851 members rely on us daily'},
-  fa:{dir:'rtl',navHome:'خانه',navGallery:'گالری',navContact:'تماس',tagline:'گالری طلا · ایران',heroTitle:'طلای اصیل.<br/><em>مورد اعتماد هزاران نفر.</em>',heroSub:'به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.',ctaText:'عضویت در گروه واتساپ',trustText:'<span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان',s1:'عضو',s2:'اصالت',s3n:'روزانه',s3:'محصول جدید',galleryTitle:'مجموعه ما',gallerySub:'برای مشاهده روی هر قطعه ضربه بزنید',f1l:'کیفیت برتر',f1d:'طلای اصل و تأییدشده مستقیم از گالری',f2l:'بهترین قیمت',f2d:'بدون واسطه، قیمت مستقیم از منبع',f3l:'مورد اعتماد',f3d:'بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند'}
+  en:{dir:'ltr',navHome:'Home',navGallery:'Gallery',navContact:'Contact',tagline:'Est. Gold Gallery · Iran',heroTitle:'Authentic Gold.<br/><em>Trusted by Thousands.</em>',heroSub:'Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.',ctaText:'Join our WhatsApp group',trustText:'<span>★★★★★</span> · Free to join · No spam · Leave anytime',s1:'Members',s2:'Authentic',s3n:'Daily',s3:'New Pieces',galleryTitle:'Our Collection',gallerySub:'Choose a category',backText:'Back to Gallery',f1l:'Premium Quality',f1d:'Certified authentic gold pieces directly from our gallery',f2l:'Best Price',f2d:'No middleman. Direct pricing from the source',f3l:'Trusted',f3d:'Over 851 members rely on us daily'},
+  fa:{dir:'rtl',navHome:'خانه',navGallery:'گالری',navContact:'تماس',tagline:'گالری طلا · ایران',heroTitle:'طلای اصیل.<br/><em>مورد اعتماد هزاران نفر.</em>',heroSub:'به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.',ctaText:'عضویت در گروه واتساپ',trustText:'<span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان',s1:'عضو',s2:'اصالت',s3n:'روزانه',s3:'محصول جدید',galleryTitle:'مجموعه ما',gallerySub:'یک دسته‌بندی انتخاب کنید',backText:'بازگشت به گالری',f1l:'کیفیت برتر',f1d:'طلای اصل و تأییدشده مستقیم از گالری',f2l:'بهترین قیمت',f2d:'بدون واسطه، قیمت مستقیم از منبع',f3l:'مورد اعتماد',f3d:'بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند'}
 };
+
 function setLang(lang,btn){
   currentLang = lang;
-  const c=content[lang];
-  document.querySelectorAll('#page-home,#page-gallery').forEach(p=>p.setAttribute('dir',c.dir));
+  const c = content[lang];
+  document.querySelectorAll('.page').forEach(p=>p.setAttribute('dir',c.dir));
   document.getElementById('mainNav').setAttribute('dir',c.dir);
   document.getElementById('navHome').textContent=c.navHome;
   document.getElementById('navGallery').textContent=c.navGallery;
   document.getElementById('navContact').textContent=c.navContact;
+  document.getElementById('backText').textContent=c.backText;
   ['tagline','heroSub','ctaText','s1','s2','s3n','s3','galleryTitle','gallerySub','f1l','f1d','f2l','f2d','f3l','f3d'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.textContent=c[id];
   });
@@ -305,8 +383,11 @@ function setLang(lang,btn){
   document.getElementById('trustText').innerHTML=c.trustText;
   document.querySelectorAll('.zg-lang button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  buildGrid();
+  buildCategoryGrid();
 }
+
+// set home active on load
+document.getElementById('navHome').classList.add('active');
 
 // ── DESKTOP CURSOR ──
 const glowEl=document.getElementById('cursorGlow');
