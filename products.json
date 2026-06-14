@@ -29,4 +29,14 @@
     "weight": { "fa": "۶ گرم", "en": "6g" },
     "labor":  { "fa": "بدون اجرت", "en": "No labor" }
   }
+  {
+    "id": "گردنبند مینیمال mom",
+    "category": "necklaces",
+    "image": "images/necklaces/گردنبند مینیمال mom.webp",
+    "code": "NK-001",
+    "available": true,
+    "model": { "fa": "گرنبند", "en": "necklace" },
+    "weight": { "fa": "۱.۰۸ گرم", "en": "1.08 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
 ]
