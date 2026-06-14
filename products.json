@@ -3,24 +3,30 @@
     "id": "bracelet-001",
     "category": "bracelets",
     "image": "images/bracelets/bracelet-001.webp",
+    "code": "BR-001",
+    "available": true,
     "model": { "fa": "دستبند", "en": "Bracelet" },
-    "weight": { "fa": "وزن", "en": "Weight" },
-    "labor":  { "fa": "اجرت", "en": "Labor" }
+    "weight": { "fa": "۱۲ گرم", "en": "12g" },
+    "labor":  { "fa": "بدون اجرت", "en": "No labor" }
   },
   {
     "id": "necklace-001",
     "category": "necklaces",
     "image": "images/necklaces/necklace-001.webp",
+    "code": "NC-001",
+    "available": true,
     "model": { "fa": "گردنبند", "en": "Necklace" },
-    "weight": { "fa": "وزن", "en": "Weight" },
-    "labor":  { "fa": "اجرت", "en": "Labor" }
+    "weight": { "fa": "۱۸ گرم", "en": "18g" },
+    "labor":  { "fa": "اجرت دارد", "en": "Labor included" }
   },
   {
     "id": "earring-001",
     "category": "earrings",
     "image": "images/earrings/earring-001.webp",
-    "model": { "fa": "گوشواره", "en": "Earring" },
-    "weight": { "fa": "وزن", "en": "Weight" },
-    "labor":  { "fa": "اجرت", "en": "Labor" }
+    "code": "ER-001",
+    "available": false,
+    "model": { "fa": "گوشواره حلقه", "en": "Hoop Earring" },
+    "weight": { "fa": "۶ گرم", "en": "6g" },
+    "labor":  { "fa": "بدون اجرت", "en": "No labor" }
   }
 ]
