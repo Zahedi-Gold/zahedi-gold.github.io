@@ -8,15 +8,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Montserrat',sans-serif;background:#0D0B07;color:#f0e6cc;overflow-x:hidden;cursor:none}
-  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(201,168,76,0.08) 0%,transparent 55%),radial-gradient(ellipse at 80% 15%,rgba(201,168,76,0.06) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(201,168,76,0.04) 0%,transparent 50%);pointer-events:none;z-index:0}
+  body{font-family:'Montserrat',sans-serif;background:#e8e8e4;color:#b8860b;overflow-x:hidden;cursor:none}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(201,168,76,0.12) 0%,transparent 55%),radial-gradient(ellipse at 80% 15%,rgba(201,168,76,0.08) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(201,168,76,0.06) 0%,transparent 50%);pointer-events:none;z-index:0}
 
-  #cursorGlow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(212,168,67,0.12) 0%,rgba(212,168,67,0.04) 40%,transparent 70%);opacity:0;transition:opacity 0.4s ease}
-  #cursorDot{position:fixed;width:6px;height:6px;border-radius:50%;background:#d4a843;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 8px 3px rgba(212,168,67,0.5);opacity:0;transition:opacity 0.3s ease}
+  #cursorGlow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(212,168,67,0.18) 0%,rgba(212,168,67,0.06) 40%,transparent 70%);opacity:0;transition:opacity 0.4s ease}
+  #cursorDot{position:fixed;width:6px;height:6px;border-radius:50%;background:#b8860b;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 8px 3px rgba(184,134,11,0.5);opacity:0;transition:opacity 0.3s ease}
 
   .particle{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);animation:burst 0.8s ease-out forwards;z-index:9997}
   @keyframes burst{0%{transform:translate(-50%,-50%) scale(0);opacity:1}60%{opacity:0.8}100%{transform:translate(var(--tx),var(--ty)) scale(var(--s));opacity:0}}
-  .ripple{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);border:1.5px solid rgba(212,168,67,0.55);animation:rippleOut 0.7s ease-out forwards;z-index:9997}
+  .ripple{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);border:1.5px solid rgba(184,134,11,0.55);animation:rippleOut 0.7s ease-out forwards;z-index:9997}
   @keyframes rippleOut{0%{width:0;height:0;opacity:0.8;margin:0}100%{width:130px;height:130px;opacity:0;margin:-65px 0 0 -65px}}
   .bloom{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(212,168,67,0.22) 0%,transparent 70%);width:200px;height:200px;animation:bloomFade 0.6s ease-out forwards;z-index:9996}
   @keyframes bloomFade{0%{opacity:1;transform:translate(-50%,-50%) scale(0.15)}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
@@ -26,109 +26,115 @@
   .page.active{display:block}
 
   /* NAV */
-  .zg-nav{background:rgba(10,9,5,0.9);border-bottom:0.5px solid #2e2510;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:44px;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+  .zg-nav{background:rgba(220,220,216,0.95);border-bottom:0.5px solid #c8a84a;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:44px;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
   .zg-nav-links{display:flex;gap:24px;align-items:center}
-  .zg-nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#6a5e44;text-decoration:none;cursor:pointer;transition:color 0.2s}
-  .zg-nav-links a:hover,.zg-nav-links a.active{color:#d4a843}
-  .zg-lang{display:flex;border:0.5px solid #3a3020;border-radius:3px;overflow:hidden}
-  .zg-lang button{font-size:10px;letter-spacing:1px;padding:4px 11px;border:none;cursor:pointer;background:transparent;color:#6a5e44;font-family:'Montserrat',sans-serif}
-  .zg-lang button.active{background:#d4a843;color:#0f0e0a;font-weight:500}
+  .zg-nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#9a7a20;text-decoration:none;cursor:pointer;transition:color 0.2s}
+  .zg-nav-links a:hover,.zg-nav-links a.active{color:#b8860b}
+  .zg-lang{display:flex;border:0.5px solid #c8a84a;border-radius:3px;overflow:hidden}
+  .zg-lang button{font-size:10px;letter-spacing:1px;padding:4px 11px;border:none;cursor:pointer;background:transparent;color:#9a7a20;font-family:'Montserrat',sans-serif}
+  .zg-lang button.active{background:#b8860b;color:#fff;font-weight:500}
 
   /* HERO */
   .zg-hero{padding:48px 28px 44px;text-align:center;position:relative}
-  .zg-glow-top{position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:1px;background:#d4a843;opacity:0.5;box-shadow:0 0 40px 14px rgba(212,168,67,0.15),0 0 80px 30px rgba(212,168,67,0.06)}
+  .zg-glow-top{position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:1px;background:#b8860b;opacity:0.6;box-shadow:0 0 40px 14px rgba(184,134,11,0.2),0 0 80px 30px rgba(184,134,11,0.1)}
   .zg-brand-row{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:6px}
-  .zg-brand-row::before{content:'';flex:1;height:0.5px;background:linear-gradient(to right,transparent,#d4a843)}
-  .zg-brand-row::after{content:'';flex:1;height:0.5px;background:linear-gradient(to left,transparent,#d4a843)}
-  .zg-brand{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#d4a843;letter-spacing:5px;text-transform:uppercase;white-space:nowrap}
-  .zg-tagline{font-size:10px;letter-spacing:5px;color:#5a5040;text-transform:uppercase;margin-bottom:36px}
-  .zg-emblem{width:50px;height:50px;border:0.5px solid #3a3020;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative}
-  .zg-emblem::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:0.5px solid #2a2010}
-  .zg-emblem i{font-size:22px;color:#d4a843}
-  .zg-hero h1{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#f0e6cc;letter-spacing:2px;margin-bottom:14px;line-height:1.4}
-  .zg-hero h1 em{color:#d4a843;font-style:normal}
-  .zg-hero p{font-size:12px;color:#6a5e44;letter-spacing:1px;line-height:2;max-width:380px;margin:0 auto 30px}
+  .zg-brand-row::before{content:'';flex:1;height:0.5px;background:linear-gradient(to right,transparent,#b8860b)}
+  .zg-brand-row::after{content:'';flex:1;height:0.5px;background:linear-gradient(to left,transparent,#b8860b)}
+  .zg-brand{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#b8860b;letter-spacing:5px;text-transform:uppercase;white-space:nowrap}
+  .zg-tagline{font-size:10px;letter-spacing:5px;color:#9a8850;text-transform:uppercase;margin-bottom:36px}
+  .zg-emblem{width:50px;height:50px;border:0.5px solid #c8a84a;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative}
+  .zg-emblem::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:0.5px solid #d4b86a}
+  .zg-emblem i{font-size:22px;color:#b8860b}
+  .zg-hero h1{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#6b4f0a;letter-spacing:2px;margin-bottom:14px;line-height:1.4}
+  .zg-hero h1 em{color:#b8860b;font-style:normal}
+  .zg-hero p{font-size:12px;color:#9a7a20;letter-spacing:1px;line-height:2;max-width:380px;margin:0 auto 30px}
   .zg-divider{display:flex;align-items:center;gap:10px;margin:0 auto 30px;max-width:240px}
-  .zg-divider::before,.zg-divider::after{content:'';flex:1;height:0.5px;background:#2e2510}
-  .zg-gem{width:6px;height:6px;background:#d4a843;transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 6px 2px rgba(212,168,67,0.3)}
-  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:#d4a843;color:#0f0e0a;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:2px;cursor:pointer;border:none;box-shadow:0 0 28px rgba(212,168,67,0.25);transition:box-shadow 0.3s}
-  .zg-cta:hover{box-shadow:0 0 44px rgba(212,168,67,0.45)}
-  .zg-trust{margin-top:14px;font-size:10px;color:#3a3020;letter-spacing:1px}
-  .zg-trust span{color:#d4a843}
+  .zg-divider::before,.zg-divider::after{content:'';flex:1;height:0.5px;background:#c8a84a}
+  .zg-gem{width:6px;height:6px;background:#b8860b;transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 6px 2px rgba(184,134,11,0.4)}
+  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:#b8860b;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:2px;cursor:pointer;border:none;box-shadow:0 0 28px rgba(184,134,11,0.3);transition:box-shadow 0.3s}
+  .zg-cta:hover{box-shadow:0 0 44px rgba(184,134,11,0.5)}
+  .zg-trust{margin-top:14px;font-size:10px;color:#b0a080;letter-spacing:1px}
+  .zg-trust span{color:#b8860b}
 
   /* STATS */
-  .zg-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #2e2510;background:rgba(8,7,4,0.6)}
-  .zg-stat{padding:22px 16px;text-align:center;border-right:0.5px solid #2e2510}
+  .zg-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #c8a84a;background:rgba(210,210,205,0.6)}
+  .zg-stat{padding:22px 16px;text-align:center;border-right:0.5px solid #c8a84a}
   .zg-stat:last-child{border-right:none}
-  .zg-stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#d4a843;text-shadow:0 0 20px rgba(212,168,67,0.25)}
-  .zg-stat-label{font-size:10px;letter-spacing:2px;color:#4a4030;text-transform:uppercase;margin-top:5px}
+  .zg-stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#b8860b;text-shadow:0 0 20px rgba(212,168,67,0.25)}
+  .zg-stat-label{font-size:10px;letter-spacing:2px;color:#a08840;text-transform:uppercase;margin-top:5px}
 
   /* FEATURES */
-  .zg-features{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #2e2510}
-  .zg-feature{padding:22px 18px;border-right:0.5px solid #2e2510;background:rgba(13,11,7,0.7)}
+  .zg-features{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #c8a84a}
+  .zg-feature{padding:22px 18px;border-right:0.5px solid #c8a84a;background:rgba(215,215,210,0.7)}
   .zg-feature:last-child{border-right:none}
-  .zg-fi{font-size:18px;margin-bottom:10px;color:#d4a843}
-  .zg-fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#c8b080;font-weight:500;margin-bottom:5px}
-  .zg-fd{font-size:11px;color:#4a4030;line-height:1.7}
+  .zg-fi{font-size:18px;margin-bottom:10px;color:#b8860b}
+  .zg-fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8a6a10;font-weight:500;margin-bottom:5px}
+  .zg-fd{font-size:11px;color:#a08840;line-height:1.7}
 
   /* FOOTER */
-  .zg-footer{background:rgba(5,4,2,0.95);border-top:0.5px solid #2e2510;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
-  .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#2e2010;text-transform:uppercase}
-  .zg-footer-copy{font-size:10px;color:#2a2010;letter-spacing:1px}
+  .zg-footer{background:rgba(200,200,195,0.95);border-top:0.5px solid #c8a84a;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+  .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#b8a870;text-transform:uppercase}
+  .zg-footer-copy{font-size:10px;color:#b0a060;letter-spacing:1px}
 
   /* GALLERY — CATEGORY PAGE */
   .zg-page-inner{padding:48px 28px;max-width:960px;margin:0 auto}
   .zg-page-header{text-align:center;margin-bottom:40px}
-  .zg-page-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#f0e6cc;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
-  .zg-page-header p{font-size:10px;letter-spacing:3px;color:#4a4030;text-transform:uppercase}
+  .zg-page-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#6b4f0a;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+  .zg-page-header p{font-size:10px;letter-spacing:3px;color:#a08840;text-transform:uppercase}
 
   /* BACK BUTTON */
-  .zg-back{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#6a5e44;cursor:pointer;margin-bottom:32px;background:none;border:none;font-family:'Montserrat',sans-serif;transition:color 0.2s}
-  .zg-back:hover{color:#d4a843}
+  .zg-back{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9a7a20;cursor:pointer;margin-bottom:32px;background:none;border:none;font-family:'Montserrat',sans-serif;transition:color 0.2s}
+  .zg-back:hover{color:#b8860b}
   .zg-back i{font-size:14px}
 
   /* CATEGORY CARDS */
   .zg-cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .zg-cat-card{border:0.5px solid #2e2510;border-radius:4px;overflow:hidden;background:#0c0b08;cursor:pointer;transition:border-color 0.3s,transform 0.3s;padding:32px 16px;text-align:center}
-  .zg-cat-card:hover{border-color:#d4a843;transform:translateY(-3px)}
-  .zg-cat-icon{font-size:28px;color:#d4a843;margin-bottom:12px}
-  .zg-cat-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#f0e6cc;letter-spacing:2px;margin-bottom:6px}
-  .zg-cat-count{font-size:10px;letter-spacing:2px;color:#4a4030;text-transform:uppercase}
+  .zg-cat-card{border:0.5px solid #c8a84a;border-radius:4px;overflow:hidden;background:#dcdcd8;cursor:pointer;transition:border-color 0.3s,transform 0.3s;padding:32px 16px;text-align:center}
+  .zg-cat-card:hover{border-color:#b8860b;transform:translateY(-3px)}
+  .zg-cat-icon{font-size:28px;color:#b8860b;margin-bottom:12px}
+  .zg-cat-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#6b4f0a;letter-spacing:2px;margin-bottom:6px}
+  .zg-cat-count{font-size:10px;letter-spacing:2px;color:#a08840;text-transform:uppercase}
 
   /* PRODUCT GRID */
   .zg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .zg-card{border:0.5px solid #2e2510;border-radius:4px;overflow:hidden;background:#0c0b08;cursor:pointer;transition:border-color 0.3s,transform 0.3s}
-  .zg-card:hover{border-color:#d4a843;transform:translateY(-3px)}
+  .zg-card{border:0.5px solid #c8a84a;border-radius:4px;overflow:hidden;background:#dcdcd8;cursor:pointer;transition:border-color 0.3s,transform 0.3s}
+  .zg-card:hover{border-color:#b8860b;transform:translateY(-3px)}
   .zg-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform 0.4s}
   .zg-card:hover img{transform:scale(1.05)}
-  .zg-card-caption{padding:12px 14px;border-top:0.5px solid #2e2510}
+  .zg-card-caption{padding:12px 14px;border-top:0.5px solid #c8a84a}
   .zg-caption-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-  .zg-caption-label{font-size:9px;letter-spacing:1px;color:#5a5040;text-transform:uppercase}
-  .zg-caption-val{font-size:11px;color:#a89060}
+  .zg-caption-label{font-size:9px;letter-spacing:1px;color:#9a8850;text-transform:uppercase}
+  .zg-caption-val{font-size:11px;color:#8a6a10}
 
   /* LIGHTBOX */
-  .zg-lightbox{position:fixed;inset:0;background:rgba(5,4,2,0.97);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:24px}
+  .zg-lightbox{position:fixed;inset:0;background:rgba(230,230,226,0.97);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:24px}
   .zg-lightbox.active{display:flex}
-  .zg-lightbox img{max-width:88vw;max-height:70vh;object-fit:contain;border:0.5px solid #3a3020;border-radius:4px}
+  .zg-lightbox img{max-width:88vw;max-height:70vh;object-fit:contain;border:0.5px solid #c8a84a;border-radius:4px}
   .zg-lb-caption{text-align:center}
   .zg-lb-caption .zg-caption-row{justify-content:center;gap:24px;margin-bottom:6px}
-  .zg-lightbox-close{position:absolute;top:20px;right:24px;font-size:22px;color:#6a5e44;cursor:pointer;background:none;border:none;font-family:'Montserrat',sans-serif}
-  .zg-lightbox-close:hover{color:#d4a843}
+  .zg-lightbox-close{position:absolute;top:20px;right:24px;font-size:22px;color:#9a7a20;cursor:pointer;background:none;border:none;font-family:'Montserrat',sans-serif}
+  .zg-lightbox-close:hover{color:#b8860b}
   .zg-lightbox-nav{display:flex;gap:16px}
-  .zg-lb-btn{background:rgba(212,168,67,0.1);border:0.5px solid #3a3020;color:#d4a843;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+  .zg-lb-btn{background:rgba(212,168,67,0.1);border:0.5px solid #c8a84a;color:#b8860b;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
   .zg-lb-btn:hover{background:rgba(212,168,67,0.25)}
 
+  /* AVAILABILITY BADGE */
+  .zg-badge{display:inline-block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-bottom:6px}
+  .zg-badge.available{background:rgba(50,180,80,0.12);color:#50b450;border:0.5px solid rgba(50,180,80,0.3)}
+  .zg-badge.unavailable{background:rgba(180,50,50,0.12);color:#c05050;border:0.5px solid rgba(180,50,50,0.3)}
+  .zg-code{font-size:9px;letter-spacing:2px;color:#b0a060;text-transform:uppercase;margin-top:2px}
+
   /* EMPTY STATE */
-  .zg-empty{text-align:center;padding:60px 20px;color:#3a3020;font-size:12px;letter-spacing:2px;text-transform:uppercase}
-  .zg-empty i{font-size:32px;color:#2a2010;display:block;margin-bottom:16px}
+  .zg-empty{text-align:center;padding:60px 20px;color:#b0a060;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+  .zg-empty i{font-size:32px;color:#b0a060;display:block;margin-bottom:16px}
 
   /* RTL */
   [dir=rtl] .zg-nav{flex-direction:row-reverse}
-  [dir=rtl] .zg-brand-row::before{background:linear-gradient(to left,transparent,#d4a843)}
-  [dir=rtl] .zg-brand-row::after{background:linear-gradient(to right,transparent,#d4a843)}
-  [dir=rtl] .zg-stat{border-right:none;border-left:0.5px solid #2e2510}
+  [dir=rtl] .zg-brand-row::before{background:linear-gradient(to left,transparent,#b8860b)}
+  [dir=rtl] .zg-brand-row::after{background:linear-gradient(to right,transparent,#b8860b)}
+  [dir=rtl] .zg-stat{border-right:none;border-left:0.5px solid #c8a84a}
   [dir=rtl] .zg-stat:last-child{border-left:none}
-  [dir=rtl] .zg-feature{border-right:none;border-left:0.5px solid #2e2510}
+  [dir=rtl] .zg-feature{border-right:none;border-left:0.5px solid #c8a84a}
   [dir=rtl] .zg-feature:last-child{border-left:none}
   [dir=rtl] .zg-footer{flex-direction:row-reverse}
   [dir=rtl] .zg-card-caption{direction:rtl}
@@ -143,7 +149,7 @@
     .zg-cat-grid{grid-template-columns:repeat(2,1fr)}
     .zg-grid{grid-template-columns:repeat(2,1fr);gap:10px}
     .zg-features{grid-template-columns:1fr}
-    .zg-feature{border-right:none;border-bottom:0.5px solid #2e2510}
+    .zg-feature{border-right:none;border-bottom:0.5px solid #c8a84a}
     .zg-feature:last-child{border-bottom:none}
     .zg-nav-links{gap:14px}
     .zg-nav-links a{font-size:9px;letter-spacing:1px}
@@ -313,12 +319,17 @@ function openCategory(cat){
     products.forEach((p, i) => {
       const card = document.createElement('div');
       card.className = 'zg-card';
+      const avail = p.available;
+      const availLabel = l==='fa' ? (avail?'موجود':'ناموجود') : (avail?'Available':'Sold Out');
+      const availColor = avail ? '#6abf7b' : '#bf6a6a';
       card.innerHTML = `
         <img src="${p.image}" alt="${p.model[l]}" loading="lazy"/>
         <div class="zg-card-caption">
           <div class="zg-caption-row"><span class="zg-caption-label">${labels.model}</span><span class="zg-caption-val">${p.model[l]}</span></div>
           <div class="zg-caption-row"><span class="zg-caption-label">${labels.weight}</span><span class="zg-caption-val">${p.weight[l]}</span></div>
           <div class="zg-caption-row"><span class="zg-caption-label">${labels.labor}</span><span class="zg-caption-val">${p.labor[l]}</span></div>
+          <div class="zg-caption-row"><span class="zg-caption-label">${l==='fa'?'کد':'Code'}</span><span class="zg-caption-val">${p.code}</span></div>
+          <div class="zg-caption-row"><span class="zg-caption-label">${l==='fa'?'وضعیت':'Status'}</span><span class="zg-caption-val" style="color:${availColor}">${availLabel}</span></div>
         </div>`;
       card.addEventListener('click', () => openLightbox(i));
       grid.appendChild(card);
@@ -332,6 +343,9 @@ function openLightbox(i){
   currentIdx = i;
   const p = currentCategoryProducts[i];
   const l = currentLang;
+  const avail = p.available;
+  const availLabel = l==='fa' ? (avail?'موجود':'ناموجود') : (avail?'Available':'Sold Out');
+  const availColor = avail ? '#6abf7b' : '#bf6a6a';
   const labels = l==='fa'
     ? {model:'مدل', weight:'وزن', labor:'اجرت'}
     : {model:'Model', weight:'Weight', labor:'Labor'};
@@ -339,7 +353,9 @@ function openLightbox(i){
   document.getElementById('lbCaption').innerHTML = `
     <div class="zg-caption-row"><span class="zg-caption-label">${labels.model}</span><span class="zg-caption-val">${p.model[l]}</span></div>
     <div class="zg-caption-row"><span class="zg-caption-label">${labels.weight}</span><span class="zg-caption-val">${p.weight[l]}</span></div>
-    <div class="zg-caption-row"><span class="zg-caption-label">${labels.labor}</span><span class="zg-caption-val">${p.labor[l]}</span></div>`;
+    <div class="zg-caption-row"><span class="zg-caption-label">${labels.labor}</span><span class="zg-caption-val">${p.labor[l]}</span></div>
+    <div class="zg-caption-row"><span class="zg-caption-label">${l==='fa'?'کد':'Code'}</span><span class="zg-caption-val">${p.code}</span></div>
+    <div class="zg-caption-row"><span class="zg-caption-label">${l==='fa'?'وضعیت':'Status'}</span><span class="zg-caption-val" style="color:${availColor}">${availLabel}</span></div>`;
   document.getElementById('lightbox').classList.add('active');
 }
 function closeLightbox(){ document.getElementById('lightbox').classList.remove('active'); }
