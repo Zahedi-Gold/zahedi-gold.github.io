@@ -30,9 +30,9 @@
     "labor":  { "fa": "بدون اجرت", "en": "No labor" }
   }
   {
-    "id": "گردنبند مینیمال mom",
+    "id": "گردنبند مینیمال مام",
     "category": "necklaces",
-    "image": "images/necklaces/گردنبند مینیمال mom.webp",
+    "image": "images/necklaces/گردنبند مینیمال مام.webp",
     "code": "گردنبند مینیمال mom",
     "available": true,
     "model": { "fa": "گرنبند", "en": "necklace" },
