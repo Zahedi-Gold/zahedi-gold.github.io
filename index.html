@@ -4,137 +4,136 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Zahedi Gold Gallery</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Montserrat',sans-serif;background:#e8e8e4;color:#b8860b;overflow-x:hidden;cursor:none}
-  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 40%,rgba(201,168,76,0.12) 0%,transparent 55%),radial-gradient(ellipse at 80% 15%,rgba(201,168,76,0.08) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(201,168,76,0.06) 0%,transparent 50%);pointer-events:none;z-index:0}
+  body{font-family:'Montserrat',sans-serif;background:#0a1628;color:#e8dfc8;overflow-x:hidden;cursor:none}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(20,40,80,0.8) 0%,transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(200,168,64,0.06) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(10,25,60,0.4) 0%,transparent 70%);pointer-events:none;z-index:0}
 
-  #cursorGlow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(212,168,67,0.18) 0%,rgba(212,168,67,0.06) 40%,transparent 70%);opacity:0;transition:opacity 0.4s ease}
-  #cursorDot{position:fixed;width:6px;height:6px;border-radius:50%;background:#b8860b;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 8px 3px rgba(184,134,11,0.5);opacity:0;transition:opacity 0.3s ease}
+  #cursorGlow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(200,168,64,0.14) 0%,rgba(200,168,64,0.05) 40%,transparent 70%);opacity:0;transition:opacity 0.4s ease}
+  #cursorDot{position:fixed;width:6px;height:6px;border-radius:50%;background:#e8c84a;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 8px 3px rgba(200,168,64,0.6);opacity:0;transition:opacity 0.3s ease}
 
   .particle{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);animation:burst 0.8s ease-out forwards;z-index:9997}
   @keyframes burst{0%{transform:translate(-50%,-50%) scale(0);opacity:1}60%{opacity:0.8}100%{transform:translate(var(--tx),var(--ty)) scale(var(--s));opacity:0}}
-  .ripple{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);border:1.5px solid rgba(184,134,11,0.55);animation:rippleOut 0.7s ease-out forwards;z-index:9997}
-  @keyframes rippleOut{0%{width:0;height:0;opacity:0.8;margin:0}100%{width:130px;height:130px;opacity:0;margin:-65px 0 0 -65px}}
-  .bloom{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(212,168,67,0.22) 0%,transparent 70%);width:200px;height:200px;animation:bloomFade 0.6s ease-out forwards;z-index:9996}
+  .ripple{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);border:1.5px solid rgba(200,168,64,0.6);animation:rippleOut 0.7s ease-out forwards;z-index:9997}
+  @keyframes rippleOut{0%{width:0;height:0;opacity:0.9;margin:0}100%{width:130px;height:130px;opacity:0;margin:-65px 0 0 -65px}}
+  .bloom{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(200,168,64,0.25) 0%,transparent 70%);width:200px;height:200px;animation:bloomFade 0.6s ease-out forwards;z-index:9996}
   @keyframes bloomFade{0%{opacity:1;transform:translate(-50%,-50%) scale(0.15)}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
 
-  /* PAGES */
   .page{display:none;position:relative;z-index:1;min-height:100vh}
   .page.active{display:block}
 
   /* NAV */
-  .zg-nav{background:rgba(220,220,216,0.95);border-bottom:0.5px solid #c8a84a;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:44px;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+  .zg-nav{background:rgba(8,16,36,0.92);border-bottom:0.5px solid rgba(200,168,64,0.35);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:44px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
   .zg-nav-links{display:flex;gap:24px;align-items:center}
-  .zg-nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#9a7a20;text-decoration:none;cursor:pointer;transition:color 0.2s}
-  .zg-nav-links a:hover,.zg-nav-links a.active{color:#b8860b}
-  .zg-lang{display:flex;border:0.5px solid #c8a84a;border-radius:3px;overflow:hidden}
-  .zg-lang button{font-size:10px;letter-spacing:1px;padding:4px 11px;border:none;cursor:pointer;background:transparent;color:#9a7a20;font-family:'Montserrat',sans-serif}
-  .zg-lang button.active{background:#b8860b;color:#fff;font-weight:500}
+  .zg-nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#6a6040;text-decoration:none;cursor:pointer;transition:color 0.2s;font-weight:500}
+  .zg-nav-links a:hover,.zg-nav-links a.active{color:#e8c84a}
+  .zg-lang{display:flex;border:0.5px solid rgba(200,168,64,0.5);border-radius:3px;overflow:hidden}
+  .zg-lang button{font-size:10px;letter-spacing:1px;padding:4px 11px;border:none;cursor:pointer;background:transparent;color:#6a6040;font-family:'Montserrat',sans-serif;font-weight:500}
+  .zg-lang button.active{background:linear-gradient(135deg,#c8a840,#e8c860);color:#0a1628;font-weight:600}
 
   /* HERO */
   .zg-hero{padding:48px 28px 44px;text-align:center;position:relative}
-  .zg-glow-top{position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:1px;background:#b8860b;opacity:0.6;box-shadow:0 0 40px 14px rgba(184,134,11,0.2),0 0 80px 30px rgba(184,134,11,0.1)}
+  .zg-glow-top{position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:1px;background:#c8a840;opacity:0.6;box-shadow:0 0 40px 14px rgba(200,168,64,0.2),0 0 80px 30px rgba(200,168,64,0.1)}
   .zg-brand-row{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:6px}
-  .zg-brand-row::before{content:'';flex:1;height:0.5px;background:linear-gradient(to right,transparent,#b8860b)}
-  .zg-brand-row::after{content:'';flex:1;height:0.5px;background:linear-gradient(to left,transparent,#b8860b)}
-  .zg-brand{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#b8860b;letter-spacing:5px;text-transform:uppercase;white-space:nowrap}
-  .zg-tagline{font-size:10px;letter-spacing:5px;color:#9a8850;text-transform:uppercase;margin-bottom:36px}
-  .zg-emblem{width:50px;height:50px;border:0.5px solid #c8a84a;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative}
-  .zg-emblem::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:0.5px solid #d4b86a}
-  .zg-emblem i{font-size:22px;color:#b8860b}
-  .zg-hero h1{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#6b4f0a;letter-spacing:2px;margin-bottom:14px;line-height:1.4}
-  .zg-hero h1 em{color:#b8860b;font-style:normal}
-  .zg-hero p{font-size:12px;color:#9a7a20;letter-spacing:1px;line-height:2;max-width:380px;margin:0 auto 30px}
+  .zg-brand-row::before{content:'';flex:1;height:0.5px;background:linear-gradient(to right,transparent,#c8a840)}
+  .zg-brand-row::after{content:'';flex:1;height:0.5px;background:linear-gradient(to left,transparent,#c8a840)}
+  .zg-brand{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;letter-spacing:5px;text-transform:uppercase;white-space:nowrap;background:linear-gradient(135deg,#c8a840,#f0d878,#c8a840);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 12px rgba(200,168,64,0.3))}
+  .zg-tagline{font-size:10px;letter-spacing:5px;color:#5a5438;text-transform:uppercase;margin-bottom:36px;font-weight:500}
+  .zg-emblem{width:52px;height:52px;border:0.5px solid rgba(200,168,64,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;background:rgba(200,168,64,0.08);box-shadow:0 0 20px rgba(200,168,64,0.15)}
+  .zg-emblem::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:0.5px solid rgba(200,168,64,0.2)}
+  .zg-emblem i{font-size:22px;color:#e8c84a}
+  .zg-hero h1{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#e8dfc8;letter-spacing:2px;margin-bottom:14px;line-height:1.4}
+  .zg-hero h1 em{background:linear-gradient(135deg,#c8a840,#f0d878,#e8c850);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;font-weight:700}
+  .zg-hero p{font-size:12px;color:#7a7050;letter-spacing:1px;line-height:2;max-width:380px;margin:0 auto 30px;font-weight:400}
   .zg-divider{display:flex;align-items:center;gap:10px;margin:0 auto 30px;max-width:240px}
-  .zg-divider::before,.zg-divider::after{content:'';flex:1;height:0.5px;background:#c8a84a}
-  .zg-gem{width:6px;height:6px;background:#b8860b;transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 6px 2px rgba(184,134,11,0.4)}
-  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:#b8860b;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:2px;cursor:pointer;border:none;box-shadow:0 0 28px rgba(184,134,11,0.3);transition:box-shadow 0.3s}
-  .zg-cta:hover{box-shadow:0 0 44px rgba(184,134,11,0.5)}
-  .zg-trust{margin-top:14px;font-size:10px;color:#b0a080;letter-spacing:1px}
-  .zg-trust span{color:#b8860b}
+  .zg-divider::before,.zg-divider::after{content:'';flex:1;height:0.5px;background:rgba(200,168,64,0.35)}
+  .zg-gem{width:6px;height:6px;background:linear-gradient(135deg,#c8a840,#f0d878);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 8px rgba(200,168,64,0.5)}
+  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#a07820,#c8a840,#f0d878,#c8a840);background-size:200% auto;color:#0a1628;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:2px;cursor:pointer;border:none;box-shadow:0 4px 24px rgba(200,168,64,0.3);transition:background-position 0.4s,box-shadow 0.3s}
+  .zg-cta:hover{background-position:right center;box-shadow:0 6px 32px rgba(200,168,64,0.5)}
+  .zg-trust{margin-top:14px;font-size:10px;color:#5a5438;letter-spacing:1px;font-weight:500}
+  .zg-trust span{color:#e8c84a;font-weight:600}
 
   /* STATS */
-  .zg-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #c8a84a;background:rgba(210,210,205,0.6)}
-  .zg-stat{padding:22px 16px;text-align:center;border-right:0.5px solid #c8a84a}
+  .zg-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid rgba(200,168,64,0.2);background:rgba(5,12,28,0.6)}
+  .zg-stat{padding:22px 16px;text-align:center;border-right:0.5px solid rgba(200,168,64,0.15)}
   .zg-stat:last-child{border-right:none}
-  .zg-stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#b8860b;text-shadow:0 0 20px rgba(212,168,67,0.25)}
-  .zg-stat-label{font-size:10px;letter-spacing:2px;color:#a08840;text-transform:uppercase;margin-top:5px}
+  .zg-stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,#c8a840,#f0d878);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .zg-stat-label{font-size:10px;letter-spacing:2px;color:#5a5438;text-transform:uppercase;margin-top:5px;font-weight:500}
 
   /* FEATURES */
-  .zg-features{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid #c8a84a}
-  .zg-feature{padding:22px 18px;border-right:0.5px solid #c8a84a;background:rgba(215,215,210,0.7)}
+  .zg-features{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid rgba(200,168,64,0.15)}
+  .zg-feature{padding:22px 18px;border-right:0.5px solid rgba(200,168,64,0.12);background:rgba(10,18,40,0.5)}
   .zg-feature:last-child{border-right:none}
-  .zg-fi{font-size:18px;margin-bottom:10px;color:#b8860b}
-  .zg-fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8a6a10;font-weight:500;margin-bottom:5px}
-  .zg-fd{font-size:11px;color:#a08840;line-height:1.7}
+  .zg-fi{font-size:18px;margin-bottom:10px;color:#e8c84a}
+  .zg-fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d4a830;font-weight:600;margin-bottom:5px}
+  .zg-fd{font-size:11px;color:#6a6040;line-height:1.7;font-weight:400}
 
   /* FOOTER */
-  .zg-footer{background:rgba(200,200,195,0.95);border-top:0.5px solid #c8a84a;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
-  .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#b8a870;text-transform:uppercase}
-  .zg-footer-copy{font-size:10px;color:#b0a060;letter-spacing:1px}
+  .zg-footer{background:rgba(5,10,24,0.85);border-top:0.5px solid rgba(200,168,64,0.2);padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+  .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#5a5238;text-transform:uppercase;font-weight:600}
+  .zg-footer-copy{font-size:10px;color:#4a4430;letter-spacing:1px}
 
-  /* GALLERY — CATEGORY PAGE */
+  /* GALLERY PAGES */
   .zg-page-inner{padding:48px 28px;max-width:960px;margin:0 auto}
   .zg-page-header{text-align:center;margin-bottom:40px}
-  .zg-page-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#6b4f0a;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
-  .zg-page-header p{font-size:10px;letter-spacing:3px;color:#a08840;text-transform:uppercase}
+  .zg-page-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,#c8a840,#f0d878);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+  .zg-page-header p{font-size:10px;letter-spacing:3px;color:#5a5438;text-transform:uppercase;font-weight:500}
 
   /* BACK BUTTON */
-  .zg-back{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9a7a20;cursor:pointer;margin-bottom:32px;background:none;border:none;font-family:'Montserrat',sans-serif;transition:color 0.2s}
-  .zg-back:hover{color:#b8860b}
+  .zg-back{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8a7a50;cursor:pointer;margin-bottom:32px;background:none;border:none;font-family:'Montserrat',sans-serif;transition:color 0.2s;font-weight:500}
+  .zg-back:hover{color:#e8c84a}
   .zg-back i{font-size:14px}
 
   /* CATEGORY CARDS */
   .zg-cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .zg-cat-card{border:0.5px solid #c8a84a;border-radius:4px;overflow:hidden;background:#dcdcd8;cursor:pointer;transition:border-color 0.3s,transform 0.3s;padding:32px 16px;text-align:center}
-  .zg-cat-card:hover{border-color:#b8860b;transform:translateY(-3px)}
-  .zg-cat-icon{font-size:28px;color:#b8860b;margin-bottom:12px}
-  .zg-cat-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#6b4f0a;letter-spacing:2px;margin-bottom:6px}
-  .zg-cat-count{font-size:10px;letter-spacing:2px;color:#a08840;text-transform:uppercase}
+  .zg-cat-card{border:0.5px solid rgba(200,168,64,0.2);border-radius:4px;overflow:hidden;background:rgba(10,18,40,0.7);cursor:pointer;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;padding:32px 16px;text-align:center}
+  .zg-cat-card:hover{border-color:#c8a840;transform:translateY(-3px);box-shadow:0 8px 32px rgba(200,168,64,0.15)}
+  .zg-cat-icon{font-size:28px;color:#e8c84a;margin-bottom:12px}
+  .zg-cat-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;background:linear-gradient(135deg,#c8a840,#f0d878);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;margin-bottom:6px}
+  .zg-cat-count{font-size:10px;letter-spacing:2px;color:#5a5438;text-transform:uppercase;font-weight:500}
 
   /* PRODUCT GRID */
   .zg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .zg-card{border:0.5px solid #c8a84a;border-radius:4px;overflow:hidden;background:#dcdcd8;cursor:pointer;transition:border-color 0.3s,transform 0.3s}
-  .zg-card:hover{border-color:#b8860b;transform:translateY(-3px)}
+  .zg-card{border:0.5px solid rgba(200,168,64,0.2);border-radius:4px;overflow:hidden;background:rgba(10,18,40,0.7);cursor:pointer;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
+  .zg-card:hover{border-color:#c8a840;transform:translateY(-3px);box-shadow:0 8px 32px rgba(200,168,64,0.15)}
   .zg-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform 0.4s}
   .zg-card:hover img{transform:scale(1.05)}
-  .zg-card-caption{padding:12px 14px;border-top:0.5px solid #c8a84a}
+  .zg-card-caption{padding:12px 14px;border-top:0.5px solid rgba(200,168,64,0.15)}
   .zg-caption-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-  .zg-caption-label{font-size:9px;letter-spacing:1px;color:#9a8850;text-transform:uppercase}
-  .zg-caption-val{font-size:11px;color:#8a6a10}
+  .zg-caption-label{font-size:9px;letter-spacing:1px;color:#5a5438;text-transform:uppercase;font-weight:500}
+  .zg-caption-val{font-size:11px;color:#c8a840;font-weight:600}
+
+  /* AVAILABILITY */
+  .zg-badge{display:inline-block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-bottom:6px;font-weight:600}
+  .zg-badge.available{background:rgba(50,180,80,0.1);color:#40c060;border:0.5px solid rgba(50,180,80,0.3)}
+  .zg-badge.unavailable{background:rgba(180,50,50,0.1);color:#c05050;border:0.5px solid rgba(180,50,50,0.3)}
+  .zg-code{font-size:9px;letter-spacing:2px;color:#4a4430;text-transform:uppercase;font-weight:500}
 
   /* LIGHTBOX */
-  .zg-lightbox{position:fixed;inset:0;background:rgba(230,230,226,0.97);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:24px}
+  .zg-lightbox{position:fixed;inset:0;background:rgba(4,8,20,0.97);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:24px}
   .zg-lightbox.active{display:flex}
-  .zg-lightbox img{max-width:88vw;max-height:70vh;object-fit:contain;border:0.5px solid #c8a84a;border-radius:4px}
+  .zg-lightbox img{max-width:88vw;max-height:70vh;object-fit:contain;border:0.5px solid rgba(200,168,64,0.3);border-radius:4px}
   .zg-lb-caption{text-align:center}
   .zg-lb-caption .zg-caption-row{justify-content:center;gap:24px;margin-bottom:6px}
-  .zg-lightbox-close{position:absolute;top:20px;right:24px;font-size:22px;color:#9a7a20;cursor:pointer;background:none;border:none;font-family:'Montserrat',sans-serif}
-  .zg-lightbox-close:hover{color:#b8860b}
+  .zg-lightbox-close{position:absolute;top:20px;right:24px;font-size:22px;color:#6a6040;cursor:pointer;background:none;border:none;font-family:'Montserrat',sans-serif}
+  .zg-lightbox-close:hover{color:#e8c84a}
   .zg-lightbox-nav{display:flex;gap:16px}
-  .zg-lb-btn{background:rgba(212,168,67,0.1);border:0.5px solid #c8a84a;color:#b8860b;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
-  .zg-lb-btn:hover{background:rgba(212,168,67,0.25)}
+  .zg-lb-btn{background:rgba(200,168,64,0.1);border:0.5px solid rgba(200,168,64,0.3);color:#e8c84a;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+  .zg-lb-btn:hover{background:rgba(200,168,64,0.25)}
 
-  /* AVAILABILITY BADGE */
-  .zg-badge{display:inline-block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-bottom:6px}
-  .zg-badge.available{background:rgba(50,180,80,0.12);color:#50b450;border:0.5px solid rgba(50,180,80,0.3)}
-  .zg-badge.unavailable{background:rgba(180,50,50,0.12);color:#c05050;border:0.5px solid rgba(180,50,50,0.3)}
-  .zg-code{font-size:9px;letter-spacing:2px;color:#b0a060;text-transform:uppercase;margin-top:2px}
-
-  /* EMPTY STATE */
-  .zg-empty{text-align:center;padding:60px 20px;color:#b0a060;font-size:12px;letter-spacing:2px;text-transform:uppercase}
-  .zg-empty i{font-size:32px;color:#b0a060;display:block;margin-bottom:16px}
+  /* EMPTY */
+  .zg-empty{text-align:center;padding:60px 20px;color:#3a3428;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500}
+  .zg-empty i{font-size:32px;color:#2a2418;display:block;margin-bottom:16px}
 
   /* RTL */
   [dir=rtl] .zg-nav{flex-direction:row-reverse}
-  [dir=rtl] .zg-brand-row::before{background:linear-gradient(to left,transparent,#b8860b)}
-  [dir=rtl] .zg-brand-row::after{background:linear-gradient(to right,transparent,#b8860b)}
-  [dir=rtl] .zg-stat{border-right:none;border-left:0.5px solid #c8a84a}
+  [dir=rtl] .zg-brand-row::before{background:linear-gradient(to left,transparent,#c8a840)}
+  [dir=rtl] .zg-brand-row::after{background:linear-gradient(to right,transparent,#c8a840)}
+  [dir=rtl] .zg-stat{border-right:none;border-left:0.5px solid rgba(200,168,64,0.15)}
   [dir=rtl] .zg-stat:last-child{border-left:none}
-  [dir=rtl] .zg-feature{border-right:none;border-left:0.5px solid #c8a84a}
+  [dir=rtl] .zg-feature{border-right:none;border-left:0.5px solid rgba(200,168,64,0.12)}
   [dir=rtl] .zg-feature:last-child{border-left:none}
   [dir=rtl] .zg-footer{flex-direction:row-reverse}
   [dir=rtl] .zg-card-caption{direction:rtl}
@@ -149,7 +148,7 @@
     .zg-cat-grid{grid-template-columns:repeat(2,1fr)}
     .zg-grid{grid-template-columns:repeat(2,1fr);gap:10px}
     .zg-features{grid-template-columns:1fr}
-    .zg-feature{border-right:none;border-bottom:0.5px solid #c8a84a}
+    .zg-feature{border-right:none;border-bottom:0.5px solid rgba(200,168,64,0.12)}
     .zg-feature:last-child{border-bottom:none}
     .zg-nav-links{gap:14px}
     .zg-nav-links a{font-size:9px;letter-spacing:1px}
@@ -185,7 +184,7 @@
   </div>
 </nav>
 
-<!-- HOME PAGE -->
+<!-- HOME -->
 <div class="page active" id="page-home">
   <div class="zg-hero">
     <div class="zg-glow-top"></div>
@@ -217,7 +216,7 @@
   </div>
 </div>
 
-<!-- GALLERY — CATEGORIES PAGE -->
+<!-- GALLERY CATEGORIES -->
 <div class="page" id="page-gallery">
   <div class="zg-page-inner">
     <div class="zg-page-header">
@@ -232,7 +231,7 @@
   </div>
 </div>
 
-<!-- CATEGORY PRODUCTS PAGE -->
+<!-- CATEGORY PRODUCTS -->
 <div class="page" id="page-category">
   <div class="zg-page-inner">
     <button class="zg-back" id="backBtn" onclick="showPage('gallery')">
@@ -252,140 +251,121 @@
 </div>
 
 <script>
-// ── CATEGORIES DEFINITION ──
-const categories = [
-  { id:'bracelets', icon:'ti-link',       en:'Bracelets',  fa:'دستبند'  },
-  { id:'necklaces', icon:'ti-hearts',     en:'Necklaces',  fa:'گردنبند' },
-  { id:'earrings',  icon:'ti-circle',     en:'Earrings',   fa:'گوشواره' },
-  { id:'sets',      icon:'ti-diamond',    en:'Sets',       fa:'سرویس'   },
-  { id:'rings',     icon:'ti-ring',       en:'Rings',      fa:'انگشتر'  },
-  { id:'coins',     icon:'ti-coin',       en:'Coins',      fa:'سکه'     },
-  { id:'chains',    icon:'ti-link',       en:'Chains',     fa:'زنجیر'   },
-  { id:'baby',      icon:'ti-star',       en:'Baby',       fa:'طلای بچه'},
+const categories=[
+  {id:'bracelets',icon:'ti-link',      en:'Bracelets', fa:'دستبند'},
+  {id:'necklaces',icon:'ti-hearts',    en:'Necklaces', fa:'گردنبند'},
+  {id:'earrings', icon:'ti-circle',    en:'Earrings',  fa:'گوشواره'},
+  {id:'sets',     icon:'ti-diamond',   en:'Sets',      fa:'سرویس'},
+  {id:'rings',    icon:'ti-ring',      en:'Rings',     fa:'انگشتر'},
+  {id:'coins',    icon:'ti-coin',      en:'Coins',     fa:'سکه'},
+  {id:'chains',   icon:'ti-link',      en:'Chains',    fa:'زنجیر'},
+  {id:'baby',     icon:'ti-star',      en:'Baby',      fa:'طلای بچه'},
 ];
 
-let allProducts = [];
-let currentLang = 'en';
-let currentCategoryProducts = [];
-let currentIdx = 0;
+let allProducts=[];
+let currentLang='en';
+let currentCategoryProducts=[];
+let currentIdx=0;
 
-// ── LOAD PRODUCTS FROM JSON ──
 fetch('products.json')
-  .then(r => r.json())
-  .then(data => {
-    allProducts = data;
-    buildCategoryGrid();
-  })
-  .catch(() => {
-    allProducts = [];
-    buildCategoryGrid();
-  });
+  .then(r=>r.json())
+  .then(data=>{allProducts=data;buildCategoryGrid();})
+  .catch(()=>{allProducts=[];buildCategoryGrid();});
 
-// ── BUILD CATEGORY GRID ──
 function buildCategoryGrid(){
-  const grid = document.getElementById('catGrid');
-  grid.innerHTML = '';
-  categories.forEach(cat => {
-    const count = allProducts.filter(p => p.category === cat.id).length;
-    const card = document.createElement('div');
-    card.className = 'zg-cat-card';
-    card.innerHTML = `
+  const grid=document.getElementById('catGrid');
+  grid.innerHTML='';
+  categories.forEach(cat=>{
+    const count=allProducts.filter(p=>p.category===cat.id).length;
+    const card=document.createElement('div');
+    card.className='zg-cat-card';
+    card.innerHTML=`
       <div class="zg-cat-icon"><i class="ti ${cat.icon}"></i></div>
-      <div class="zg-cat-name">${currentLang==='fa' ? cat.fa : cat.en}</div>
-      <div class="zg-cat-count">${count} ${currentLang==='fa' ? 'قطعه' : 'pieces'}</div>`;
-    card.addEventListener('click', () => openCategory(cat));
+      <div class="zg-cat-name">${currentLang==='fa'?cat.fa:cat.en}</div>
+      <div class="zg-cat-count">${count} ${currentLang==='fa'?'قطعه':'pieces'}</div>`;
+    card.addEventListener('click',()=>openCategory(cat));
     grid.appendChild(card);
   });
 }
 
-// ── OPEN CATEGORY ──
 function openCategory(cat){
-  const products = allProducts.filter(p => p.category === cat.id);
-  currentCategoryProducts = products;
-  const l = currentLang;
-  const labels = l==='fa'
-    ? {model:'مدل', weight:'وزن', labor:'اجرت'}
-    : {model:'Model', weight:'Weight', labor:'Labor'};
-
-  document.getElementById('catTitle').textContent = l==='fa' ? cat.fa : cat.en;
-  document.getElementById('catSub').textContent = products.length + ' ' + (l==='fa' ? 'قطعه موجود' : 'pieces available');
-
-  const grid = document.getElementById('productGrid');
-  grid.innerHTML = '';
-
-  if(products.length === 0){
-    grid.innerHTML = `<div class="zg-empty" style="grid-column:1/-1"><i class="ti ti-mood-empty"></i>${l==='fa' ? 'به زودی اضافه می‌شود' : 'Coming soon'}</div>`;
+  const products=allProducts.filter(p=>p.category===cat.id);
+  currentCategoryProducts=products;
+  const l=currentLang;
+  const labels=l==='fa'
+    ?{model:'مدل',weight:'وزن',labor:'اجرت'}
+    :{model:'Model',weight:'Weight',labor:'Labor'};
+  document.getElementById('catTitle').textContent=l==='fa'?cat.fa:cat.en;
+  document.getElementById('catSub').textContent=products.length+' '+(l==='fa'?'قطعه موجود':'pieces available');
+  const grid=document.getElementById('productGrid');
+  grid.innerHTML='';
+  if(products.length===0){
+    grid.innerHTML=`<div class="zg-empty" style="grid-column:1/-1"><i class="ti ti-mood-empty"></i>${l==='fa'?'به زودی اضافه می‌شود':'Coming soon'}</div>`;
   } else {
-    products.forEach((p, i) => {
-      const card = document.createElement('div');
-      card.className = 'zg-card';
-      const avail = p.available;
-      const availLabel = l==='fa' ? (avail?'موجود':'ناموجود') : (avail?'Available':'Sold Out');
-      const availColor = avail ? '#6abf7b' : '#bf6a6a';
-      card.innerHTML = `
+    products.forEach((p,i)=>{
+      const badge=p.available
+        ?`<span class="zg-badge available">${l==='fa'?'موجود':'Available'}</span>`
+        :`<span class="zg-badge unavailable">${l==='fa'?'ناموجود':'Sold Out'}</span>`;
+      const card=document.createElement('div');
+      card.className='zg-card';
+      card.innerHTML=`
         <img src="${p.image}" alt="${p.model[l]}" loading="lazy"/>
         <div class="zg-card-caption">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            ${badge}<span class="zg-code">${p.code}</span>
+          </div>
           <div class="zg-caption-row"><span class="zg-caption-label">${labels.model}</span><span class="zg-caption-val">${p.model[l]}</span></div>
           <div class="zg-caption-row"><span class="zg-caption-label">${labels.weight}</span><span class="zg-caption-val">${p.weight[l]}</span></div>
           <div class="zg-caption-row"><span class="zg-caption-label">${labels.labor}</span><span class="zg-caption-val">${p.labor[l]}</span></div>
-          <div class="zg-caption-row"><span class="zg-caption-label">${l==='fa'?'کد':'Code'}</span><span class="zg-caption-val">${p.code}</span></div>
-          <div class="zg-caption-row"><span class="zg-caption-label">${l==='fa'?'وضعیت':'Status'}</span><span class="zg-caption-val" style="color:${availColor}">${availLabel}</span></div>
         </div>`;
-      card.addEventListener('click', () => openLightbox(i));
+      card.addEventListener('click',()=>openLightbox(i));
       grid.appendChild(card);
     });
   }
   showPage('category');
 }
 
-// ── LIGHTBOX ──
 function openLightbox(i){
-  currentIdx = i;
-  const p = currentCategoryProducts[i];
-  const l = currentLang;
-  const avail = p.available;
-  const availLabel = l==='fa' ? (avail?'موجود':'ناموجود') : (avail?'Available':'Sold Out');
-  const availColor = avail ? '#6abf7b' : '#bf6a6a';
-  const labels = l==='fa'
-    ? {model:'مدل', weight:'وزن', labor:'اجرت'}
-    : {model:'Model', weight:'Weight', labor:'Labor'};
-  document.getElementById('lbImg').src = p.image;
-  document.getElementById('lbCaption').innerHTML = `
+  currentIdx=i;
+  const p=currentCategoryProducts[i];
+  const l=currentLang;
+  const labels=l==='fa'
+    ?{model:'مدل',weight:'وزن',labor:'اجرت'}
+    :{model:'Model',weight:'Weight',labor:'Labor'};
+  const badge=p.available
+    ?`<span class="zg-badge available">${l==='fa'?'موجود':'Available'}</span>`
+    :`<span class="zg-badge unavailable">${l==='fa'?'ناموجود':'Sold Out'}</span>`;
+  document.getElementById('lbImg').src=p.image;
+  document.getElementById('lbCaption').innerHTML=`
+    <div style="margin-bottom:8px">${badge} <span class="zg-code" style="margin-left:12px">${p.code}</span></div>
     <div class="zg-caption-row"><span class="zg-caption-label">${labels.model}</span><span class="zg-caption-val">${p.model[l]}</span></div>
     <div class="zg-caption-row"><span class="zg-caption-label">${labels.weight}</span><span class="zg-caption-val">${p.weight[l]}</span></div>
-    <div class="zg-caption-row"><span class="zg-caption-label">${labels.labor}</span><span class="zg-caption-val">${p.labor[l]}</span></div>
-    <div class="zg-caption-row"><span class="zg-caption-label">${l==='fa'?'کد':'Code'}</span><span class="zg-caption-val">${p.code}</span></div>
-    <div class="zg-caption-row"><span class="zg-caption-label">${l==='fa'?'وضعیت':'Status'}</span><span class="zg-caption-val" style="color:${availColor}">${availLabel}</span></div>`;
+    <div class="zg-caption-row"><span class="zg-caption-label">${labels.labor}</span><span class="zg-caption-val">${p.labor[l]}</span></div>`;
   document.getElementById('lightbox').classList.add('active');
 }
-function closeLightbox(){ document.getElementById('lightbox').classList.remove('active'); }
-function lbNav(dir){
-  currentIdx=(currentIdx+dir+currentCategoryProducts.length)%currentCategoryProducts.length;
-  openLightbox(currentIdx);
-}
-document.getElementById('lightbox').addEventListener('click', e => { if(e.target===document.getElementById('lightbox')) closeLightbox(); });
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); if(e.key==='ArrowRight') lbNav(1); if(e.key==='ArrowLeft') lbNav(-1); });
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active')}
+function lbNav(dir){currentIdx=(currentIdx+dir+currentCategoryProducts.length)%currentCategoryProducts.length;openLightbox(currentIdx)}
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===document.getElementById('lightbox'))closeLightbox()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowRight')lbNav(1);if(e.key==='ArrowLeft')lbNav(-1)});
 
-// ── PAGE NAVIGATION ──
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   document.querySelectorAll('.zg-nav-links a').forEach(a=>a.classList.remove('active'));
-  const navMap = {home:'navHome', gallery:'navGallery', category:'navGallery'};
-  const navEl = document.getElementById(navMap[name]);
-  if(navEl) navEl.classList.add('active');
+  const navMap={home:'navHome',gallery:'navGallery',category:'navGallery'};
+  const el=document.getElementById(navMap[name]);
+  if(el)el.classList.add('active');
   window.scrollTo(0,0);
 }
 
-// ── BILINGUAL ──
 const content={
   en:{dir:'ltr',navHome:'Home',navGallery:'Gallery',navContact:'Contact',tagline:'Est. Gold Gallery · Iran',heroTitle:'Authentic Gold.<br/><em>Trusted by Thousands.</em>',heroSub:'Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.',ctaText:'Join our WhatsApp group',trustText:'<span>★★★★★</span> · Free to join · No spam · Leave anytime',s1:'Members',s2:'Authentic',s3n:'Daily',s3:'New Pieces',galleryTitle:'Our Collection',gallerySub:'Choose a category',backText:'Back to Gallery',f1l:'Premium Quality',f1d:'Certified authentic gold pieces directly from our gallery',f2l:'Best Price',f2d:'No middleman. Direct pricing from the source',f3l:'Trusted',f3d:'Over 851 members rely on us daily'},
   fa:{dir:'rtl',navHome:'خانه',navGallery:'گالری',navContact:'تماس',tagline:'گالری طلا · ایران',heroTitle:'طلای اصیل.<br/><em>مورد اعتماد هزاران نفر.</em>',heroSub:'به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.',ctaText:'عضویت در گروه واتساپ',trustText:'<span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان',s1:'عضو',s2:'اصالت',s3n:'روزانه',s3:'محصول جدید',galleryTitle:'مجموعه ما',gallerySub:'یک دسته‌بندی انتخاب کنید',backText:'بازگشت به گالری',f1l:'کیفیت برتر',f1d:'طلای اصل و تأییدشده مستقیم از گالری',f2l:'بهترین قیمت',f2d:'بدون واسطه، قیمت مستقیم از منبع',f3l:'مورد اعتماد',f3d:'بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند'}
 };
 
 function setLang(lang,btn){
-  currentLang = lang;
-  const c = content[lang];
+  currentLang=lang;
+  const c=content[lang];
   document.querySelectorAll('.page').forEach(p=>p.setAttribute('dir',c.dir));
   document.getElementById('mainNav').setAttribute('dir',c.dir);
   document.getElementById('navHome').textContent=c.navHome;
@@ -393,7 +373,7 @@ function setLang(lang,btn){
   document.getElementById('navContact').textContent=c.navContact;
   document.getElementById('backText').textContent=c.backText;
   ['tagline','heroSub','ctaText','s1','s2','s3n','s3','galleryTitle','gallerySub','f1l','f1d','f2l','f2d','f3l','f3d'].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.textContent=c[id];
+    const el=document.getElementById(id);if(el)el.textContent=c[id];
   });
   document.getElementById('heroTitle').innerHTML=c.heroTitle;
   document.getElementById('trustText').innerHTML=c.trustText;
@@ -402,10 +382,8 @@ function setLang(lang,btn){
   buildCategoryGrid();
 }
 
-// set home active on load
 document.getElementById('navHome').classList.add('active');
 
-// ── DESKTOP CURSOR ──
 const glowEl=document.getElementById('cursorGlow');
 const dotEl=document.getElementById('cursorDot');
 const isMobile=window.matchMedia('(max-width:600px)').matches||('ontouchstart' in window&&!window.matchMedia('(hover:hover)').matches);
@@ -415,11 +393,10 @@ if(!isMobile){
     dotEl.style.left=e.clientX+'px';dotEl.style.top=e.clientY+'px';
     glowEl.style.opacity='1';dotEl.style.opacity='1';
   });
-  document.addEventListener('mouseleave',()=>{glowEl.style.opacity='0';dotEl.style.opacity='0';});
+  document.addEventListener('mouseleave',()=>{glowEl.style.opacity='0';dotEl.style.opacity='0'});
 }
 
-// ── GOLDEN EXPLOSION ──
-const colors=['rgba(212,168,67,0.95)','rgba(245,217,128,0.9)','rgba(255,236,150,0.9)','rgba(180,130,40,0.9)','rgba(255,200,80,0.85)','rgba(140,100,20,0.75)'];
+const colors=['rgba(200,168,64,0.95)','rgba(240,216,120,0.9)','rgba(255,236,150,0.9)','rgba(160,120,32,0.9)','rgba(232,200,80,0.85)','rgba(120,90,20,0.75)'];
 function explode(x,y){
   const bloom=document.createElement('div');bloom.className='bloom';
   bloom.style.left=x+'px';bloom.style.top=y+'px';
