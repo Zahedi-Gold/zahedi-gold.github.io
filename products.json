@@ -38,5 +38,15 @@
     "model": { "fa": "گرنبند", "en": "necklace" },
     "weight": { "fa": "۱.۰۸ گرم", "en": "1.08 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
+    "id": "زنجیر گردن هرمس",
+    "category": "necklaces",
+    "image": "images/necklaces/زنجیر گردن هرمس.webp",
+    "code": "زنجیر گردن هرمس",
+    "available": true,
+    "model": { "fa": "گرنبند", "en": "necklace" },
+    "weight": { "fa": "10.580 گرم", "en": "10.580 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
   }
 ]
