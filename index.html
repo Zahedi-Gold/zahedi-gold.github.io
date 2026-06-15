@@ -1,143 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Zahedi Gold Gallery</title>
+<title>گالری طلا زاهدی</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Montserrat',sans-serif;background:#0a1628;color:#e8dfc8;overflow-x:hidden;cursor:none}
-  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(20,40,80,0.8) 0%,transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(200,168,64,0.06) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(10,25,60,0.4) 0%,transparent 70%);pointer-events:none;z-index:0}
+  body{font-family:'Montserrat',sans-serif;background:#1e3060;color:#e0ddd0;overflow-x:hidden;cursor:none}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 25% 25%,rgba(40,70,130,0.6) 0%,transparent 55%),radial-gradient(ellipse at 75% 75%,rgba(220,180,60,0.08) 0%,transparent 50%);pointer-events:none;z-index:0}
 
-  #cursorGlow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(200,168,64,0.14) 0%,rgba(200,168,64,0.05) 40%,transparent 70%);opacity:0;transition:opacity 0.4s ease}
-  #cursorDot{position:fixed;width:6px;height:6px;border-radius:50%;background:#e8c84a;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 8px 3px rgba(200,168,64,0.6);opacity:0;transition:opacity 0.3s ease}
+  #cursorGlow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(220,180,60,0.14) 0%,rgba(220,180,60,0.05) 40%,transparent 70%);opacity:0;transition:opacity 0.4s ease}
+  #cursorDot{position:fixed;width:6px;height:6px;border-radius:50%;background:#f8e060;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 8px 3px rgba(220,180,60,0.6);opacity:0;transition:opacity 0.3s ease}
 
   .particle{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);animation:burst 0.8s ease-out forwards;z-index:9997}
   @keyframes burst{0%{transform:translate(-50%,-50%) scale(0);opacity:1}60%{opacity:0.8}100%{transform:translate(var(--tx),var(--ty)) scale(var(--s));opacity:0}}
-  .ripple{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);border:1.5px solid rgba(200,168,64,0.6);animation:rippleOut 0.7s ease-out forwards;z-index:9997}
+  .ripple{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);border:1.5px solid rgba(220,180,60,0.6);animation:rippleOut 0.7s ease-out forwards;z-index:9997}
   @keyframes rippleOut{0%{width:0;height:0;opacity:0.9;margin:0}100%{width:130px;height:130px;opacity:0;margin:-65px 0 0 -65px}}
-  .bloom{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(200,168,64,0.25) 0%,transparent 70%);width:200px;height:200px;animation:bloomFade 0.6s ease-out forwards;z-index:9996}
+  .bloom{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(220,180,60,0.25) 0%,transparent 70%);width:200px;height:200px;animation:bloomFade 0.6s ease-out forwards;z-index:9996}
   @keyframes bloomFade{0%{opacity:1;transform:translate(-50%,-50%) scale(0.15)}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
 
   .page{display:none;position:relative;z-index:1;min-height:100vh}
   .page.active{display:block}
 
-  /* NAV */
-  .zg-nav{background:rgba(8,16,36,0.92);border-bottom:0.5px solid rgba(200,168,64,0.35);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:44px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
-  .zg-nav-links{display:flex;gap:24px;align-items:center}
-  .zg-nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#6a6040;text-decoration:none;cursor:pointer;transition:color 0.2s;font-weight:500}
-  .zg-nav-links a:hover,.zg-nav-links a.active{color:#e8c84a}
-  .zg-lang{display:flex;border:0.5px solid rgba(200,168,64,0.5);border-radius:3px;overflow:hidden}
-  .zg-lang button{font-size:10px;letter-spacing:1px;padding:4px 11px;border:none;cursor:pointer;background:transparent;color:#6a6040;font-family:'Montserrat',sans-serif;font-weight:500}
-  .zg-lang button.active{background:linear-gradient(135deg,#c8a840,#e8c860);color:#0a1628;font-weight:600}
+  /* NAV — bigger */
+  .zg-nav{background:rgba(20,34,68,0.93);border-bottom:1px solid rgba(220,180,60,0.4);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+  .zg-nav-links{display:flex;gap:32px;align-items:center}
+  .zg-nav-links a{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#9090a0;text-decoration:none;cursor:pointer;transition:all 0.2s;font-weight:600}
+  .zg-nav-links a:hover{color:#f8e060}
+  .zg-nav-links a.active{background:linear-gradient(135deg,#e8c840,#fff8a0,#e8c840);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 6px rgba(220,180,60,0.5))}
+  .zg-lang{display:flex;border:0.5px solid rgba(220,180,60,0.5);border-radius:3px;overflow:hidden}
+  .zg-lang button{font-size:11px;letter-spacing:1px;padding:6px 14px;border:none;cursor:pointer;background:transparent;color:#9090a0;font-family:'Montserrat',sans-serif;font-weight:600;transition:all 0.2s}
+  .zg-lang button.active{background:linear-gradient(135deg,#c8a840,#ffe870);color:#1e3060;font-weight:700}
 
   /* HERO */
   .zg-hero{padding:48px 28px 44px;text-align:center;position:relative}
-  .zg-glow-top{position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:1px;background:#c8a840;opacity:0.6;box-shadow:0 0 40px 14px rgba(200,168,64,0.2),0 0 80px 30px rgba(200,168,64,0.1)}
+  .zg-glow-top{position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:1px;background:#e8c840;opacity:0.6;box-shadow:0 0 40px 14px rgba(220,180,60,0.2),0 0 80px 30px rgba(220,180,60,0.1)}
   .zg-brand-row{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:6px}
-  .zg-brand-row::before{content:'';flex:1;height:0.5px;background:linear-gradient(to right,transparent,#c8a840)}
-  .zg-brand-row::after{content:'';flex:1;height:0.5px;background:linear-gradient(to left,transparent,#c8a840)}
-  .zg-brand{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;letter-spacing:5px;text-transform:uppercase;white-space:nowrap;background:linear-gradient(135deg,#c8a840,#f0d878,#c8a840);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 12px rgba(200,168,64,0.3))}
-  .zg-tagline{font-size:10px;letter-spacing:5px;color:#5a5438;text-transform:uppercase;margin-bottom:36px;font-weight:500}
-  .zg-emblem{width:52px;height:52px;border:0.5px solid rgba(200,168,64,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;background:rgba(200,168,64,0.08);box-shadow:0 0 20px rgba(200,168,64,0.15)}
-  .zg-emblem::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:0.5px solid rgba(200,168,64,0.2)}
-  .zg-emblem i{font-size:22px;color:#e8c84a}
-  .zg-hero h1{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#e8dfc8;letter-spacing:2px;margin-bottom:14px;line-height:1.4}
-  .zg-hero h1 em{background:linear-gradient(135deg,#c8a840,#f0d878,#e8c850);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;font-weight:700}
-  .zg-hero p{font-size:12px;color:#7a7050;letter-spacing:1px;line-height:2;max-width:380px;margin:0 auto 30px;font-weight:400}
+  .zg-brand-row::before{content:'';flex:1;height:0.5px;background:linear-gradient(to right,transparent,#e8c840)}
+  .zg-brand-row::after{content:'';flex:1;height:0.5px;background:linear-gradient(to left,transparent,#e8c840)}
+  .zg-brand{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;letter-spacing:5px;text-transform:uppercase;white-space:nowrap;background:linear-gradient(135deg,#c8a030,#f0d060,#fff8a0,#f0d060,#c8a030);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 18px rgba(220,180,60,0.6))}
+  .zg-tagline{font-size:10px;letter-spacing:5px;color:#8888a0;text-transform:uppercase;margin-bottom:36px;font-weight:500}
+  .zg-emblem{width:52px;height:52px;border:0.5px solid rgba(220,180,60,0.6);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;background:rgba(220,180,60,0.08);box-shadow:0 0 28px rgba(220,180,60,0.25)}
+  .zg-emblem::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:0.5px solid rgba(220,180,60,0.3)}
+  .zg-emblem i{font-size:22px;background:linear-gradient(135deg,#e8c840,#fff8a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .zg-hero h1{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#e0ddd0;letter-spacing:2px;margin-bottom:14px;line-height:1.4}
+  .zg-hero h1 em{background:linear-gradient(135deg,#d4a820,#f8e060,#fff8a0,#f8e060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;font-weight:700;filter:drop-shadow(0 0 10px rgba(220,180,60,0.4))}
+  .zg-hero p{font-size:12px;color:#9090a0;letter-spacing:1px;line-height:2;max-width:380px;margin:0 auto 30px}
   .zg-divider{display:flex;align-items:center;gap:10px;margin:0 auto 30px;max-width:240px}
-  .zg-divider::before,.zg-divider::after{content:'';flex:1;height:0.5px;background:rgba(200,168,64,0.35)}
-  .zg-gem{width:6px;height:6px;background:linear-gradient(135deg,#c8a840,#f0d878);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 8px rgba(200,168,64,0.5)}
-  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#a07820,#c8a840,#f0d878,#c8a840);background-size:200% auto;color:#0a1628;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:2px;cursor:pointer;border:none;box-shadow:0 4px 24px rgba(200,168,64,0.3);transition:background-position 0.4s,box-shadow 0.3s}
-  .zg-cta:hover{background-position:right center;box-shadow:0 6px 32px rgba(200,168,64,0.5)}
-  .zg-trust{margin-top:14px;font-size:10px;color:#5a5438;letter-spacing:1px;font-weight:500}
-  .zg-trust span{color:#e8c84a;font-weight:600}
+  .zg-divider::before,.zg-divider::after{content:'';flex:1;height:0.5px;background:rgba(220,180,60,0.4)}
+  .zg-gem{width:6px;height:6px;background:linear-gradient(135deg,#e8c840,#fff8a0);transform:rotate(45deg);flex-shrink:0;box-shadow:0 0 12px rgba(220,180,60,0.7)}
+  .zg-cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#a07820,#d4a830,#f8e060,#fff8a0,#d4a830);background-size:200% auto;color:#1e3060;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:16px 36px;border-radius:2px;cursor:pointer;border:none;box-shadow:0 4px 28px rgba(220,180,60,0.4);transition:background-position 0.4s,box-shadow 0.3s}
+  .zg-cta:hover{background-position:right center;box-shadow:0 6px 40px rgba(220,180,60,0.6)}
+  .zg-trust{margin-top:14px;font-size:10px;color:#8888a0;letter-spacing:1px;font-weight:500}
+  .zg-trust span{background:linear-gradient(135deg,#e8c840,#fff8a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700}
 
   /* STATS */
-  .zg-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid rgba(200,168,64,0.2);background:rgba(5,12,28,0.6)}
-  .zg-stat{padding:22px 16px;text-align:center;border-right:0.5px solid rgba(200,168,64,0.15)}
+  .zg-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid rgba(220,180,60,0.25);background:rgba(16,26,54,0.7)}
+  .zg-stat{padding:22px 16px;text-align:center;border-right:0.5px solid rgba(220,180,60,0.2)}
   .zg-stat:last-child{border-right:none}
-  .zg-stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,#c8a840,#f0d878);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .zg-stat-label{font-size:10px;letter-spacing:2px;color:#5a5438;text-transform:uppercase;margin-top:5px;font-weight:500}
+  .zg-stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,#d4a820,#f8e060,#fff8a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 8px rgba(220,180,60,0.3))}
+  .zg-stat-label{font-size:10px;letter-spacing:2px;color:#8888a0;text-transform:uppercase;margin-top:5px;font-weight:500}
 
   /* FEATURES */
-  .zg-features{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid rgba(200,168,64,0.15)}
-  .zg-feature{padding:22px 18px;border-right:0.5px solid rgba(200,168,64,0.12);background:rgba(10,18,40,0.5)}
+  .zg-features{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid rgba(220,180,60,0.18)}
+  .zg-feature{padding:22px 18px;border-right:0.5px solid rgba(220,180,60,0.15);background:rgba(20,32,64,0.55)}
   .zg-feature:last-child{border-right:none}
-  .zg-fi{font-size:18px;margin-bottom:10px;color:#e8c84a}
-  .zg-fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d4a830;font-weight:600;margin-bottom:5px}
-  .zg-fd{font-size:11px;color:#6a6040;line-height:1.7;font-weight:400}
+  .zg-fi{font-size:18px;margin-bottom:10px;background:linear-gradient(135deg,#e8c840,#fff8a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .zg-fl{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:5px;background:linear-gradient(135deg,#d4a820,#f0d060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .zg-fd{font-size:11px;color:#9090a0;line-height:1.7}
 
   /* FOOTER */
-  .zg-footer{background:rgba(5,10,24,0.85);border-top:0.5px solid rgba(200,168,64,0.2);padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
-  .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#5a5238;text-transform:uppercase;font-weight:600}
-  .zg-footer-copy{font-size:10px;color:#4a4430;letter-spacing:1px}
+  .zg-footer{background:rgba(14,22,48,0.92);border-top:0.5px solid rgba(220,180,60,0.18);padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+  .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#7878a0;text-transform:uppercase;font-weight:600}
+  .zg-footer-copy{font-size:10px;color:#6868a0;letter-spacing:1px}
 
   /* GALLERY PAGES */
   .zg-page-inner{padding:48px 28px;max-width:960px;margin:0 auto}
   .zg-page-header{text-align:center;margin-bottom:40px}
-  .zg-page-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,#c8a840,#f0d878);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
-  .zg-page-header p{font-size:10px;letter-spacing:3px;color:#5a5438;text-transform:uppercase;font-weight:500}
+  .zg-page-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,#d4a820,#f8e060,#fff8a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;filter:drop-shadow(0 0 8px rgba(220,180,60,0.3))}
+  .zg-page-header p{font-size:10px;letter-spacing:3px;color:#8888a0;text-transform:uppercase;font-weight:500}
 
-  /* BACK BUTTON */
-  .zg-back{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8a7a50;cursor:pointer;margin-bottom:32px;background:none;border:none;font-family:'Montserrat',sans-serif;transition:color 0.2s;font-weight:500}
-  .zg-back:hover{color:#e8c84a}
+  /* BACK */
+  .zg-back{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9090a0;cursor:pointer;margin-bottom:32px;background:none;border:none;font-family:'Montserrat',sans-serif;transition:color 0.2s;font-weight:500}
+  .zg-back:hover{color:#f8e060}
   .zg-back i{font-size:14px}
 
   /* CATEGORY CARDS */
   .zg-cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .zg-cat-card{border:0.5px solid rgba(200,168,64,0.2);border-radius:4px;overflow:hidden;background:rgba(10,18,40,0.7);cursor:pointer;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;padding:32px 16px;text-align:center}
-  .zg-cat-card:hover{border-color:#c8a840;transform:translateY(-3px);box-shadow:0 8px 32px rgba(200,168,64,0.15)}
-  .zg-cat-icon{font-size:28px;color:#e8c84a;margin-bottom:12px}
-  .zg-cat-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;background:linear-gradient(135deg,#c8a840,#f0d878);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;margin-bottom:6px}
-  .zg-cat-count{font-size:10px;letter-spacing:2px;color:#5a5438;text-transform:uppercase;font-weight:500}
+  .zg-cat-card{border:0.5px solid rgba(220,180,60,0.2);border-radius:4px;overflow:hidden;background:rgba(20,32,64,0.7);cursor:pointer;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;padding:32px 16px;text-align:center}
+  .zg-cat-card:hover{border-color:#e8c840;transform:translateY(-3px);box-shadow:0 8px 32px rgba(220,180,60,0.2)}
+  .zg-cat-icon{font-size:28px;margin-bottom:12px;background:linear-gradient(135deg,#e8c840,#fff8a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .zg-cat-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;background:linear-gradient(135deg,#d4a820,#f8e060,#fff8a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;margin-bottom:6px}
+  .zg-cat-count{font-size:10px;letter-spacing:2px;color:#8888a0;text-transform:uppercase;font-weight:500}
 
   /* PRODUCT GRID */
   .zg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .zg-card{border:0.5px solid rgba(200,168,64,0.2);border-radius:4px;overflow:hidden;background:rgba(10,18,40,0.7);cursor:pointer;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
-  .zg-card:hover{border-color:#c8a840;transform:translateY(-3px);box-shadow:0 8px 32px rgba(200,168,64,0.15)}
+  .zg-card{border:0.5px solid rgba(220,180,60,0.2);border-radius:4px;overflow:hidden;background:rgba(20,32,64,0.7);cursor:pointer;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
+  .zg-card:hover{border-color:#e8c840;transform:translateY(-3px);box-shadow:0 8px 32px rgba(220,180,60,0.2)}
   .zg-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform 0.4s}
   .zg-card:hover img{transform:scale(1.05)}
-  .zg-card-caption{padding:12px 14px;border-top:0.5px solid rgba(200,168,64,0.15)}
+  .zg-card-caption{padding:12px 14px;border-top:0.5px solid rgba(220,180,60,0.15)}
   .zg-caption-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-  .zg-caption-label{font-size:9px;letter-spacing:1px;color:#5a5438;text-transform:uppercase;font-weight:500}
-  .zg-caption-val{font-size:11px;color:#c8a840;font-weight:600}
+  .zg-caption-label{font-size:9px;letter-spacing:1px;color:#8888a0;text-transform:uppercase;font-weight:500}
+  .zg-caption-val{font-size:11px;font-weight:600;background:linear-gradient(135deg,#d4a820,#f8e060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-  /* AVAILABILITY */
+  /* BADGE */
   .zg-badge{display:inline-block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-bottom:6px;font-weight:600}
   .zg-badge.available{background:rgba(50,180,80,0.1);color:#40c060;border:0.5px solid rgba(50,180,80,0.3)}
   .zg-badge.unavailable{background:rgba(180,50,50,0.1);color:#c05050;border:0.5px solid rgba(180,50,50,0.3)}
-  .zg-code{font-size:9px;letter-spacing:2px;color:#4a4430;text-transform:uppercase;font-weight:500}
+  .zg-code{font-size:9px;letter-spacing:2px;color:#6868a0;text-transform:uppercase;font-weight:500}
 
   /* LIGHTBOX */
-  .zg-lightbox{position:fixed;inset:0;background:rgba(4,8,20,0.97);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:24px}
+  .zg-lightbox{position:fixed;inset:0;background:rgba(10,16,40,0.97);z-index:10000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:24px}
   .zg-lightbox.active{display:flex}
-  .zg-lightbox img{max-width:88vw;max-height:70vh;object-fit:contain;border:0.5px solid rgba(200,168,64,0.3);border-radius:4px}
+  .zg-lightbox img{max-width:88vw;max-height:70vh;object-fit:contain;border:0.5px solid rgba(220,180,60,0.3);border-radius:4px}
   .zg-lb-caption{text-align:center}
   .zg-lb-caption .zg-caption-row{justify-content:center;gap:24px;margin-bottom:6px}
-  .zg-lightbox-close{position:absolute;top:20px;right:24px;font-size:22px;color:#6a6040;cursor:pointer;background:none;border:none;font-family:'Montserrat',sans-serif}
-  .zg-lightbox-close:hover{color:#e8c84a}
+  .zg-lightbox-close{position:absolute;top:20px;right:24px;font-size:22px;color:#9090a0;cursor:pointer;background:none;border:none;font-family:'Montserrat',sans-serif}
+  .zg-lightbox-close:hover{color:#f8e060}
   .zg-lightbox-nav{display:flex;gap:16px}
-  .zg-lb-btn{background:rgba(200,168,64,0.1);border:0.5px solid rgba(200,168,64,0.3);color:#e8c84a;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
-  .zg-lb-btn:hover{background:rgba(200,168,64,0.25)}
+  .zg-lb-btn{background:rgba(220,180,60,0.1);border:0.5px solid rgba(220,180,60,0.3);color:#f8e060;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+  .zg-lb-btn:hover{background:rgba(220,180,60,0.25)}
 
   /* EMPTY */
-  .zg-empty{text-align:center;padding:60px 20px;color:#3a3428;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500}
-  .zg-empty i{font-size:32px;color:#2a2418;display:block;margin-bottom:16px}
+  .zg-empty{text-align:center;padding:60px 20px;color:#5a5870;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500}
+  .zg-empty i{font-size:32px;color:#3a3860;display:block;margin-bottom:16px}
 
   /* RTL */
   [dir=rtl] .zg-nav{flex-direction:row-reverse}
-  [dir=rtl] .zg-brand-row::before{background:linear-gradient(to left,transparent,#c8a840)}
-  [dir=rtl] .zg-brand-row::after{background:linear-gradient(to right,transparent,#c8a840)}
-  [dir=rtl] .zg-stat{border-right:none;border-left:0.5px solid rgba(200,168,64,0.15)}
+  [dir=rtl] .zg-brand-row::before{background:linear-gradient(to left,transparent,#e8c840)}
+  [dir=rtl] .zg-brand-row::after{background:linear-gradient(to right,transparent,#e8c840)}
+  [dir=rtl] .zg-stat{border-right:none;border-left:0.5px solid rgba(220,180,60,0.2)}
   [dir=rtl] .zg-stat:last-child{border-left:none}
-  [dir=rtl] .zg-feature{border-right:none;border-left:0.5px solid rgba(200,168,64,0.12)}
+  [dir=rtl] .zg-feature{border-right:none;border-left:0.5px solid rgba(220,180,60,0.15)}
   [dir=rtl] .zg-feature:last-child{border-left:none}
   [dir=rtl] .zg-footer{flex-direction:row-reverse}
   [dir=rtl] .zg-card-caption{direction:rtl}
   [dir=rtl] .zg-lb-caption{direction:rtl}
+  [dir=rtl] .zg-back i{transform:scaleX(-1)}
 
   /* MOBILE */
   @media(max-width:600px){
@@ -148,10 +150,11 @@
     .zg-cat-grid{grid-template-columns:repeat(2,1fr)}
     .zg-grid{grid-template-columns:repeat(2,1fr);gap:10px}
     .zg-features{grid-template-columns:1fr}
-    .zg-feature{border-right:none;border-bottom:0.5px solid rgba(200,168,64,0.12)}
+    .zg-feature{border-right:none;border-bottom:0.5px solid rgba(220,180,60,0.15)}
     .zg-feature:last-child{border-bottom:none}
-    .zg-nav-links{gap:14px}
-    .zg-nav-links a{font-size:9px;letter-spacing:1px}
+    .zg-nav{height:56px;padding:0 16px}
+    .zg-nav-links{gap:16px}
+    .zg-nav-links a{font-size:10px;letter-spacing:1.5px}
   }
 </style>
 </head>
@@ -172,71 +175,71 @@
 </div>
 
 <!-- NAV -->
-<nav class="zg-nav" id="mainNav">
+<nav class="zg-nav" id="mainNav" dir="rtl">
   <div class="zg-nav-links">
-    <a id="navHome" onclick="showPage('home')">Home</a>
-    <a id="navGallery" onclick="showPage('gallery')">Gallery</a>
-    <a id="navContact" onclick="showPage('home')">Contact</a>
+    <a id="navHome" onclick="showPage('home')">خانه</a>
+    <a id="navGallery" onclick="showPage('gallery')">گالری</a>
+    <a id="navContact" onclick="showPage('home')">تماس</a>
   </div>
   <div class="zg-lang">
-    <button class="active" onclick="setLang('en',this)">EN</button>
-    <button onclick="setLang('fa',this)">فا</button>
+    <button onclick="setLang('en',this)">EN</button>
+    <button class="active" onclick="setLang('fa',this)">فا</button>
   </div>
 </nav>
 
 <!-- HOME -->
-<div class="page active" id="page-home">
+<div class="page active" id="page-home" dir="rtl">
   <div class="zg-hero">
     <div class="zg-glow-top"></div>
     <div class="zg-brand-row"><span class="zg-brand">Zahedi Gold</span></div>
-    <p class="zg-tagline" id="tagline">Est. Gold Gallery · Iran</p>
+    <p class="zg-tagline" id="tagline">گالری طلا · ایران</p>
     <div class="zg-emblem"><i class="ti ti-crown"></i></div>
-    <h1 id="heroTitle">Authentic Gold.<br/><em>Trusted by Thousands.</em></h1>
-    <p id="heroSub">Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.</p>
+    <h1 id="heroTitle">طلای اصیل.<br/><em>مورد اعتماد هزاران نفر.</em></h1>
+    <p id="heroSub">به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.</p>
     <div class="zg-divider"><div class="zg-gem"></div></div>
     <button class="zg-cta" onclick="window.open('https://chat.whatsapp.com/HpsTAPw6vt30AS1vETXVuS?s=cl&p=a&mlu=2','_blank')">
       <i class="ti ti-brand-whatsapp"></i>
-      <span id="ctaText">Join our WhatsApp group</span>
+      <span id="ctaText">عضویت در گروه واتساپ</span>
     </button>
-    <p class="zg-trust" id="trustText"><span>★★★★★</span> · Free to join · No spam · Leave anytime</p>
+    <p class="zg-trust" id="trustText"><span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان</p>
   </div>
   <div class="zg-stats">
-    <div class="zg-stat"><div class="zg-stat-num">851+</div><div class="zg-stat-label" id="s1">Members</div></div>
-    <div class="zg-stat"><div class="zg-stat-num">100%</div><div class="zg-stat-label" id="s2">Authentic</div></div>
-    <div class="zg-stat"><div class="zg-stat-num" id="s3n">Daily</div><div class="zg-stat-label" id="s3">New Pieces</div></div>
+    <div class="zg-stat"><div class="zg-stat-num">+۸۵۱</div><div class="zg-stat-label" id="s1">عضو</div></div>
+    <div class="zg-stat"><div class="zg-stat-num">۱۰۰٪</div><div class="zg-stat-label" id="s2">اصالت</div></div>
+    <div class="zg-stat"><div class="zg-stat-num" id="s3n">روزانه</div><div class="zg-stat-label" id="s3">محصول جدید</div></div>
   </div>
   <div class="zg-features">
-    <div class="zg-feature"><div class="zg-fi"><i class="ti ti-diamond"></i></div><div class="zg-fl" id="f1l">Premium Quality</div><div class="zg-fd" id="f1d">Certified authentic gold pieces directly from our gallery</div></div>
-    <div class="zg-feature"><div class="zg-fi"><i class="ti ti-tag"></i></div><div class="zg-fl" id="f2l">Best Price</div><div class="zg-fd" id="f2d">No middleman. Direct pricing from the source</div></div>
-    <div class="zg-feature"><div class="zg-fi"><i class="ti ti-shield-check"></i></div><div class="zg-fl" id="f3l">Trusted</div><div class="zg-fd" id="f3d">Over 851 members rely on us daily</div></div>
+    <div class="zg-feature"><div class="zg-fi"><i class="ti ti-diamond"></i></div><div class="zg-fl" id="f1l">کیفیت برتر</div><div class="zg-fd" id="f1d">طلای اصل و تأییدشده مستقیم از گالری</div></div>
+    <div class="zg-feature"><div class="zg-fi"><i class="ti ti-tag"></i></div><div class="zg-fl" id="f2l">بهترین قیمت</div><div class="zg-fd" id="f2d">بدون واسطه، قیمت مستقیم از منبع</div></div>
+    <div class="zg-feature"><div class="zg-fi"><i class="ti ti-shield-check"></i></div><div class="zg-fl" id="f3l">مورد اعتماد</div><div class="zg-fd" id="f3d">بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند</div></div>
   </div>
   <div class="zg-footer">
-    <div class="zg-footer-brand">Zahedi Gold Gallery</div>
-    <div class="zg-footer-copy">© 2026 · Iran</div>
+    <div class="zg-footer-brand">گالری طلا زاهدی</div>
+    <div class="zg-footer-copy">© ۲۰۲۶ · ایران</div>
   </div>
 </div>
 
 <!-- GALLERY CATEGORIES -->
-<div class="page" id="page-gallery">
+<div class="page" id="page-gallery" dir="rtl">
   <div class="zg-page-inner">
     <div class="zg-page-header">
-      <h2 id="galleryTitle">Our Collection</h2>
-      <p id="gallerySub">Choose a category</p>
+      <h2 id="galleryTitle">مجموعه ما</h2>
+      <p id="gallerySub">یک دسته‌بندی انتخاب کنید</p>
     </div>
     <div class="zg-cat-grid" id="catGrid"></div>
   </div>
   <div class="zg-footer">
-    <div class="zg-footer-brand">Zahedi Gold Gallery</div>
-    <div class="zg-footer-copy">© 2026 · Iran</div>
+    <div class="zg-footer-brand">گالری طلا زاهدی</div>
+    <div class="zg-footer-copy">© ۲۰۲۶ · ایران</div>
   </div>
 </div>
 
 <!-- CATEGORY PRODUCTS -->
-<div class="page" id="page-category">
+<div class="page" id="page-category" dir="rtl">
   <div class="zg-page-inner">
     <button class="zg-back" id="backBtn" onclick="showPage('gallery')">
       <i class="ti ti-arrow-left"></i>
-      <span id="backText">Back to Gallery</span>
+      <span id="backText">بازگشت به گالری</span>
     </button>
     <div class="zg-page-header">
       <h2 id="catTitle"></h2>
@@ -245,25 +248,25 @@
     <div class="zg-grid" id="productGrid"></div>
   </div>
   <div class="zg-footer">
-    <div class="zg-footer-brand">Zahedi Gold Gallery</div>
-    <div class="zg-footer-copy">© 2026 · Iran</div>
+    <div class="zg-footer-brand">گالری طلا زاهدی</div>
+    <div class="zg-footer-copy">© ۲۰۲۶ · ایران</div>
   </div>
 </div>
 
 <script>
 const categories=[
-  {id:'bracelets',icon:'ti-link',      en:'Bracelets', fa:'دستبند'},
-  {id:'necklaces',icon:'ti-hearts',    en:'Necklaces', fa:'گردنبند'},
-  {id:'earrings', icon:'ti-circle',    en:'Earrings',  fa:'گوشواره'},
-  {id:'sets',     icon:'ti-diamond',   en:'Sets',      fa:'سرویس'},
-  {id:'rings',    icon:'ti-ring',      en:'Rings',     fa:'انگشتر'},
-  {id:'coins',    icon:'ti-coin',      en:'Coins',     fa:'سکه'},
-  {id:'chains',   icon:'ti-link',      en:'Chains',    fa:'زنجیر'},
-  {id:'baby',     icon:'ti-star',      en:'Baby',      fa:'طلای بچه'},
+  {id:'bracelets',icon:'ti-link',    en:'Bracelets',fa:'دستبند'},
+  {id:'necklaces',icon:'ti-hearts',  en:'Necklaces',fa:'گردنبند'},
+  {id:'earrings', icon:'ti-circle',  en:'Earrings', fa:'گوشواره'},
+  {id:'sets',     icon:'ti-diamond', en:'Sets',     fa:'سرویس'},
+  {id:'rings',    icon:'ti-ring',    en:'Rings',    fa:'انگشتر'},
+  {id:'coins',    icon:'ti-coin',    en:'Coins',    fa:'سکه'},
+  {id:'chains',   icon:'ti-link',    en:'Chains',   fa:'زنجیر'},
+  {id:'baby',     icon:'ti-star',    en:'Baby',     fa:'طلای بچه'},
 ];
 
 let allProducts=[];
-let currentLang='en';
+let currentLang='fa';
 let currentCategoryProducts=[];
 let currentIdx=0;
 
@@ -292,9 +295,7 @@ function openCategory(cat){
   const products=allProducts.filter(p=>p.category===cat.id);
   currentCategoryProducts=products;
   const l=currentLang;
-  const labels=l==='fa'
-    ?{model:'مدل',weight:'وزن',labor:'اجرت'}
-    :{model:'Model',weight:'Weight',labor:'Labor'};
+  const labels=l==='fa'?{model:'مدل',weight:'وزن',labor:'اجرت'}:{model:'Model',weight:'Weight',labor:'Labor'};
   document.getElementById('catTitle').textContent=l==='fa'?cat.fa:cat.en;
   document.getElementById('catSub').textContent=products.length+' '+(l==='fa'?'قطعه موجود':'pieces available');
   const grid=document.getElementById('productGrid');
@@ -329,9 +330,7 @@ function openLightbox(i){
   currentIdx=i;
   const p=currentCategoryProducts[i];
   const l=currentLang;
-  const labels=l==='fa'
-    ?{model:'مدل',weight:'وزن',labor:'اجرت'}
-    :{model:'Model',weight:'Weight',labor:'Labor'};
+  const labels=l==='fa'?{model:'مدل',weight:'وزن',labor:'اجرت'}:{model:'Model',weight:'Weight',labor:'Labor'};
   const badge=p.available
     ?`<span class="zg-badge available">${l==='fa'?'موجود':'Available'}</span>`
     :`<span class="zg-badge unavailable">${l==='fa'?'ناموجود':'Sold Out'}</span>`;
@@ -384,6 +383,7 @@ function setLang(lang,btn){
 
 document.getElementById('navHome').classList.add('active');
 
+// CURSOR
 const glowEl=document.getElementById('cursorGlow');
 const dotEl=document.getElementById('cursorDot');
 const isMobile=window.matchMedia('(max-width:600px)').matches||('ontouchstart' in window&&!window.matchMedia('(hover:hover)').matches);
@@ -396,7 +396,8 @@ if(!isMobile){
   document.addEventListener('mouseleave',()=>{glowEl.style.opacity='0';dotEl.style.opacity='0'});
 }
 
-const colors=['rgba(200,168,64,0.95)','rgba(240,216,120,0.9)','rgba(255,236,150,0.9)','rgba(160,120,32,0.9)','rgba(232,200,80,0.85)','rgba(120,90,20,0.75)'];
+// EXPLOSION
+const colors=['rgba(220,180,60,0.95)','rgba(248,224,96,0.9)','rgba(255,248,160,0.9)','rgba(160,120,32,0.9)','rgba(232,200,80,0.85)'];
 function explode(x,y){
   const bloom=document.createElement('div');bloom.className='bloom';
   bloom.style.left=x+'px';bloom.style.top=y+'px';
