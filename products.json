@@ -68,5 +68,15 @@
     "model": { "fa": "انگشتر", "en": "ring" },
     "weight": { "fa": "1.070 گرم", "en": "1.070 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
+    "id": "انگشتر کارتير لوکس",
+    "category": "rings",
+    "image": "images/rings/انگشتر کارتير لوکس.webp",
+    "code": "انگشتر کارتير لوکس",
+    "available": true,
+    "model": { "fa": "انگشتر", "en": "ring" },
+    "weight": { "fa": "۲/۲۸۰ گرم", "en": "2.280 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
   }
 ]
