@@ -48,5 +48,15 @@
     "model": { "fa": "گرنبند", "en": "necklace" },
     "weight": { "fa": "10.580 گرم", "en": "10.580 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
+    "id": "دستبند Lv",
+    "category": "bracelets",
+    "image": "images/bracelets/دستبند Lv.webp",
+    "code": "دستبند Lv",
+    "available": true,
+    "model": { "fa": "دستبند", "en": "Bracelet" },
+    "weight": { "fa": "13.120 گرم", "en": "13.120 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
   }
 ]
