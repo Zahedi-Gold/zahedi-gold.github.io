@@ -58,7 +58,6 @@
     "model": { "fa": "دستبند", "en": "Bracelet" },
     "weight": { "fa": "13.120 گرم", "en": "13.120 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
-  }":  { "fa": "کم اجرت", "en": "low labor" }
   },
   {
     "id": "انگشتر مینمال لوکس",
@@ -69,6 +68,5 @@
     "model": { "fa": "انگشتر", "en": "ring" },
     "weight": { "fa": "1.070 گرم", "en": "1.070 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
-  }":  { "fa": "کم اجرت", "en": "low labor" }
   }
 ]
