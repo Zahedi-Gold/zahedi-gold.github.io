@@ -46,7 +46,7 @@
     "code": "زنجیر گردن هرمس",
     "available": true,
     "model": { "fa": "گرنبند", "en": "necklace" },
-    "weight": { "fa": "10.580 گرم", "en": "10.580 g" },
+    "weight": { "fa": "۱۰/۵۸۰ گرم", "en": "10.580 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
   },
   {
@@ -56,7 +56,7 @@
     "code": "دستبند Lv",
     "available": true,
     "model": { "fa": "دستبند", "en": "Bracelet" },
-    "weight": { "fa": "13.120 گرم", "en": "13.120 g" },
+    "weight": { "fa": "۱۳/۱۲۰ گرم", "en": "13.120 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
   },
   {
@@ -66,7 +66,7 @@
     "code": "انگشتر مینمال لوکس",
     "available": true,
     "model": { "fa": "انگشتر", "en": "ring" },
-    "weight": { "fa": "1.070 گرم", "en": "1.070 g" },
+    "weight": { "fa": "۱/۰۷۰ گرم", "en": "1.070 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
   },
   {
@@ -100,13 +100,23 @@
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
   },
   {
-    "id": "1انگشتر تیفانی لوکس",
+    "id": "انگشتر تیفانی لوکس",
     "category": "rings",
     "image": "images/rings/انگشتر تیفانی لوکس.webp",
     "code": "انگشتر تیفانی لوکس",
     "available": true,
     "model": { "fa": "انگشتر", "en": "ring" },
     "weight": { "fa": "۲/۱۳۰ گرم", "en": "2.130 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
+    "id": "انگشتر تراش لوکس",
+    "category": "rings",
+    "image": "images/rings/انگشتر تراش لوکس.webp",
+    "code": "انگشتر تراش لوکس",
+    "available": true,
+    "model": { "fa": "انگشتر", "en": "ring" },
+    "weight": { "fa": "۲/۴۷۰ گرم", "en": "2.470 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
   }
 ]
