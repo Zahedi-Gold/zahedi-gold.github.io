@@ -98,5 +98,15 @@
     "model": { "fa": "انگشتر", "en": "ring" },
     "weight": { "fa": "۴/۶۳۰ گرم", "en": "4.630 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
+    "id": "انگشتر تیفانی لوکس",
+    "category": "rings",
+    "image": "images/rings/انگشتر تیفانی لوکس.webp",
+    "code": "انگشتر تیفانی لوکس",
+    "available": true,
+    "model": { "fa": "انگشتر", "en": "ring" },
+    "weight": { "fa": "۲/۱۳۰ گرم", "en": "2.130 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
   }
 ]
