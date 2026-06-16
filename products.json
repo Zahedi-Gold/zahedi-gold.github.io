@@ -78,5 +78,15 @@
     "model": { "fa": "انگشتر", "en": "ring" },
     "weight": { "fa": "۲/۲۸۰ گرم", "en": "2.280 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
+    "id": "انگشتر تراش اوا",
+    "category": "rings",
+    "image": "images/rings/انگشتر تراش اوا.webp",
+    "code": "انگشتر تراش اوا",
+    "available": true,
+    "model": { "fa": "انگشتر", "en": "ring" },
+    "weight": { "fa": "۲/۴۲۰ گرم", "en": "2.420 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
   }
 ]
