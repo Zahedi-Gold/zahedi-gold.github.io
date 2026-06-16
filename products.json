@@ -118,5 +118,15 @@
     "model": { "fa": "انگشتر", "en": "ring" },
     "weight": { "fa": "۲/۴۷۰ گرم", "en": "2.470 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
+    "id": "انگشتر هرمس بایسکل",
+    "category": "rings",
+    "image": "images/rings/انگشتر هرمس بایسکل.webp",
+    "code": "انگشتر هرمس بایسکل",
+    "available": true,
+    "model": { "fa": "انگشتر", "en": "ring" },
+    "weight": { "fa": "۳/۶۴۰ گرم", "en": "3.640 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
   }
 ]
