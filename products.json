@@ -50,6 +50,16 @@
     "labor":  { "fa": "بدون اجرت", "en": "No labor" }
   },
   {
+    "id": "گردنبند پولکی",
+    "category": "necklaces",
+    "image": "images/necklaces/گردنبند پولکی.webp",
+    "code": "گردنبند پولکی",
+    "available": true,
+    "model": { "fa": "گرنبند", "en": "necklace" },
+    "weight": { "fa": "۴/۵۰۰ گرم", "en": "4.500 g" },
+    "labor":  { "fa": "بدون اجرت", "en": "No labor" }
+  },
+  {
     "id": "زنجیر گردن هرمس",
     "category": "necklaces",
     "image": "images/necklaces/زنجیر گردن هرمس.webp",
