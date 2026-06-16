@@ -40,6 +40,16 @@
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
   },
   {
+    "id": "گردنبند کارتير",
+    "category": "necklaces",
+    "image": "images/necklaces/گردنبند کارتير.webp",
+    "code": "گردنبند کارتير",
+    "available": true,
+    "model": { "fa": "گرنبند", "en": "necklace" },
+    "weight": { "fa": "۵۸/۸۱۰ گرم", "en": "58.810 g" },
+    "labor":  { "fa": "بدون اجرت", "en": "No labor" }
+  },
+  {
     "id": "زنجیر گردن هرمس",
     "category": "necklaces",
     "image": "images/necklaces/زنجیر گردن هرمس.webp",
