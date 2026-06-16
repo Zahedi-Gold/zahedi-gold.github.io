@@ -1,14 +1,15 @@
 [
   {
-    "id": "bracelet-001",
+    "id": "دستبند Lv",
     "category": "bracelets",
-    "image": "images/bracelets/bracelet-001.webp",
-    "code": "BR-001",
+    "image": "images/bracelets/دستبند Lv.webp",
+    "code": "دستبند Lv",
     "available": true,
     "model": { "fa": "دستبند", "en": "Bracelet" },
-    "weight": { "fa": "۱۲ گرم", "en": "12g" },
-    "labor":  { "fa": "بدون اجرت", "en": "No labor" }
-  },{
+    "weight": { "fa": "۱۳/۱۲۰ گرم", "en": "13.120 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
     "id": "دستبند امگا",
     "category": "bracelets",
     "image": "images/bracelets/دستبند امگا.webp",
@@ -17,16 +18,6 @@
     "model": { "fa": "دستبند", "en": "Bracelet" },
     "weight": { "fa": "۹/۸۵۰ گرم", "en": "9.850 g" },
     "labor":  { "fa": "بدون اجرت", "en": "No labor" }
-  },
-  {
-    "id": "necklace-001",
-    "category": "necklaces",
-    "image": "images/necklaces/necklace-001.webp",
-    "code": "NC-001",
-    "available": true,
-    "model": { "fa": "گردنبند", "en": "Necklace" },
-    "weight": { "fa": "۱۸ گرم", "en": "18g" },
-    "labor":  { "fa": "اجرت دارد", "en": "Labor included" }
   },
   {
     "id": "earring-001",
@@ -56,16 +47,6 @@
     "available": true,
     "model": { "fa": "گرنبند", "en": "necklace" },
     "weight": { "fa": "۱۰/۵۸۰ گرم", "en": "10.580 g" },
-    "labor":  { "fa": "کم اجرت", "en": "low labor" }
-  },
-  {
-    "id": "دستبند Lv",
-    "category": "bracelets",
-    "image": "images/bracelets/دستبند Lv.webp",
-    "code": "دستبند Lv",
-    "available": true,
-    "model": { "fa": "دستبند", "en": "Bracelet" },
-    "weight": { "fa": "۱۳/۱۲۰ گرم", "en": "13.120 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
   },
   {
