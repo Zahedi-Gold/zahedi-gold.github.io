@@ -88,5 +88,15 @@
     "model": { "fa": "انگشتر", "en": "ring" },
     "weight": { "fa": "۲/۴۲۰ گرم", "en": "2.420 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
+    "id": "انگشتر رولكس لوکس",
+    "category": "rings",
+    "image": "images/rings/انگشتر رولكس لوکس.webp",
+    "code": "انگشتر رولكس لوکس",
+    "available": true,
+    "model": { "fa": "انگشتر", "en": "ring" },
+    "weight": { "fa": "۴/۶۳۰ گرم", "en": "4.630 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
   }
 ]
