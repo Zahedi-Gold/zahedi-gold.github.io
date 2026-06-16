@@ -8,6 +8,15 @@
     "model": { "fa": "دستبند", "en": "Bracelet" },
     "weight": { "fa": "۱۲ گرم", "en": "12g" },
     "labor":  { "fa": "بدون اجرت", "en": "No labor" }
+  },{
+    "id": "دستبند امگا",
+    "category": "bracelets",
+    "image": "images/bracelets/دستبند امگا.webp",
+    "code": "دستبند امگا",
+    "available": true,
+    "model": { "fa": "دستبند", "en": "Bracelet" },
+    "weight": { "fa": "۹/۸۵۰ گرم", "en": "9.850 g" },
+    "labor":  { "fa": "بدون اجرت", "en": "No labor" }
   },
   {
     "id": "necklace-001",
