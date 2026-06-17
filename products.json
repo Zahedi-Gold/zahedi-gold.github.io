@@ -1,5 +1,15 @@
 [
   {
+    "id": "نیم ست گوی",
+    "category": "necklaces",
+    "image": "images/Half_set/نیم ست گوی.webp",
+    "code": "نیم ست گوی",
+    "available": true,
+    "model": { "fa": "نیم ست", "en": "Half_set" },
+    "weight": { "fa": "۱۶/۲۹۰ گرم", "en": "16.290 g" },
+    "labor":  { "fa": "بدون اجرت", "en": "No labor" }
+  },
+  {
     "id": "دستبند Lv",
     "category": "bracelets",
     "image": "images/bracelets/دستبند Lv.webp",
