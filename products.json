@@ -8,6 +8,15 @@
     "model": { "fa": "نیم ست", "en": "Half_set" },
     "weight": { "fa": "۱۶/۲۹۰ گرم", "en": "16.290 g" },
     "labor":  { "fa": "بدون اجرت", "en": "No labor" }
+  },{
+    "id": "نیم ست پنج شیر",
+    "category": "necklaces",
+    "image": "images/Half_set/نیم ست پنج شیر.webp",
+    "code": "نیم ست پنج شیر",
+    "available": true,
+    "model": { "fa": "نیم ست", "en": "Half_set" },
+    "weight": { "fa": "۱۱/۲۸۰ گرم", "en": "11.280 g" },
+    "labor":  { "fa": "بدون اجرت", "en": "No labor" }
   },
   {
     "id": "دستبند Lv",
