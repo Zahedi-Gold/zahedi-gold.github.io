@@ -76,7 +76,10 @@
   .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#7878a0;text-transform:uppercase;font-weight:600}
   .zg-footer-copy{font-size:10px;color:#6868a0;letter-spacing:1px}
 
-  /* GALLERY PAGES */
+  .zg-footer{background:rgba(14,22,48,0.92);border-top:0.5px solid rgba(220,180,60,0.18);padding:20px 28px;text-align:center}
+  .zg-footer-brand{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:#7878a0;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+  .zg-footer-address{font-size:11px;color:#5a5880;letter-spacing:0.5px;line-height:1.8;margin-bottom:6px}
+  .zg-footer-copy{font-size:10px;color:#4a4870;letter-spacing:1px}
   .zg-page-inner{padding:48px 28px;max-width:960px;margin:0 auto}
   .zg-page-header{text-align:center;margin-bottom:40px}
   .zg-page-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,#d4a820,#f8e060,#fff8a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;filter:drop-shadow(0 0 8px rgba(220,180,60,0.3))}
@@ -124,7 +127,8 @@
   .zg-lb-btn{background:rgba(220,180,60,0.1);border:0.5px solid rgba(220,180,60,0.3);color:#f8e060;font-size:20px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
   .zg-lb-btn:hover{background:rgba(220,180,60,0.25)}
 
-  /* EMPTY */
+  .zg-cta-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff !important;}
+  .zg-cta-ig:hover{box-shadow:0 6px 40px rgba(253,29,29,0.4)}
   .zg-empty{text-align:center;padding:60px 20px;color:#5a5870;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500}
   .zg-empty i{font-size:32px;color:#3a3860;display:block;margin-bottom:16px}
 
@@ -219,8 +223,9 @@
     <div class="zg-feature"><div class="zg-fi"><i class="ti ti-tag"></i></div><div class="zg-fl" id="f2l">بهترین قیمت</div><div class="zg-fd" id="f2d">بدون واسطه، قیمت مستقیم از منبع</div></div>
     <div class="zg-feature"><div class="zg-fi"><i class="ti ti-shield-check"></i></div><div class="zg-fl" id="f3l">مورد اعتماد</div><div class="zg-fd" id="f3d">بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند</div></div>
   </div>
-  <div class="zg-footer">
-    <div class="zg-footer-brand">گالری طلا زاهدی</div>
+  <div class="zg-footer" id="footerBlock">
+    <div class="zg-footer-brand" id="footerBrand">گالری طلا زاهدی</div>
+    <div class="zg-footer-address" id="footerAddr">فارس، شیراز، بازار زرگرا، پاساژ الماس، گالری طلای زاهدی</div>
     <div class="zg-footer-copy">© ۲۰۲۶ · ایران</div>
   </div>
 </div>
@@ -236,6 +241,7 @@
   </div>
   <div class="zg-footer">
     <div class="zg-footer-brand">گالری طلا زاهدی</div>
+    <div class="zg-footer-address">فارس، شیراز، بازار زرگرا، پاساژ الماس، گالری طلای زاهدی</div>
     <div class="zg-footer-copy">© ۲۰۲۶ · ایران</div>
   </div>
 </div>
@@ -255,20 +261,25 @@
   </div>
   <div class="zg-footer">
     <div class="zg-footer-brand">گالری طلا زاهدی</div>
+    <div class="zg-footer-address">فارس، شیراز، بازار زرگرا، پاساژ الماس، گالری طلای زاهدی</div>
     <div class="zg-footer-copy">© ۲۰۲۶ · ایران</div>
   </div>
 </div>
 
 <script>
 const categories=[
-  {id:'bracelets',icon:'ti-link',    en:'Bracelets',fa:'دستبند'},
-  {id:'necklaces',icon:'ti-hearts',  en:'Necklaces',fa:'گردنبند'},
-  {id:'earrings', icon:'ti-circle',  en:'Earrings', fa:'گوشواره'},
-  {id:'sets',     icon:'ti-diamond', en:'Sets',     fa:'سرویس'},
-  {id:'rings',    icon:'ti-ring',    en:'Rings',    fa:'انگشتر'},
-  {id:'coins',    icon:'ti-coin',    en:'Coins',    fa:'سکه'},
-  {id:'chains',   icon:'ti-link',    en:'Chains',   fa:'زنجیر'},
-  {id:'baby',     icon:'ti-star',    en:'Baby',     fa:'طلای بچه'},
+  {id:'nim-set',    icon:'ti-diamond',  en:'Half Set',    fa:'نیم ست'},
+  {id:'sets',       icon:'ti-diamond',  en:'Full Set',    fa:'ست'},
+  {id:'necklaces',  icon:'ti-hearts',   en:'Necklaces',   fa:'گردنبند'},
+  {id:'earrings',   icon:'ti-circle',   en:'Earrings',    fa:'گوشواره'},
+  {id:'bracelets',  icon:'ti-link',     en:'Bracelets',   fa:'دستبند'},
+  {id:'anklets',    icon:'ti-link',     en:'Anklets',     fa:'پابند'},
+  {id:'studs',      icon:'ti-circle',   en:'Studs',       fa:'گلگوش'},
+  {id:'plaques',    icon:'ti-id-badge', en:'Plaques',     fa:'پلاک'},
+  {id:'chains',     icon:'ti-link',     en:'Chains',      fa:'زنجیر'},
+  {id:'rings',      icon:'ti-ring',     en:'Rings',       fa:'انگشتر'},
+  {id:'pendants',   icon:'ti-star',     en:'Pendants',    fa:'آویز'},
+  {id:'bangles',    icon:'ti-circle',   en:'Bangles',     fa:'النگو'},
 ];
 
 let allProducts=[];
@@ -364,8 +375,8 @@ function showPage(name){
 }
 
 const content={
-  en:{dir:'ltr',navHome:'Home',navGallery:'Gallery',navContact:'Contact',tagline:'Est. Gold Gallery · Iran',heroTitle:'Authentic Gold.<br/><em>Trusted by Thousands.</em>',heroSub:'Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.',ctaText:'Join our WhatsApp group',trustText:'<span>★★★★★</span> · Free to join · No spam · Leave anytime',s1:'Members',s2:'Authentic',s3n:'Daily',s3:'New Pieces',galleryTitle:'Our Collection',gallerySub:'Choose a category',backText:'Back to Gallery',f1l:'Premium Quality',f1d:'Certified authentic gold pieces directly from our gallery',f2l:'Best Price',f2d:'No middleman. Direct pricing from the source',f3l:'Trusted',f3d:'Over 851 members rely on us daily'},
-  fa:{dir:'rtl',navHome:'خانه',navGallery:'گالری',navContact:'تماس',tagline:'گالری طلا · ایران',heroTitle:'طلای اصیل.<br/><em>مورد اعتماد هزاران نفر.</em>',heroSub:'به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.',ctaText:'عضویت در گروه واتساپ',trustText:'<span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان',s1:'عضو',s2:'اصالت',s3n:'روزانه',s3:'محصول جدید',galleryTitle:'مجموعه ما',gallerySub:'یک دسته‌بندی انتخاب کنید',backText:'بازگشت به گالری',f1l:'کیفیت برتر',f1d:'طلای اصل و تأییدشده مستقیم از گالری',f2l:'بهترین قیمت',f2d:'بدون واسطه، قیمت مستقیم از منبع',f3l:'مورد اعتماد',f3d:'بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند'}
+  en:{dir:'ltr',navHome:'Home',navGallery:'Gallery',navContact:'Contact',tagline:'Est. Gold Gallery · Iran',heroTitle:'Authentic Gold.<br/><em>Your Trust is Our Capital.</em>',heroSub:'Join our exclusive WhatsApp community for daily gold pieces, best market prices, and direct access to our gallery.',igText:'Our Instagram Page',ctaText:'Join our WhatsApp group',trustText:'<span>★★★★★</span> · Free to join · No spam · Leave anytime',s1:'Members',s2:'Authentic',s3n:'Daily',s3:'New Pieces',galleryTitle:'Our Collection',gallerySub:'Choose a category',backText:'Back to Gallery',f1l:'Premium Quality',f1d:'Certified authentic gold pieces directly from our gallery',f2l:'Best Price',f2d:'No middleman. Direct pricing from the source',f3l:'Trusted',f3d:'Over 851 members rely on us daily',footerBrand:'Zahedi Gold Gallery',footerAddr:'Fars, Shiraz, Zargar Bazaar, Almas Passage, Zahedi Gold Gallery'},
+  fa:{dir:'rtl',navHome:'خانه',navGallery:'گالری',navContact:'تماس',tagline:'گالری طلا · ایران',heroTitle:'طلای اصیل.<br/><em>اعتماد شما سرمایه ماست.</em>',heroSub:'به گروه واتساپ ما بپیوندید و روزانه از جدیدترین طلاها، بهترین قیمت‌ها و دسترسی مستقیم به گالری بهره‌مند شوید.',igText:'صفحه اینستاگرام ما',ctaText:'عضویت در گروه واتساپ',trustText:'<span>★★★★★</span> · رایگان · بدون اسپم · خروج در هر زمان',s1:'عضو',s2:'اصالت',s3n:'روزانه',s3:'محصول جدید',galleryTitle:'مجموعه ما',gallerySub:'یک دسته‌بندی انتخاب کنید',backText:'بازگشت به گالری',f1l:'کیفیت برتر',f1d:'طلای اصل و تأییدشده مستقیم از گالری',f2l:'بهترین قیمت',f2d:'بدون واسطه، قیمت مستقیم از منبع',f3l:'مورد اعتماد',f3d:'بیش از ۸۵۱ عضو روزانه به ما اعتماد دارند',footerBrand:'گالری طلا زاهدی',footerAddr:'فارس، شیراز، بازار زرگرا، پاساژ الماس، گالری طلای زاهدی'}
 };
 
 function setLang(lang,btn){
@@ -377,7 +388,7 @@ function setLang(lang,btn){
   document.getElementById('navGallery').textContent=c.navGallery;
   document.getElementById('navContact').textContent=c.navContact;
   document.getElementById('backText').textContent=c.backText;
-  ['tagline','heroSub','ctaText','s1','s2','s3n','s3','galleryTitle','gallerySub','f1l','f1d','f2l','f2d','f3l','f3d'].forEach(id=>{
+  ['tagline','heroSub','igText','ctaText','s1','s2','s3n','s3','galleryTitle','gallerySub','f1l','f1d','f2l','f2d','f3l','f3d','footerBrand','footerAddr'].forEach(id=>{
     const el=document.getElementById(id);if(el)el.textContent=c[id];
   });
   document.getElementById('heroTitle').innerHTML=c.heroTitle;
