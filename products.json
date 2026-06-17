@@ -70,6 +70,16 @@
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
   },
   {
+    "id": "زنجیر کارتیر تخت",
+    "category": "necklaces",
+    "image": "images/necklaces/زنجیر کارتیر تخت.webp",
+    "code": "زنجیر کارتیر تخت",
+    "available": true,
+    "model": { "fa": "گرنبند", "en": "necklace" },
+    "weight": { "fa": "۱۴/۷۹۰ گرم", "en": "14.790 g" },
+    "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
     "id": "انگشتر مینمال لوکس",
     "category": "rings",
     "image": "images/rings/انگشتر مینمال لوکس.webp",
