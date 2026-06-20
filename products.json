@@ -1,7 +1,7 @@
 [
   {
     "id": "نیم ست گوی",
-    "category": "half set",
+    "category": "nim_set",
     "image": "images/Half_set/نیم ست گوی.webp",
     "code": "نیم ست گوی",
     "available": true,
@@ -10,7 +10,7 @@
     "labor":  { "fa": "بدون اجرت", "en": "No labor" }
   },{
     "id": "نیم ست پنج شیر",
-    "category": "half set",
+    "category": "nim_set",
     "image": "images/Half_set/نیم ست پنج شیر.webp",
     "code": "نیم ست پنج شیر",
     "available": true,
