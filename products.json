@@ -1,5 +1,15 @@
 [
   {
+  "id": "سرویس Leviton لوكس",
+  "category": "sets",
+  "image": "images/sets/سرویس Leviton لوكس.webp",
+  "code": "سرویس Leviton لوكس",
+  "available": true,
+  "model": { "fa": "ست", "en": "Full Set" },
+  "weight": { "fa": "۱۷/۴۰۰ گرم", "en": "17,400 g" },
+  "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
     "id": "نیم ست دلاری",
     "category": "nim-set",
     "image": "images/nim-set/نیم ست دلاری.webp",
