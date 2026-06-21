@@ -3,7 +3,7 @@
     "id": "نیم ست دلاری",
     "category": "nim-set",
     "image": "images/nim-set/نیم ست دلاری.webp",
-    "code": "نیم ست گوی",
+    "code": "نیم ست دلاری",
     "available": true,
     "model": { "fa": "نیم ست", "en": "Half_set" },
     "weight": { "fa": "۱۳/۱۷۰ گرم", "en": "13,170 g" },
@@ -177,5 +177,15 @@
     "model": { "fa": "انگشتر", "en": "ring" },
     "weight": { "fa": "۳/۶۴۰ گرم", "en": "3.640 g" },
     "labor":  { "fa": "کم اجرت", "en": "low labor" }
+  },
+  {
+    "id": "انگشتر هخامنش",
+    "category": "rings",
+    "image": "images/rings/انگشتر هخامنش.webp",
+    "code": "انگشتر هخامنش",
+    "available": true,
+    "model": { "fa": "انگشتر", "en": "ring" },
+    "weight": { "fa": "۶/۳۳۰ گرم", "en": "6,330 g" },
+    "labor":  { "fa": "بدون اجرت ", "en": "No labor" }
   }
 ]
