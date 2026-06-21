@@ -187,5 +187,15 @@
     "model": { "fa": "انگشتر", "en": "ring" },
     "weight": { "fa": "۶/۳۳۰ گرم", "en": "6,330 g" },
     "labor":  { "fa": "بدون اجرت ", "en": "No labor" }
+  },
+  {
+  "id": "النگو کارتيه سایز ۴",
+  "category": "bangles",
+  "image": "images/bangles/النگو کارتيه سایز ۴.webp",
+  "code": "النگو کارتيه سایز ۴",
+  "available": true,
+  "model": { "fa": "النگو", "en": "Bangle" },
+  "weight": { "fa": "۱۱/۵۲۰ گرم", "en": "11.520 g" },
+  "labor":  { "fa": "بدون اجرت", "en": "No labor" }
   }
 ]
