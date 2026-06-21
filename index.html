@@ -92,9 +92,12 @@
 
   /* CATEGORY CARDS */
   .zg-cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .zg-cat-card{border:0.5px solid rgba(220,180,60,0.2);border-radius:4px;overflow:hidden;background:rgba(20,32,64,0.7);cursor:pointer;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;padding:32px 16px;text-align:center}
+  .zg-cat-card{border:0.5px solid rgba(220,180,60,0.2);border-radius:4px;overflow:hidden;background:rgba(20,32,64,0.7);cursor:pointer;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s}
   .zg-cat-card:hover{border-color:#e8c840;transform:translateY(-3px);box-shadow:0 8px 32px rgba(220,180,60,0.2)}
-  .zg-cat-icon{font-size:28px;margin-bottom:12px;background:linear-gradient(135deg,#e8c840,#fff8a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .zg-cat-img-wrap{width:100%;aspect-ratio:1/1;overflow:hidden;background:rgba(10,18,40,0.6)}
+  .zg-cat-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s}
+  .zg-cat-card:hover .zg-cat-img-wrap img{transform:scale(1.06)}
+  .zg-cat-info{padding:16px;text-align:center;border-top:0.5px solid rgba(220,180,60,0.15)}
   .zg-cat-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;background:linear-gradient(135deg,#d4a820,#f8e060,#fff8a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;margin-bottom:6px}
   .zg-cat-count{font-size:10px;letter-spacing:2px;color:#8888a0;text-transform:uppercase;font-weight:500}
 
@@ -268,18 +271,18 @@
 
 <script>
 const categories=[
-  {id:'nim-set',    icon:'ti-diamond',  en:'Half Set',    fa:'نیم ست'},
-  {id:'sets',       icon:'ti-diamond',  en:'Full Set',    fa:'ست'},
-  {id:'necklaces',  icon:'ti-hearts',   en:'Necklaces',   fa:'گردنبند'},
-  {id:'earrings',   icon:'ti-circle',   en:'Earrings',    fa:'گوشواره'},
-  {id:'bracelets',  icon:'ti-link',     en:'Bracelets',   fa:'دستبند'},
-  {id:'anklets',    icon:'ti-link',     en:'Anklets',     fa:'پابند'},
-  {id:'studs',      icon:'ti-circle',   en:'Studs',       fa:'گلگوش'},
-  {id:'plaques',    icon:'ti-id-badge', en:'Plaques',     fa:'پلاک'},
-  {id:'chains',     icon:'ti-link',     en:'Chains',      fa:'زنجیر'},
-  {id:'rings',      icon:'ti-ring',     en:'Rings',       fa:'انگشتر'},
-  {id:'pendants',   icon:'ti-star',     en:'Pendants',    fa:'آویز'},
-  {id:'bangles',    icon:'ti-circle',   en:'Bangles',     fa:'النگو'},
+  {id:'nim-set',    img:'images/categories/nim-set.webp',    en:'Half Set',    fa:'نیم ست'},
+  {id:'sets',       img:'images/categories/sets.webp',       en:'Full Set',    fa:'ست'},
+  {id:'necklaces',  img:'images/categories/necklaces.webp',  en:'Necklaces',   fa:'گردنبند'},
+  {id:'earrings',   img:'images/categories/earrings.webp',   en:'Earrings',    fa:'گوشواره'},
+  {id:'bracelets',  img:'images/categories/bracelets.webp',  en:'Bracelets',   fa:'دستبند'},
+  {id:'anklets',    img:'images/categories/anklets.webp',    en:'Anklets',     fa:'پابند'},
+  {id:'studs',      img:'images/categories/studs.webp',      en:'Studs',       fa:'گلگوش'},
+  {id:'plaques',    img:'images/categories/plaques.webp',    en:'Plaques',     fa:'پلاک'},
+  {id:'chains',     img:'images/categories/chains.webp',     en:'Chains',      fa:'زنجیر'},
+  {id:'rings',      img:'images/categories/rings.webp',      en:'Rings',       fa:'انگشتر'},
+  {id:'pendants',   img:'images/categories/pendants.webp',   en:'Pendants',    fa:'آویز'},
+  {id:'bangles',    img:'images/categories/bangles.webp',    en:'Bangles',     fa:'النگو'},
 ];
 
 let allProducts=[];
@@ -300,9 +303,11 @@ function buildCategoryGrid(){
     const card=document.createElement('div');
     card.className='zg-cat-card';
     card.innerHTML=`
-      <div class="zg-cat-icon"><i class="ti ${cat.icon}"></i></div>
-      <div class="zg-cat-name">${currentLang==='fa'?cat.fa:cat.en}</div>
-      <div class="zg-cat-count">${count} ${currentLang==='fa'?'قطعه':'pieces'}</div>`;
+      <div class="zg-cat-img-wrap"><img src="${cat.img}" alt="${currentLang==='fa'?cat.fa:cat.en}" loading="lazy"/></div>
+      <div class="zg-cat-info">
+        <div class="zg-cat-name">${currentLang==='fa'?cat.fa:cat.en}</div>
+        <div class="zg-cat-count">${count} ${currentLang==='fa'?'قطعه':'pieces'}</div>
+      </div>`;
     card.addEventListener('click',()=>openCategory(cat));
     grid.appendChild(card);
   });
